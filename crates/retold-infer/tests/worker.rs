@@ -8,7 +8,7 @@ fn worker(dir: &std::path::Path, script: &str) -> Result<Worker> {
     let path = dir.join("fixture.py");
     std::fs::write(&path, script)?;
     Ok(Worker::new(WorkerSpec {
-        program: "/usr/bin/python3".into(),
+        program: "python3".into(),
         args: vec![path.display().to_string()],
         cwd: dir.into(),
         timeout: Duration::from_secs(2),
