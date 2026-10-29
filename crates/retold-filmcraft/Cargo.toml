@@ -1,0 +1,30 @@
+[package]
+name = "retold-filmcraft"
+description = "Typed FilmCraft protocol and pure timeline data."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+retold-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tempfile.workspace = true
+
+[target.'cfg(unix)'.dependencies]
+nix = { version = "0.30", default-features = false, features = ["signal"] }
+
+[dev-dependencies]
+
+[features]
+# Opt-in acceptance tests that need installed models, the editor or a long soak:
+# `cargo test -p <crate> --features acceptance -- --nocapture`.
+acceptance = []
+
+[lints]
+workspace = true

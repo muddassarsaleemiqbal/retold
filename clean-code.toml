@@ -1,0 +1,29 @@
+# Clean Code lints (https://github.com/george2f/rust-clean-code), checked by
+# `crates/retold-cli/tests/clean_code.rs` and `scripts/check.sh`. Every rule is an error.
+#
+# Remaining findings are frozen in `clean-code-baseline.json`. The gate fails when any rule
+# gains a finding, and also when one is fixed without lowering the baseline, so the baseline only
+# shrinks. Target: an empty baseline.
+#
+# Rust adaptations, each deliberate:
+# - `.unwrap()`/`.expect()` inside tests are exempt (the gate filters them, as clippy's
+#   `allow-unwrap-in-tests` does): a panicking test is a failing test, which is the point.
+# - `no-dead-functions` is off; see its section below.
+# - `one-assertion-per-test` is off: asserting on every field of a value in one test is idiomatic
+#   Rust, and splitting such tests multiplies fixtures without catching more bugs.
+# - The hash serializer's required Serde signatures are exempt from command/query separation
+#   (two map writers) and argument count (three variant writers). All other rules still apply.
+preset = "strictest"
+
+[rules.one-assertion-per-test]
+level = "off"
+
+[rules.no-magic-numbers]
+# Percent and the usual identities; everything else gets a named constant.
+ignore = [-1, 0, 1, 2, 100]
+
+[rules.no-dead-functions]
+# rustc's `dead_code` (denied in scripts/check.sh) finds unused functions with full type
+# information; this rule cannot see serde's `default = "fn_name"` string references and only
+# reports those false positives.
+level = "off"

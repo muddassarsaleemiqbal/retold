@@ -1,0 +1,375 @@
+#:schema ../../guide.schema.json
+schema = 1
+id = "story-recap"
+version = "2.0.0"
+name = "Story recap"
+summary = "A book, film, film franchise or TV series retold part by part as ~4 minute animated recaps; a franchise is researched once (canon) and reused by every part."
+
+[inputs.kind]
+type = "choice"
+prompt = "What kind of work"
+help = "book, film (or film franchise) or series (TV)"
+required = true
+choices = ["book", "film", "series"]
+example = "film"
+
+[inputs.work]
+type = "text"
+prompt = "Work, franchise or series"
+help = "The whole work: a book, a single film, a film franchise or a TV series"
+required = true
+example = "Fast & Furious"
+
+[inputs.part]
+type = "text"
+prompt = "Part"
+help = "`canon` researches every part once; otherwise a part number, title, `Season 2`, or a canon id like P03. For a single book or film, repeat its title."
+required = true
+example = "Fast Five"
+
+[inputs.author]
+type = "text"
+prompt = "Author (books)"
+help = "Picks the right novel"
+required = false
+example = "Mary Shelley"
+
+[inputs.year]
+type = "int"
+prompt = "Year (optional)"
+help = "Picks one version of a remade title (e.g. the 2015 Hindi Drishyam)"
+required = false
+example = "2015"
+min = 1880
+max = 2100
+
+[inputs.season]
+type = "text"
+prompt = "Season (series without a canon)"
+help = "For a TV series video made without a canon, e.g. `Season 2`"
+required = false
+example = "Season 2"
+
+[inputs.spinoffs]
+type = "bool"
+prompt = "Include spin-offs in the canon"
+help = "Also research spin-offs, shorts and specials when building the canon"
+required = false
+default = false
+
+[run]
+folder = [
+    "{{ inputs.kind }}s",
+    "{{ inputs.work }}",
+    "{{ inputs.part }}",
+]
+# Cast, canon, locations and props are shared by every part of a work.
+cast_depth = 2
+
+[format]
+aspect = "9:16"
+resolution = [
+    1080,
+    1920,
+]
+fps = 30
+target_seconds = [
+    260.0,
+    360.0,
+]
+source_language = "en"
+
+[length.en]
+words = [
+    700,
+    900,
+]
+
+[length.hi]
+seconds = [
+    260.0,
+    360.0,
+]
+
+[length.ur]
+seconds = [
+    260.0,
+    360.0,
+]
+
+[research]
+policy = "source_only"
+max_chars = 30000
+
+[research.dossier]
+min_sources = 3
+min_beats = 25
+min_iconic = 4
+
+[research.canon]
+work_input = "work"
+part_input = "part"
+kind_input = "kind"
+spinoffs_input = "spinoffs"
+spoilers = "release"
+
+[[research.sources]]
+kind = "file"
+optional = true
+
+[[research.sources]]
+kind = "wikipedia"
+query = "{% if inputs.kind == 'series' %}{{ inputs.work }} TV series{% elif inputs.part|lower == 'canon' %}{{ inputs.work }} {% if inputs.kind == 'book' %}book series{% else %}film series{% endif %}{% elif inputs.kind == 'book' %}{% if inputs.part and inputs.part|lower != 'canon' %}{{ inputs.part }}{% else %}{{ inputs.work }}{% endif %} {{ inputs.author or '' }} novel{% else %}{% if inputs.part and inputs.part|lower != 'canon' %}{{ inputs.part }}{% else %}{{ inputs.work }}{% endif %} {{ inputs.year or '' }} film{% endif %}"
+season_from = "season"
+sections = [
+    "plot",
+    "synopsis",
+    "premise",
+    "summary",
+    "story",
+    "episodes",
+    "films",
+    "cast and characters",
+]
+full = true
+related = 2
+optional = false
+
+[[research.sources]]
+kind = "wikiquote"
+query = "{% if inputs.part and inputs.part|lower != 'canon' %}{{ inputs.part }}{% else %}{{ inputs.work }}{% endif %}"
+max_chars = 12000
+optional = true
+
+[[research.sources]]
+kind = "fandom"
+query = "{{ inputs.work }}"
+max_chars = 25000
+optional = true
+
+[[research.sources]]
+kind = "gutenberg"
+query = "{% if inputs.part and inputs.part|lower != 'canon' %}{{ inputs.part }}{% else %}{{ inputs.work }}{% endif %} {{ inputs.author or '' }}"
+max_chars = 600000
+optional = true
+
+[[research.sources]]
+kind = "web"
+brief = "{% if inputs.part and inputs.part|lower != 'canon' %}{{ inputs.part }}{% else %}{{ inputs.work }}{% endif %}{% if inputs.season %} {{ inputs.season }}{% endif %}{% if inputs.year %} ({{ inputs.year }}){% endif %}, part of {{ inputs.work }}: the full plot in order including the ending, every important character and what drives them, famous lines, symbols, foreshadowing, hidden details and Easter eggs, and how this version differs from other versions or adaptations."
+optional = true
+
+[structure]
+open_loops = 1
+emotional_peak = true
+max_named_characters = 8
+
+[[structure.sections]]
+id = "hook"
+share = 0.06
+purpose = "Open with the title line (\"<Title>, in a few minutes.\"; for a book, \"<Title>, by <Author>\") then the single most chilling image, contradiction or stake in the story, in two or three short lines. A statement, not a question. Tease; do not spoil. For a later part of a series or franchise, add one short line on where the earlier parts left things, from EARLIER PARTS only."
+
+[structure.sections.edit]
+
+[[structure.sections]]
+id = "setup"
+share = 0.17
+purpose = "Who the hero is, what they want, what they have lost or hide, and the world they live in. Introduce every character with who they are."
+
+[structure.sections.edit]
+transition = "film_dissolve"
+
+[[structure.sections]]
+id = "rising"
+share = 0.27
+purpose = "The event that starts the story, then each complication in order. Plant the details that pay off later."
+
+[structure.sections.edit]
+transition = "whip"
+
+[[structure.sections]]
+id = "turn"
+share = 0.18
+purpose = "The midpoint reversal or reveal that changes everything. Land the reveal in a short line on its own."
+
+[structure.sections.edit]
+transition = "flash"
+motion = "punch"
+
+[structure.sections.voice]
+tag = "[pause]"
+
+[[structure.sections]]
+id = "climax"
+share = 0.18
+purpose = "The final confrontation, step by step. Slow down once for one human moment, with a real line of dialogue if the work has one."
+
+[structure.sections.edit]
+transition = "cross_zoom"
+motion = "punch"
+effects = ["camera_shake"]
+
+[structure.sections.voice]
+tag = "[normal voice, grave]"
+
+[[structure.sections]]
+id = "ending"
+share = 0.14
+purpose = "How it ends and what happens to each main character; the difference from other versions if it matters; one line on what the story is about; one specific question for the comments; then the channel call to action."
+
+[structure.sections.edit]
+transition = "film_dissolve"
+
+[writing]
+voice = "voice.md"
+examples = [
+    "examples/the-shining.md",
+    "examples/the-notebook.md",
+]
+tense = "present"
+person = "third"
+hook_candidates = 5
+per_section = true
+judge_criteria = [
+    "completeness: every important beat is told, in order, with nothing a reader would miss",
+    "faithfulness: nothing invented, nothing from another version",
+    "causality: each line follows from the one before",
+    "characters: each is introduced and wants something we understand",
+    "iconic details: famous lines, symbols and setups that pay off are there",
+    "emotional payoff at the climax and ending",
+    "spoken clarity: short lines a listener follows the first time",
+    "hook and ending strength",
+]
+
+[writing.drafts]
+subscription = 3
+paid = 1
+
+[[writing.gates]]
+kind = "banned_phrases"
+id = "banned"
+list = [
+    "little did he know",
+    "little did she know",
+    "everything changes",
+    "in a world",
+    "journey",
+    "shocking",
+    "you won't believe",
+    "embark",
+    "unravel",
+    "tapestry",
+    "fate had other plans",
+    "and then",
+    "delve",
+    "testament to",
+]
+
+[[writing.gates]]
+kind = "regex"
+id = "ending-question"
+pattern = '\?'
+section = "ending"
+message = "The ending must ask one specific question for the comments."
+
+[quality]
+max_fix_passes = 2
+fact_check = "smart"
+coverage = true
+image_qa = true
+
+[visuals]
+seconds_per_unit = [
+    4.0,
+    6.0,
+]
+lean_seconds_per_unit = [
+    6.0,
+    8.0,
+]
+style = """
+Bold 2D storyboard illustration. Thick uneven charcoal brush outlines, flat cel colours from a
+muted palette (charcoal, slate blue, olive, brick red, warm cream) with {{ channel.colors.accent }}
+used only for one key accent. Warm cream paper grain texture over everything. Oval heads, dot
+eyes with a small white glint, thick expressive eyebrows, simple noses. One strong light source,
+hard graphic shadows. Cinematic composition. No text, no letters, no watermark, no
+photorealism, no 3D. The attached style reference shows rendering only: copy its line work,
+palette and paper grain, never its people, clothes, props or setting; each character's look
+comes only from their own reference sheet.
+"""
+shots = [
+    "wide",
+    "medium",
+    "close-up",
+    "extreme close-up",
+    "over-the-shoulder",
+    "low angle",
+    "high angle",
+]
+max_same_shot_run = 2
+
+[visuals.safe_zones]
+top = 0.12
+bottom = 0.25
+
+[visuals.characters]
+reference_sheet = true
+originality = "strict"
+review = true
+
+[narration]
+mode = "continuous"
+
+[narration.direction]
+en = "[slow, low, intimate storyteller]"
+hi = "[slow, warm, storyteller]"
+ur = "[slow, warm, storyteller]"
+
+[edit]
+motions = [
+    "zoom_in",
+    "pan_right",
+    "zoom_out",
+    "pan_left",
+    "push_focus",
+]
+sfx_on_transitions = true
+
+[edit.opening]
+kind = "cover_title"
+seconds = 1.6
+effect = "light_leaks"
+
+[edit.ending]
+kind = "hold_fade"
+seconds = 1.2
+
+[edit.music]
+mood_from = "plan.tone"
+bed_lufs = -30.0
+duck_under_voice_db = -8.0
+
+[packaging]
+platforms = [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "facebook",
+]
+rules = """
+First line of every description: "Spoilers for {{ inputs.part }}{% if inputs.part != inputs.work %} ({{ inputs.work }}){% endif %}." (in the video's language).
+Say it is an animated recap with AI-generated art. 5 hashtags. Titles under 70 characters.
+"""
+
+[roles]
+plan = "text.smart"
+write = "text.smart"
+transcreate = "text.smart"
+judge = "text.smart"
+check = "text.fast"
+direct = "text.fast"
+design = "text.smart"
+package = "text.fast"
+image_qa = "vision.fast"
+image = "image"
+voice = "tts"
+transcribe = "transcribe"

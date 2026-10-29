@@ -1,0 +1,26 @@
+[package]
+name = "retold-lang"
+description = "Retold language logic: sentences, units, speech time, alignment, captions, fitting, subtitles."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+retold-core.workspace = true
+fontdb = "0.24"
+harfrust = "0.13.3"
+read-fonts = "0.43.3"
+serde.workspace = true
+similar = "3"
+thiserror.workspace = true
+unicode-normalization = "0.1"
+unicode-segmentation = "1"
+
+[dev-dependencies]
+proptest.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

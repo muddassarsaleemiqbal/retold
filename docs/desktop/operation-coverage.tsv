@@ -1,0 +1,145 @@
+# path	native: surface | cli-only: reason
+schema	native: Help → More actions → form
+diagnostics	native: Help → Workspace health, Copy shareable diagnostics
+usage	native: Help → More actions → form
+home	native: Home destination
+explain	native: Help → More actions → form
+completions	native: Help → More actions → form
+man	native: Help → More actions → form
+workspace init	native: Welcome → create workspace
+workspace show	native: Settings → workspace locations
+workspace check	native: Help → Workspace health
+workspace list	native: Settings → recent workspaces
+workspace switch	native: Open workspace… / recent workspaces
+creative audit	native: Help → More actions → form
+creative prompt	native: Help → More actions → form
+creative optimize	native: Help → More actions → form
+creative beats	native: Help → More actions → form
+creative benchmark	native: Help → More actions → form
+creative dossier	native: Help → More actions → form
+creative bible	native: Help → More actions → form
+creative coverage	native: Help → More actions → form
+creative storyboard	native: Help → More actions → form
+creative audio	native: Help → More actions → form
+video new	native: New video (guided draft)
+video list	native: Videos destination
+video show	native: Video overview
+video plan	native: Run review
+video continue	native: Run review → submit
+video export	native: Export… review
+video costs	native: Budget → By video
+video review	native: Saved media and review notes
+video approve	native: Script/Scenes/Characters/Edition lines approval
+video unlock	native: Video overview → More actions → form
+video note	native: Review notes
+video edit shot	native: Scenes → visual direction
+video edit line	native: Edition lines
+video edit cast	native: Scenes → Cast
+video edit budget	native: Video overview → More actions → form
+video undo	native: Script/Scenes history undo
+video redo	native: Scenes → Redo this frame / Narration → Record again
+video history	native: Script/Scenes history
+video script show	native: Script editor
+video script history	native: Script editor history
+video script edit	native: Script editor
+video script approve	native: Script editor approval
+video script undo	native: Script editor undo
+video script redo	native: Script editor redo
+video copy	native: Video overview → Copy as new video
+video archive	native: Video overview → Archive
+video unarchive	native: Video overview → Restore from archive
+video delete	native: Video overview → Move to trash (permanent deletion stays CLI-only)
+video tag	native: Video overview → Add tag / Remove tag
+video paths	native: Saved media → Show saved file
+video verify	native: Materials → Verify file integrity
+video clean	native: Video overview → More actions → form
+video package	native: Video overview → More actions → form
+assets list	native: Materials
+assets show	native: Materials detail
+assets verify	native: Materials → Verify file integrity
+assets uses	native: Materials detail usages
+library music import	native: Materials → Import licensed audio
+library music list	native: Materials → Music and effects
+library music tag	native: Settings → More actions → form
+library music licence	native: Settings → More actions → form
+library music check	native: Materials → Music and effects verification state
+library sfx import	native: Materials → Import licensed audio
+library sfx list	native: Materials → Music and effects
+library sfx tag	native: Settings → More actions → form
+library sfx licence	native: Settings → More actions → form
+library sfx check	native: Materials → Music and effects verification state
+series new	native: Series → New series
+series list	native: Series destination
+series show	native: Series matrix
+series plan	native: Series → Review plan
+series run	native: Series → Submit reviewed parts
+series update	native: Series → Link video
+new	native: New video (guided draft)
+doctor bundle	native: Help → More actions → form
+setup	native: Welcome, Budget account set-up and Providers
+guides list	native: New video guide choices
+guides show	native: Settings → Guides and channels → Open existing
+guides create	native: Settings → Guides and channels → Create
+guides document	native: Settings → Guides and channels → Open existing
+guides edit	native: Settings → Guides and channels → Save change
+guides check	native: Guides and channels missing-field summary
+guides schema	native: Settings → More actions → form
+export-presets list	native: Settings → Export presets
+export-presets show	native: Settings → Export presets
+export-presets new	native: Settings → New export preset
+export-presets remove	native: Settings → Export presets → Remove
+views list	native: Videos → Saved views
+views show	native: Videos → Saved views
+views save	native: Videos → Save current filter
+views remove	native: Videos → Saved views → Remove
+channels list	native: New video channel choices
+channels show	native: Settings → Guides and channels → Open existing
+channels create	native: Settings → Guides and channels → Create
+channels document	native: Settings → Guides and channels → Open existing
+channels edit	native: Settings → Guides and channels → Save change
+channels check	native: Guides and channels missing-field summary
+channels schema	native: Settings → More actions → form
+account init	native: Budget → Set up the installation account
+account attempts	native: Budget → More actions → form
+account processes	native: Budget → More actions → form
+account reconcile	native: Budget → Reconcile a held attempt
+account limit	native: Budget → Change the account limit
+account backup	native: Settings → Back up this workspace (includes accounting)
+account verify-backup	native: Settings → Verify a backup
+account show	native: Budget destination
+account set-limits	native: Budget → More actions → form
+providers scan	native: Providers → discovery
+providers list	native: Providers destination
+providers health	native: Providers → offline status
+providers add	native: Providers → add provider
+providers edit	native: Providers → edit definition
+providers route	native: Providers → routing
+providers remove	native: Providers → remove provider
+providers test	native: Providers → Test providers
+providers login	native: Providers → Provider login
+spend	native: Budget destination
+storage verify	native: Settings → Verify a backup
+storage backup	native: Settings → Back up this workspace
+storage restore	native: Settings → Restore a backup
+storage activate	native: Settings → Activate a restored workspace (reconciled cross-installation stays CLI-only)
+storage usage	native: Help → Workspace health disk usage
+studio status	native: Activity destination
+studio stop	native: Activity worker controls
+studio start	native: Activity worker controls
+studio stop-all	native: Stop all jobs
+studio enable-dispatch	native: Activity → enable queue
+queue list	native: Activity destination
+queue show	native: Activity → job detail
+queue attach	native: Activity → Follow live
+queue pause	native: Activity → pause
+queue unpause	native: Activity → resume
+queue stop	native: Activity → stop job
+queue move	native: Activity → ordering
+config validate	native: Settings → More actions → form
+config migrate	native: Settings → More actions → form
+config profile list	native: Settings → Configuration profiles
+config profile show	native: Settings → Configuration profiles
+config profile new	native: Settings → Create profile
+config profile use	native: Settings → Configuration profiles → Use
+dev schema	native: Help → More actions → form
+publish	native: Help → More actions → form

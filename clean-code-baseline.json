@@ -1,0 +1,14 @@
+{
+  "command-query-separation": 7,
+  "descriptive-names": 1593,
+  "encapsulate-conditionals": 48,
+  "function-does-one-thing": 350,
+  "law-of-demeter": 70,
+  "max-arguments": 192,
+  "no-ambiguous-names": 45,
+  "no-magic-numbers": 1131,
+  "no-output-arguments": 78,
+  "no-pass-null": 56,
+  "one-level-of-abstraction": 348,
+  "use-explanatory-variables": 451
+}

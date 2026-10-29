@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "active": null,
+  "active_tasks": [],
+  "error": null,
+  "completed": {
+    "script": {
+      "key": "74b31ea3202a727979234b37d3185730f0a1df90f2bfa4f2d1a7a1bef089936f",
+      "output_hash": "74b31ea3202a727979234b37d3185730f0a1df90f2bfa4f2d1a7a1bef089936f",
+      "receipt": null
+    }
+  },
+  "receipts": {},
+  "revisions": {}
+}

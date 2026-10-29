@@ -1,0 +1,313 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Detail": {
+      "description": "Structured facts for new consumers; old log records remain readable without this field.",
+      "oneOf": [
+        {
+          "properties": {
+            "event": {
+              "enum": [
+                "job_progress"
+              ],
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "step": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "event",
+            "message",
+            "stage",
+            "timestamp"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "event": {
+              "enum": [
+                "stage_started"
+              ],
+              "type": "string"
+            },
+            "stage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "event",
+            "stage"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "done": {
+              "format": "uint",
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            "event": {
+              "enum": [
+                "item_progress"
+              ],
+              "type": "string"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "total": {
+              "format": "uint",
+              "minimum": 0.0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "done",
+            "event",
+            "stage",
+            "total"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "edition": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "event": {
+              "enum": [
+                "step_failed"
+              ],
+              "type": "string"
+            },
+            "item": {
+              "format": "uint",
+              "minimum": 1.0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "kind": {
+              "$ref": "#/definitions/FailureKind"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "redacted": {
+              "type": "boolean"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "suggested_actions": {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "code",
+            "event",
+            "kind",
+            "reason",
+            "redacted",
+            "stage",
+            "suggested_actions"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "ErrorCode": {
+      "enum": [
+        "RG-ACCOUNT-REQUIRED",
+        "RG-ACCOUNTING-UNAVAILABLE",
+        "RG-INPUT-REQUIRED",
+        "RG-NOT-AVAILABLE",
+        "RG-EXECUTION-FAILED",
+        "RG-REF-NOT-FOUND",
+        "RG-REF-AMBIGUOUS",
+        "RG-CURSOR-INVALID",
+        "RG-DATA-INVALID",
+        "RG-LIBRARY-INCOMPLETE",
+        "RG-REVIEW-REQUIRED",
+        "RG-PLAN-CHANGED",
+        "RG-NOT-READY",
+        "RG-ACCOUNT-BUSY",
+        "RG-STUDIO-REQUIRED"
+      ],
+      "type": "string"
+    },
+    "FailureKind": {
+      "description": "An unclassified execution failure never implies permission to retry.",
+      "enum": [
+        "execution"
+      ],
+      "type": "string"
+    },
+    "Outcome": {
+      "enum": [
+        "completed",
+        "queued",
+        "detached",
+        "blocked",
+        "failed"
+      ],
+      "type": "string"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/Detail"
+        },
+        "type": {
+          "enum": [
+            "event"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload",
+        "type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "payload": {
+          "properties": {
+            "data": true,
+            "outcome": {
+              "$ref": "#/definitions/Outcome"
+            }
+          },
+          "required": [
+            "data",
+            "outcome"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "result"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload",
+        "type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "payload": {
+          "properties": {
+            "code": {
+              "$ref": "#/definitions/ErrorCode"
+            },
+            "context": true,
+            "message": {
+              "type": "string"
+            },
+            "outcome": {
+              "$ref": "#/definitions/Outcome"
+            },
+            "redacted": {
+              "type": "boolean"
+            },
+            "suggested_actions": {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "code",
+            "context",
+            "message",
+            "outcome",
+            "redacted",
+            "suggested_actions"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "error"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload",
+        "type"
+      ],
+      "type": "object"
+    }
+  ],
+  "properties": {
+    "job_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "format": "uint32",
+      "minimum": 0.0,
+      "type": "integer"
+    },
+    "sequence": {
+      "format": "uint64",
+      "minimum": 0.0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "request_id",
+    "schema_version"
+  ],
+  "title": "Envelope",
+  "type": "object"
+}

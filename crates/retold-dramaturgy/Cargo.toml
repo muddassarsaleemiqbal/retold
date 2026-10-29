@@ -1,0 +1,19 @@
+[package]
+name = "retold-dramaturgy"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+retold-core = { workspace = true }
+serde = { workspace = true }
+schemars = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

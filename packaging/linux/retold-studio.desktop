@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Retold Studio
+Comment=Turn any story into a narrated recap video
+Exec=retold-studio
+Icon=retold-studio
+Categories=AudioVideo;Video;
+Terminal=false

@@ -1,0 +1,5 @@
+#!/bin/sh
+printf '%s\n' "$$" > "$RETOLD_TEST_PROVIDER_PID"
+: > "$RETOLD_TEST_PROVIDER_STARTED"
+/bin/sleep 30
+: > "$RETOLD_TEST_PROVIDER_FINISHED"

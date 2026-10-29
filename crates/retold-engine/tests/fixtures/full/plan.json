@@ -1,0 +1,81 @@
+{
+  "storyline": "Hutter's property assignment brings a vampire to his doorstep and death to Wisborg, until Ellen uses the vampire book's instructions to sacrifice herself and destroy Orlok at sunrise.",
+  "characters": [
+    "Thomas Hutter",
+    "Count Orlok",
+    "Ellen"
+  ],
+  "tone": "Quiet, ominous, concrete, and grave, with restrained tenderness at Ellen's death.",
+  "open_loop": "Will the woman who invites the vampire inside survive until morning? Payoff: Ellen outlasts Orlok but dies after Hutter embraces her.",
+  "emotional_peak": "Hutter embraces Ellen in the brief moment before she dies.",
+  "omitted": [
+    "Production history, copyright litigation, and the film's legacy.",
+    "The employer's correspondence, asylum confinement, escape, and recapture.",
+    "The inn's warnings and detailed carriage travel.",
+    "Ellen's sleepwalking and supernatural intervention at the castle.",
+    "Supporting characters' names."
+  ],
+  "beats": [
+    {
+      "section": "hook",
+      "facts": [
+        "A woman invites a vampire through her window.",
+        "She offers her blood to keep him distracted until dawn.",
+        "Her survival remains unresolved until the ending."
+      ],
+      "purpose": "Hook without names: show the invitation and leave her survival hanging."
+    },
+    {
+      "section": "setup",
+      "facts": [
+        "Thomas Hutter travels from Wisborg to Transylvania to arrange Count Orlok's purchase of a house.",
+        "The house stands across from Hutter's own home."
+      ],
+      "purpose": "Name Hutter immediately and establish his task, with danger moving toward his home."
+    },
+    {
+      "section": "inciting",
+      "facts": [
+        "At the castle, Hutter cuts his thumb and Orlok tries to suck his blood.",
+        "Hutter wakes with punctures on his neck.",
+        "Orlok signs the purchase documents and admires a portrait of Hutter's wife, Ellen."
+      ],
+      "purpose": "Turn the property sale into a threat to Hutter and Ellen."
+    },
+    {
+      "section": "escalation",
+      "facts": [
+        "Hutter reads the vampire book and discovers Orlok resting in a coffin.",
+        "Orlok departs with coffins while Hutter escapes, suffers an injury, recovers, and rushes home.",
+        "The coffins travel aboard a ship carrying rats; every crewman dies.",
+        "Orlok reaches Wisborg, occupies the purchased house, and deaths follow."
+      ],
+      "purpose": "Expand the danger from one trapped visitor to his household and town."
+    },
+    {
+      "section": "twist",
+      "facts": [
+        "Ellen reads that a pure-hearted woman can destroy a vampire by willingly offering her blood and distracting him until dawn.",
+        "She decides to sacrifice herself."
+      ],
+      "purpose": "Pause before a short standalone statement revealing Ellen's decision."
+    },
+    {
+      "section": "climax",
+      "facts": [
+        "Ellen opens her window and sends Hutter away to fetch a physician.",
+        "Orlok enters and drinks her blood.",
+        "Sunrise causes Orlok to vanish in smoke."
+      ],
+      "purpose": "Slow down on Ellen opening the window, then follow her sacrifice through sunrise."
+    },
+    {
+      "section": "ending",
+      "facts": [
+        "Ellen survives just long enough for her grief-stricken husband to embrace her.",
+        "The final image shows Orlok's castle destroyed."
+      ],
+      "purpose": "Resolve her survival, connect victory to its human cost, and close by asking which image carries more weight: the embrace or the ruined castle."
+    }
+  ]
+}

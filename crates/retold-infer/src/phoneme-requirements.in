@@ -1,0 +1,7 @@
+# Inputs for the adjacent hash-locked macOS ARM64 / Python 3.11 worker lock.
+# uv pip compile --python-version 3.11 --python-platform aarch64-apple-darwin --generate-hashes --output-file phoneme-requirements.txt phoneme-requirements.in
+torch==2.8.0
+transformers==4.57.6
+numpy==2.2.6
+soundfile==0.13.1
+scipy==1.15.3

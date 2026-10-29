@@ -1,0 +1,3377 @@
+[
+ {
+  "id": "file.newProject",
+  "params": "{\"name\":str}",
+  "label": "Project…"
+ },
+ {
+  "id": "file.openDemoProject",
+  "params": "{}",
+  "label": "Demo Project"
+ },
+ {
+  "id": "file.newSequence",
+  "params": "{\"name\":str,\"width\":u32=1920,\"height\":u32=1080,\"fps\":f64=23.976,\"sampleRate\":u32=48000,\"video\":n=3,\"audio\":n=3,\"mix\":\"Stereo|Mono|5.1|Adaptive\"?,\"trackType\":\"Standard|Mono|5.1|Adaptive\"?,\"fromItem\":itemId?}",
+  "label": "Sequence…"
+ },
+ {
+  "id": "file.newSequenceFromClip",
+  "params": "{\"items\":[id]?}",
+  "label": "Sequence From Clip"
+ },
+ {
+  "id": "file.newBin",
+  "params": "{\"name\":str,\"parent\":binId?}",
+  "label": "Bin"
+ },
+ {
+  "id": "file.newBinFromSelection",
+  "params": "{\"items\":[id]?,\"name\":str?}",
+  "label": "Bin From Selection"
+ },
+ {
+  "id": "file.newSearchBin",
+  "params": "{\"name\":str?,\"column\":str?,\"operator\":str?,\"text\":str?,\"rows\":[..]?,\"matchAll\":bool?,\"caseSensitive\":bool?}",
+  "label": "Search Bin"
+ },
+ {
+  "id": "file.newOfflineFile",
+  "params": "{\"name\":str?,\"fileName\":str?,\"tapeName\":str?,\"video\":bool=true,\"audio\":bool=true,\"width\":u32?,\"height\":u32?,\"fps\":f64?,\"sampleRate\":u32=48000,\"channels\":u32=2,\"timecode\":\"HH:MM:SS:FF\"?,\"seconds\":f64=10,\"description\":str?}",
+  "label": "Offline File…"
+ },
+ {
+  "id": "file.newAdjustmentLayer",
+  "params": "{\"seconds\":f64=5}",
+  "label": "Adjustment Layer…"
+ },
+ {
+  "id": "file.newBarsAndTone",
+  "params": "{\"seconds\":f64=10}",
+  "label": "Bars and Tone…"
+ },
+ {
+  "id": "file.newBlackVideo",
+  "params": "{\"seconds\":f64}",
+  "label": "Black Video…"
+ },
+ {
+  "id": "file.newColorMatte",
+  "params": "{\"color\":\"#rrggbb\",\"seconds\":f64}",
+  "label": "Color Matte…"
+ },
+ {
+  "id": "project.matteColor",
+  "params": "{\"item\":id?,\"color\":\"#rrggbb\"}",
+  "label": "Color Matte Color…"
+ },
+ {
+  "id": "file.newCountingLeader",
+  "params": "{}",
+  "label": "Universal Counting Leader…"
+ },
+ {
+  "id": "file.newTransparentVideo",
+  "params": "{}",
+  "label": "Transparent Video…"
+ },
+ {
+  "id": "file.importDemoFootage",
+  "params": "{\"scene\":\"OceanSunset|Aurora|CityNight|Dunes|Plasma|Forest\"}",
+  "label": "Demo Footage"
+ },
+ {
+  "id": "file.exportInterchange",
+  "params": "{\"format\":\"edl|xml|fcpxml|otio|aaf|omf\"=xml,\"path\":str,\"sequence\":id?}",
+  "label": "Export Interchange"
+ },
+ {
+  "id": "file.exportEdl",
+  "params": "{\"path\":str}",
+  "label": "EDL…"
+ },
+ {
+  "id": "file.exportSelectionProject",
+  "params": "{\"path\":str,\"items\":[id]?}",
+  "label": "Selection as FilmCraft Project…"
+ },
+ {
+  "id": "file.exportAle",
+  "params": "{\"path\":str,\"items\":[id]?}",
+  "label": "Avid Log Exchange…"
+ },
+ {
+  "id": "file.exportOtio",
+  "params": "{\"path\":str}",
+  "label": "OpenTimelineIO…"
+ },
+ {
+  "id": "file.exportFcp7Xml",
+  "params": "{\"path\":str}",
+  "label": "Final Cut Pro XML…"
+ },
+ {
+  "id": "file.exportFcpxml",
+  "params": "{\"path\":str}",
+  "label": "FCPXML…"
+ },
+ {
+  "id": "file.exportAaf",
+  "params": "{\"path\":str,\"sequence\":id?,\"mixdownVideo\":bool?,\"mixdownFormat\":\"mov|mxf\"?,\"breakoutToMono\":bool?,\"audio\":\"embedded|separate|linked\"?,\"audioFormat\":\"wav|aiff|mxf\"?,\"sampleRate\":int?,\"bitDepth\":\"16|24\"?,\"trimAudio\":bool?,\"handles\":frames?,\"renderAudioEffects\":bool?,\"smallSectors\":bool?}",
+  "label": "AAF…"
+ },
+ {
+  "id": "file.exportOmf",
+  "params": "{\"path\":str,\"sequence\":id?,\"title\":str?,\"audio\":\"embedded|separate\"?,\"audioFormat\":\"wav|aiff\"?,\"sampleRate\":int?,\"bitDepth\":\"16|24\"?,\"trimAudio\":bool?,\"handles\":frames?,\"renderAudioEffects\":bool?,\"breakoutToMono\":bool?}",
+  "label": "OMF…"
+ },
+ {
+  "id": "file.importAaf",
+  "params": "{\"path\":str}",
+  "label": "Import AAF…"
+ },
+ {
+  "id": "file.open",
+  "params": "{\"path\":str}",
+  "label": "Open Project…"
+ },
+ {
+  "id": "file.close",
+  "params": "{\"item\":id?}",
+  "label": "Close"
+ },
+ {
+  "id": "file.closeProject",
+  "params": "{\"force\":bool?}",
+  "label": "Close Project"
+ },
+ {
+  "id": "file.closeAllProjects",
+  "params": "{\"force\":bool?}",
+  "label": "Close All Projects"
+ },
+ {
+  "id": "file.closeAllOtherProjects",
+  "params": "{}",
+  "label": "Close All Other Projects"
+ },
+ {
+  "id": "file.save",
+  "params": "{\"path\":str?}",
+  "label": "Save"
+ },
+ {
+  "id": "file.saveAs",
+  "params": "{\"path\":str}",
+  "label": "Save As…"
+ },
+ {
+  "id": "file.saveCopy",
+  "params": "{\"path\":str}",
+  "label": "Save a Copy…"
+ },
+ {
+  "id": "file.saveAsTemplate",
+  "params": "{\"name\":str?,\"path\":str?}",
+  "label": "Save as Template…"
+ },
+ {
+  "id": "file.saveAll",
+  "params": "{}",
+  "label": "Save All"
+ },
+ {
+  "id": "file.revert",
+  "params": "{}",
+  "label": "Revert"
+ },
+ {
+  "id": "file.recover",
+  "params": "{\"id\":str?}",
+  "label": "Recover Unsaved Changes…"
+ },
+ {
+  "id": "file.discardRecovery",
+  "params": "{\"id\":str?,\"all\":bool?}",
+  "label": "Discard Unsaved Changes"
+ },
+ {
+  "id": "file.recoveryList",
+  "params": "{}",
+  "label": "List Recoverable Sessions"
+ },
+ {
+  "id": "file.autoSaveNow",
+  "params": "{}",
+  "label": "Auto Save Now"
+ },
+ {
+  "id": "file.autoSaveStatus",
+  "params": "{}",
+  "label": "Auto Save Status"
+ },
+ {
+  "id": "file.listAutoSaves",
+  "params": "{}",
+  "label": "Browse Auto-Saves"
+ },
+ {
+  "id": "prefs.get",
+  "params": "{\"key\":str?}",
+  "label": "Get Preferences"
+ },
+ {
+  "id": "prefs.set",
+  "params": "{\"key\":str,\"value\":any}|{\"values\":{key:value}}",
+  "label": "Set Preferences"
+ },
+ {
+  "id": "prefs.reset",
+  "params": "{\"category\":str?}",
+  "label": "Reset Preferences"
+ },
+ {
+  "id": "file.exportMedia",
+  "params": "{\"path\":str,\"preset\":str?,\"settings\":ExportSettings?,\"format\":\"h264|hevc|prores|dnxhr|apv|mjpeg|mxf-op1a|mxf-opatom|png|tiff|bmp|gif|wav|aiff\"?,\"width\":u32?,\"height\":u32?,\"fps\":f64?,\"bitrateKbps\":u32?,\"bitrateMode\":\"cbr|vbr1Pass|vbr2Pass\"?,\"hardwareEncoding\":\"off|auto\"?,\"scale\":f32=1,\"audio\":bool=true,\"quality\":0..100,\"burnCaptions\":bool=false,\"captionSidecar\":\"srt|vtt\"?,\"loudnessLufs\":f64?,\"proresProfile\":\"proxy|lt|standard|hq\"?,\"dnxProfile\":\"lb|sq|hq|hqx\"?,\"apvProfile\":\"422-10|422-12|444-10|444-12\"?,\"mxfVideoCodec\":\"dnxhr|proRes|h264\"?,\"sequence\":id?,\"range\":\"entire|inOut|workArea|custom\"?,\"startSeconds\":f64?,\"endSeconds\":f64?,\"wait\":bool=false}",
+  "label": "Media…"
+ },
+ {
+  "id": "jobs.list",
+  "params": "{}",
+  "label": "List Jobs"
+ },
+ {
+  "id": "perf.stats",
+  "params": "{}",
+  "label": "Performance Statistics"
+ },
+ {
+  "id": "jobs.cancel",
+  "params": "{\"job\":id}",
+  "label": "Cancel Job"
+ },
+ {
+  "id": "edit.undo",
+  "params": "{}",
+  "label": "Undo"
+ },
+ {
+  "id": "edit.redo",
+  "params": "{}",
+  "label": "Redo"
+ },
+ {
+  "id": "edit.cut",
+  "params": "{}",
+  "label": "Cut"
+ },
+ {
+  "id": "edit.copy",
+  "params": "{}",
+  "label": "Copy"
+ },
+ {
+  "id": "edit.paste",
+  "params": "{}",
+  "label": "Paste"
+ },
+ {
+  "id": "edit.pasteInsert",
+  "params": "{}",
+  "label": "Paste Insert"
+ },
+ {
+  "id": "edit.pasteAttributes",
+  "params": "{\"clips\":[id]?,\"motion\":bool=true,\"opacity\":bool=true,\"timeRemapping\":bool=true,\"volume\":bool=true,\"channelVolume\":bool=true,\"panner\":bool=true,\"effects\":bool|[effectId]=true,\"scaleTimes\":bool=true}",
+  "label": "Paste Attributes…"
+ },
+ {
+  "id": "edit.removeAttributes",
+  "params": "{\"clips\":[id]?,\"motion\":bool=true,\"opacity\":bool=true,\"timeRemapping\":bool=true,\"volume\":bool=true,\"channelVolume\":bool=true,\"panner\":bool=true,\"effects\":bool|[effectId]=true}",
+  "label": "Remove Attributes…"
+ },
+ {
+  "id": "edit.clear",
+  "params": "{\"clips\":[id]?}",
+  "label": "Clear"
+ },
+ {
+  "id": "edit.rippleDelete",
+  "params": "{\"clips\":[id]?}",
+  "label": "Ripple Delete"
+ },
+ {
+  "id": "edit.selectAll",
+  "params": "{}",
+  "label": "Select All"
+ },
+ {
+  "id": "edit.selectAllMatching",
+  "params": "{\"clips\":[id]?}",
+  "label": "Select All Matching"
+ },
+ {
+  "id": "edit.deselectAll",
+  "params": "{}",
+  "label": "Deselect All"
+ },
+ {
+  "id": "edit.find",
+  "params": "{\"scope\":\"project|timeline\"?,\"column\":str?,\"operator\":\"contains|matches|beginsWith|endsWith|doesNotContain\"?,\"text\":str?,\"rows\":[{\"column\":str,\"operator\":str,\"text\":str}]?,\"matchAll\":bool=true,\"caseSensitive\":bool=false,\"in\":\"all|clips|markers\"?}",
+  "label": "Find…"
+ },
+ {
+  "id": "edit.findNext",
+  "params": "{}",
+  "label": "Find Next"
+ },
+ {
+  "id": "edit.duplicate",
+  "params": "{}",
+  "label": "Duplicate"
+ },
+ {
+  "id": "edit.selectLabelGroup",
+  "params": "{}",
+  "label": "Select Label Group"
+ },
+ {
+  "id": "edit.label.violet",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Violet"
+ },
+ {
+  "id": "edit.label.iris",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Iris"
+ },
+ {
+  "id": "edit.label.caribbean",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Caribbean"
+ },
+ {
+  "id": "edit.label.lavender",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Lavender"
+ },
+ {
+  "id": "edit.label.cerulean",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Cerulean"
+ },
+ {
+  "id": "edit.label.forest",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Forest"
+ },
+ {
+  "id": "edit.label.rose",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Rose"
+ },
+ {
+  "id": "edit.label.mango",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Mango"
+ },
+ {
+  "id": "edit.label.purple",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Purple"
+ },
+ {
+  "id": "edit.label.blue",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Blue"
+ },
+ {
+  "id": "edit.label.teal",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Teal"
+ },
+ {
+  "id": "edit.label.magenta",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Magenta"
+ },
+ {
+  "id": "edit.label.tan",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Tan"
+ },
+ {
+  "id": "edit.label.green",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Green"
+ },
+ {
+  "id": "edit.label.brown",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Brown"
+ },
+ {
+  "id": "edit.label.yellow",
+  "params": "{\"items\":[id]?,\"clips\":[id]?}",
+  "label": "Yellow"
+ },
+ {
+  "id": "edit.removeUnused",
+  "params": "{}",
+  "label": "Remove Unused"
+ },
+ {
+  "id": "edit.consolidateDuplicates",
+  "params": "{}",
+  "label": "Consolidate Duplicates"
+ },
+ {
+  "id": "edit.editOriginal",
+  "params": "{\"items\":[id]?}",
+  "label": "Edit Original"
+ },
+ {
+  "id": "edit.label",
+  "params": "{\"label\":\"Violet|Iris|…\"}",
+  "label": "Label"
+ },
+ {
+  "id": "clip.rename",
+  "params": "{\"clip\":id?,\"item\":id?,\"name\":str}",
+  "label": "Rename…"
+ },
+ {
+  "id": "clip.makeSubclip",
+  "params": "{\"item\":id?,\"clip\":id?,\"name\":str?,\"start\":ticks?,\"end\":ticks?,\"startFrame\":i64?,\"endFrame\":i64?,\"restrictTrims\":bool=true}",
+  "label": "Make Subclip…"
+ },
+ {
+  "id": "clip.editSubclip",
+  "params": "{\"item\":id?,\"start\":ticks?,\"end\":ticks?,\"startFrame\":i64?,\"endFrame\":i64?,\"restrictTrims\":bool?,\"convertToMaster\":bool?}",
+  "label": "Edit Subclip…"
+ },
+ {
+  "id": "clip.editOffline",
+  "params": "{\"item\":id?,\"mediaName\":str?,\"tapeName\":str?,\"description\":str?,\"scene\":str?,\"shot\":str?,\"logNote\":str?}",
+  "label": "Edit Offline…"
+ },
+ {
+  "id": "clip.sourceSettings",
+  "params": "{\"item\":id?}",
+  "label": "Source Settings…"
+ },
+ {
+  "id": "clip.audioChannels",
+  "params": "{\"items\":[id]?,\"format\":\"mono|stereo|5.1|adaptive\",\"clips\":[[channel]]?,\"channels\":[channel]?}",
+  "label": "Audio Channels…"
+ },
+ {
+  "id": "clip.interpretFootage",
+  "params": "{\"items\":[id]?,\"colorSpace\":\"auto\"|\"<color space id>\"}",
+  "label": "Interpret Footage…"
+ },
+ {
+  "id": "clip.modifyTimecode",
+  "params": "{\"item\":id?,\"timecode\":\"HH:MM:SS:FF\"?,\"frame\":i64?,\"tapeName\":str?,\"reset\":bool?}",
+  "label": "Timecode…"
+ },
+ {
+  "id": "clip.frameHoldOptions",
+  "params": "{\"clips\":[id]?,\"enabled\":bool=true,\"holdOn\":\"sourceTimecode|sequenceTime|in|out|playhead\",\"time\":ticks?,\"timecode\":str?,\"holdFilters\":bool=false}",
+  "label": "Frame Hold Options…"
+ },
+ {
+  "id": "clip.frameHold",
+  "params": "{\"clips\":[id]?,\"time\":ticks?}",
+  "label": "Add Frame Hold"
+ },
+ {
+  "id": "clip.insertFrameHoldSegment",
+  "params": "{\"clip\":id?,\"time\":ticks?,\"seconds\":f64=2}",
+  "label": "Insert Frame Hold Segment"
+ },
+ {
+  "id": "clip.fieldOptions",
+  "params": "{\"clips\":[id]?,\"reverseFieldDominance\":bool=false,\"processing\":\"none|alwaysDeinterlace|flickerRemoval\"}",
+  "label": "Field Options…"
+ },
+ {
+  "id": "clip.timeInterpolation.frameSampling",
+  "params": "{\"clips\":[id]?}",
+  "label": "Frame Sampling"
+ },
+ {
+  "id": "clip.timeInterpolation.frameBlending",
+  "params": "{\"clips\":[id]?}",
+  "label": "Frame Blending"
+ },
+ {
+  "id": "clip.timeInterpolation.opticalFlow",
+  "params": "{\"clips\":[id]?}",
+  "label": "Optical Flow"
+ },
+ {
+  "id": "clip.scaleToFrameSize",
+  "params": "{}",
+  "label": "Scale to Frame Size"
+ },
+ {
+  "id": "clip.fitToFrame",
+  "params": "{\"clips\":[id]?}",
+  "label": "Fit to frame"
+ },
+ {
+  "id": "clip.fillFrame",
+  "params": "{\"clips\":[id]?}",
+  "label": "Fill frame"
+ },
+ {
+  "id": "clip.audioGain",
+  "params": "{\"clips\":[id]?,\"mode\":\"set|adjust|normalizeMax|normalizeAll\"?,\"db\":f64,\"relative\":bool?}",
+  "label": "Audio Gain…"
+ },
+ {
+  "id": "clip.breakoutToMono",
+  "params": "{\"items\":[id]?}",
+  "label": "Breakout to Mono"
+ },
+ {
+  "id": "clip.extractAudio",
+  "params": "{\"items\":[id]?,\"dir\":str?}",
+  "label": "Extract Audio"
+ },
+ {
+  "id": "clip.speedDuration",
+  "params": "{\"clips\":[id]?,\"speed\":percent=100,\"reverse\":bool,\"ripple\":bool,\"interpolation\":\"frameSampling|frameBlending|opticalFlow\"?}",
+  "label": "Speed/Duration…"
+ },
+ {
+  "id": "clip.sceneEditDetection",
+  "params": "{\"clips\":[id]?,\"sensitivity\":0..100=50,\"minShotFrames\":n=6,\"applyCuts\":bool=true,\"createSubclips\":bool=false,\"generateMarkers\":bool=false,\"wait\":bool=false}",
+  "label": "Scene Edit Detection…"
+ },
+ {
+  "id": "clip.enable",
+  "params": "{\"clips\":[id]?}",
+  "label": "Enable"
+ },
+ {
+  "id": "clip.link",
+  "params": "{\"clips\":[id]?}",
+  "label": "Link"
+ },
+ {
+  "id": "clip.group",
+  "params": "{}",
+  "label": "Group"
+ },
+ {
+  "id": "clip.ungroup",
+  "params": "{}",
+  "label": "Ungroup"
+ },
+ {
+  "id": "clip.audioPeak",
+  "params": "{\"clips\":[id]?}",
+  "label": "Audio Clip Peak Amplitude"
+ },
+ {
+  "id": "clip.nest",
+  "params": "{\"name\":str}",
+  "label": "Nest…"
+ },
+ {
+  "id": "clip.revealInProject",
+  "params": "{\"clip\":id?}",
+  "label": "Reveal in Project"
+ },
+ {
+  "id": "sequence.revealInProject",
+  "params": "{\"item\":id?}",
+  "label": "Reveal Sequence in Project"
+ },
+ {
+  "id": "sequence.open",
+  "params": "{\"item\":id}",
+  "label": "Open in Timeline"
+ },
+ {
+  "id": "sequence.close",
+  "params": "{\"item\":id?}",
+  "label": "Close Sequence"
+ },
+ {
+  "id": "sequence.closeOthers",
+  "params": "{\"item\":id?}",
+  "label": "Close Other Timeline Panels"
+ },
+ {
+  "id": "sequence.moveTab",
+  "params": "{\"item\":id?,\"index\":int}",
+  "label": "Move Sequence Tab"
+ },
+ {
+  "id": "sequence.settings",
+  "params": "{\"width\":u32?,\"height\":u32?,\"fps\":f64?,\"name\":str?,\"sampleRate\":u32?,\"mix\":\"Stereo|Mono|5.1|Adaptive\"?}",
+  "label": "Sequence Settings…"
+ },
+ {
+  "id": "sequence.renderEffectsInToOut",
+  "params": "{\"wait\":bool=false}",
+  "label": "Render Effects In to Out"
+ },
+ {
+  "id": "sequence.renderInToOut",
+  "params": "{\"wait\":bool=false}",
+  "label": "Render In to Out"
+ },
+ {
+  "id": "sequence.renderSelection",
+  "params": "{\"wait\":bool=false}",
+  "label": "Render Selection"
+ },
+ {
+  "id": "sequence.renderAudio",
+  "params": "{\"wait\":bool=false}",
+  "label": "Render Audio"
+ },
+ {
+  "id": "sequence.deleteRenderFiles",
+  "params": "{}",
+  "label": "Delete Render Files"
+ },
+ {
+  "id": "sequence.deleteRenderFilesInToOut",
+  "params": "{}",
+  "label": "Delete Render Files In to Out"
+ },
+ {
+  "id": "sequence.matchFrame",
+  "params": "{}",
+  "label": "Match Frame"
+ },
+ {
+  "id": "sequence.reverseMatchFrame",
+  "params": "{}",
+  "label": "Reverse Match Frame"
+ },
+ {
+  "id": "sequence.addEdit",
+  "params": "{\"time\":ticks?}",
+  "label": "Add Edit"
+ },
+ {
+  "id": "sequence.addEditAllTracks",
+  "params": "{\"time\":ticks?}",
+  "label": "Add Edit to All Tracks"
+ },
+ {
+  "id": "trim.edit",
+  "params": "{}",
+  "label": "Trim Edit"
+ },
+ {
+  "id": "sequence.applyVideoTransition",
+  "params": "{\"clip\":id?,\"effect\":\"cross_dissolve|Cross Dissolve|…\"?,\"frames\":i64?,\"edge\":\"in\"|\"out\"?,\"params\":{param:value}?,\"reverse\":bool?}",
+  "label": "Apply Video Transition"
+ },
+ {
+  "id": "sequence.applyAudioTransition",
+  "params": "{\"clip\":id?,\"effect\":str?,\"frames\":i64?}",
+  "label": "Apply Audio Transition"
+ },
+ {
+  "id": "trim.applyDefaultTransition",
+  "params": "{\"clips\":[id]?}",
+  "label": "Apply Default Transitions to Selection"
+ },
+ {
+  "id": "sequence.lift",
+  "params": "{}",
+  "label": "Lift"
+ },
+ {
+  "id": "sequence.extract",
+  "params": "{}",
+  "label": "Extract"
+ },
+ {
+  "id": "sequence.closeGap",
+  "params": "{\"track\":\"V1\"|id,\"time\":ticks}",
+  "label": "Close Gap"
+ },
+ {
+  "id": "sequence.goToNextGap",
+  "params": "{}",
+  "label": "Next in Sequence"
+ },
+ {
+  "id": "sequence.goToPrevGap",
+  "params": "{}",
+  "label": "Previous in Sequence"
+ },
+ {
+  "id": "sequence.goToNextGapInTrack",
+  "params": "{\"track\":\"V1\"|id?}",
+  "label": "Next in Track"
+ },
+ {
+  "id": "sequence.goToPrevGapInTrack",
+  "params": "{\"track\":\"V1\"|id?}",
+  "label": "Previous in Track"
+ },
+ {
+  "id": "sequence.snap",
+  "params": "{\"on\":bool?}",
+  "label": "Snap in Timeline"
+ },
+ {
+  "id": "sequence.linkedSelection",
+  "params": "{\"on\":bool?}",
+  "label": "Linked Selection"
+ },
+ {
+  "id": "sequence.selectionFollowsPlayhead",
+  "params": "{\"on\":bool?}",
+  "label": "Selection Follows Playhead"
+ },
+ {
+  "id": "sequence.showThroughEdits",
+  "params": "{\"on\":bool?}",
+  "label": "Show Through Edits"
+ },
+ {
+  "id": "sequence.normalizeMixTrack",
+  "params": "{\"db\":f64=0}",
+  "label": "Normalize Mix Track…"
+ },
+ {
+  "id": "sequence.makeSubsequence",
+  "params": "{\"name\":str?}",
+  "label": "Make Subsequence"
+ },
+ {
+  "id": "sequence.transcribe",
+  "params": "{\"track\":\"mix\"|\"A1\"|id?,\"language\":\"en|auto\"?,\"diarize\":bool?,\"maxSpeakers\":n?,\"model\":str?}",
+  "label": "Transcribe Sequence…"
+ },
+ {
+  "id": "sequence.simplify",
+  "params": "{\"name\":str?,\"removeDisabled\":bool=true,\"removeEmptyTracks\":bool=true,\"closeGaps\":bool=false,\"moveClipsDown\":bool=false,\"removeVideoEffects\":bool=false,\"removeAudioEffects\":bool=false,\"removeText\":bool=false,\"keep\":\"both|video|audio\"}",
+  "label": "Simplify Sequence…"
+ },
+ {
+  "id": "sequence.addTracks",
+  "params": "{\"video\":n=1,\"audio\":n=0,\"submix\":n=0,\"videoAfter\":\"first\"|\"V2\"|n?,\"audioAfter\":\"first\"|\"A2\"|n?,\"submixAfter\":\"first\"|\"S1\"|n?,\"audioType\":\"standard|5.1|adaptive|mono\"?,\"submixType\":\"stereo|5.1|adaptive|mono\"?}",
+  "label": "Add Tracks…"
+ },
+ {
+  "id": "sequence.deleteTracks",
+  "params": "{\"video\":\"empty\"|\"V2\"|id?,\"audio\":\"empty\"|\"A2\"|id?}",
+  "label": "Delete Tracks…"
+ },
+ {
+  "id": "sequence.colorSettings",
+  "params": "{\"workingSpace\":\"rec709\"|\"rec2100-pq\"|\"rec2100-hlg\"?,\"wideGamut\":bool?,\"autoToneMap\":bool?}",
+  "label": "Color Management…"
+ },
+ {
+  "id": "mixer.addSubmix",
+  "params": "{\"name\":str?,\"channels\":\"Mono|Stereo|5.1\"?}",
+  "label": "Add Audio Submix Track"
+ },
+ {
+  "id": "sequence.setTransition",
+  "params": "{\"transition\":id,\"params\":{param:value}?,\"reverse\":bool?,\"reset\":bool?}",
+  "label": "Edit Transition Settings"
+ },
+ {
+  "id": "sequence.joinThroughEdits",
+  "params": "{\"clips\":[id]?,\"all\":bool?}",
+  "label": "Join Through Edits"
+ },
+ {
+  "id": "sequence.throughEdits",
+  "params": "{}",
+  "label": "List Through Edits"
+ },
+ {
+  "id": "sequence.nestSequences",
+  "params": "{\"on\":bool?}",
+  "label": "Insert and overwrite sequences as nests or individual clips"
+ },
+ {
+  "id": "sequence.deleteTrack",
+  "params": "{\"track\":\"V3\"|id}",
+  "label": "Delete Track"
+ },
+ {
+  "id": "sequence.renderBar",
+  "params": "{}",
+  "label": "Render Bar"
+ },
+ {
+  "id": "markers.markIn",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Mark In"
+ },
+ {
+  "id": "markers.markOut",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Mark Out"
+ },
+ {
+  "id": "markers.markClip",
+  "params": "{}",
+  "label": "Mark Clip"
+ },
+ {
+  "id": "markers.markSelection",
+  "params": "{}",
+  "label": "Mark Selection"
+ },
+ {
+  "id": "markers.markSplitVideoIn",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Video In"
+ },
+ {
+  "id": "markers.markSplitVideoOut",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Video Out"
+ },
+ {
+  "id": "markers.markSplitAudioIn",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Audio In"
+ },
+ {
+  "id": "markers.markSplitAudioOut",
+  "params": "{\"time\":ticks?,\"target\":\"program|source\"}",
+  "label": "Audio Out"
+ },
+ {
+  "id": "markers.goToIn",
+  "params": "{}",
+  "label": "Go to In"
+ },
+ {
+  "id": "markers.goToOut",
+  "params": "{}",
+  "label": "Go to Out"
+ },
+ {
+  "id": "markers.goToSplitVideoIn",
+  "params": "{\"target\":\"program|source\"}",
+  "label": "Video In"
+ },
+ {
+  "id": "markers.goToSplitVideoOut",
+  "params": "{\"target\":\"program|source\"}",
+  "label": "Video Out"
+ },
+ {
+  "id": "markers.goToSplitAudioIn",
+  "params": "{\"target\":\"program|source\"}",
+  "label": "Audio In"
+ },
+ {
+  "id": "markers.goToSplitAudioOut",
+  "params": "{\"target\":\"program|source\"}",
+  "label": "Audio Out"
+ },
+ {
+  "id": "markers.clearIn",
+  "params": "{}",
+  "label": "Clear In"
+ },
+ {
+  "id": "markers.clearOut",
+  "params": "{}",
+  "label": "Clear Out"
+ },
+ {
+  "id": "markers.clearInOut",
+  "params": "{}",
+  "label": "Clear In and Out"
+ },
+ {
+  "id": "markers.add",
+  "params": "{\"time\":ticks?,\"name\":str?,\"comment\":str?,\"color\":label?,\"durationFrames\":i64?}",
+  "label": "Add Marker"
+ },
+ {
+  "id": "markers.addRange",
+  "params": "{\"time\":ticks?,\"durationFrames\":i64=1s,\"duration\":ticks?,\"name\":str?,\"comment\":str?,\"color\":label?}",
+  "label": "Add Range Marker"
+ },
+ {
+  "id": "markers.addRangeInOut",
+  "params": "{\"name\":str?,\"comment\":str?,\"color\":label?}",
+  "label": "Add Range Marker to In and Out"
+ },
+ {
+  "id": "markers.goNext",
+  "params": "{}",
+  "label": "Go to Next Marker"
+ },
+ {
+  "id": "markers.goPrev",
+  "params": "{}",
+  "label": "Go to Previous Marker"
+ },
+ {
+  "id": "markers.clearCurrent",
+  "params": "{}",
+  "label": "Clear Selected Marker"
+ },
+ {
+  "id": "markers.clearAll",
+  "params": "{}",
+  "label": "Clear Markers"
+ },
+ {
+  "id": "markers.showAllMarkerColors",
+  "params": "{}",
+  "label": "Show All Marker Colors"
+ },
+ {
+  "id": "markers.filterColors",
+  "params": "{\"hidden\":[label]}|{\"color\":label,\"visible\":bool?}",
+  "label": "Marker Colour Filter"
+ },
+ {
+  "id": "markers.edit",
+  "params": "{\"marker\":id,\"name\":str?,\"comment\":str?,\"color\":label?,\"durationFrames\":i64?}",
+  "label": "Edit Marker…"
+ },
+ {
+  "id": "markers.addChapter",
+  "params": "{\"time\":ticks?,\"name\":str?,\"comment\":str?,\"color\":label?}",
+  "label": "Add Chapter Marker…"
+ },
+ {
+  "id": "markers.addFlashCue",
+  "params": "{\"time\":ticks?,\"name\":str?,\"comment\":str?,\"color\":label?}",
+  "label": "Add Flash Cue Marker…"
+ },
+ {
+  "id": "markers.rippleSequenceMarkers",
+  "params": "{\"on\":bool?}",
+  "label": "Ripple Sequence Markers"
+ },
+ {
+  "id": "markers.copyPasteIncludesSequenceMarkers",
+  "params": "{\"on\":bool?}",
+  "label": "Copy Paste Includes Sequence Markers"
+ },
+ {
+  "id": "playhead.set",
+  "params": "{\"time\":ticks|\"frame\":i64|\"seconds\":f64|\"timecode\":str}",
+  "label": "Set Playhead"
+ },
+ {
+  "id": "playhead.step",
+  "params": "{\"frames\":i64}",
+  "label": "Step Frames"
+ },
+ {
+  "id": "playhead.stepForward",
+  "params": "{}",
+  "label": "Step Forward One Frame"
+ },
+ {
+  "id": "playhead.stepBack",
+  "params": "{}",
+  "label": "Step Back One Frame"
+ },
+ {
+  "id": "playhead.stepForward5",
+  "params": "{}",
+  "label": "Step Forward Five Frames"
+ },
+ {
+  "id": "playhead.stepBack5",
+  "params": "{}",
+  "label": "Step Back Five Frames"
+ },
+ {
+  "id": "playhead.nextEdit",
+  "params": "{}",
+  "label": "Go to Next Edit Point"
+ },
+ {
+  "id": "playhead.prevEdit",
+  "params": "{}",
+  "label": "Go to Previous Edit Point"
+ },
+ {
+  "id": "playhead.start",
+  "params": "{}",
+  "label": "Go to Sequence Start"
+ },
+ {
+  "id": "playhead.end",
+  "params": "{}",
+  "label": "Go to Sequence End"
+ },
+ {
+  "id": "source.open",
+  "params": "{\"item\":id?}",
+  "label": "Open in Source Monitor"
+ },
+ {
+  "id": "source.setPlayhead",
+  "params": "{\"time\":ticks|\"frame\":i64|\"seconds\":f64}",
+  "label": "Set Source Playhead"
+ },
+ {
+  "id": "source.inspect",
+  "params": "{}",
+  "label": "Inspect Source Monitor"
+ },
+ {
+  "id": "source.insert",
+  "params": "{}",
+  "label": "Insert"
+ },
+ {
+  "id": "source.overwrite",
+  "params": "{}",
+  "label": "Overwrite"
+ },
+ {
+  "id": "clip.replaceFromSource",
+  "params": "{\"clips\":[id]?}",
+  "label": "From Source Monitor"
+ },
+ {
+  "id": "clip.replaceFromSourceMatchFrame",
+  "params": "{\"clips\":[id]?}",
+  "label": "From Source Monitor, Match Frame"
+ },
+ {
+  "id": "clip.replaceFromBin",
+  "params": "{\"clips\":[id]?,\"item\":id?,\"keepSourceIn\":bool=false}",
+  "label": "From Bin"
+ },
+ {
+  "id": "clip.restoreCaptionsFromSource",
+  "params": "{}",
+  "label": "Restore Captions from Source Clip"
+ },
+ {
+  "id": "clip.updateMetadata",
+  "params": "{\"items\":[id]?}",
+  "label": "Update Metadata…"
+ },
+ {
+  "id": "clip.generateAudioWaveform",
+  "params": "{\"items\":[id]?}",
+  "label": "Generate Audio Waveform"
+ },
+ {
+  "id": "clip.automateToSequence",
+  "params": "{\"items\":[id]?,\"ordering\":\"sort|selection\",\"placement\":\"sequentially|unnumberedMarkers\",\"method\":\"insert|overwrite\",\"overlapFrames\":n=30,\"stillFrames\":n?,\"videoTransition\":bool=true,\"audioTransition\":bool=true,\"ignoreAudio\":bool=false,\"ignoreVideo\":bool=false}",
+  "label": "Automate to Sequence…"
+ },
+ {
+  "id": "timeline.place",
+  "params": "{\"item\":id,\"track\":\"V1\"|id|\"A1\" (sound only)?,\"audioTrack\":\"A1\"|id?,\"time\":ticks|\"frame\":i64|\"seconds\":f64,\"insert\":bool,\"sourceIn\":ticks?,\"duration\":ticks?}",
+  "label": "Place Clip"
+ },
+ {
+  "id": "timeline.select",
+  "params": "{\"clips\":[id],\"add\":bool,\"toggle\":bool}",
+  "label": "Select Clips"
+ },
+ {
+  "id": "timeline.move",
+  "params": "{\"moves\":[{\"clip\":id,\"track\":id|\"V2\",\"time\":ticks}],\"insert\":bool,\"linked\":bool?}",
+  "label": "Move Clips"
+ },
+ {
+  "id": "timeline.trim",
+  "params": "{\"clip\":id,\"edge\":\"in|out\",\"mode\":\"regular|ripple\",\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Trim Edit"
+ },
+ {
+  "id": "trim.selectEditPoint",
+  "params": "{\"clip\":id,\"edge\":\"in|out\",\"kind\":\"trim|ripple|roll\",\"add\":bool?}",
+  "label": "Select Edit Point"
+ },
+ {
+  "id": "trim.selectNearest",
+  "params": "{\"kind\":\"rippleIn|rippleOut|roll|trimIn|trimOut\"}",
+  "label": "Select Nearest Edit Point"
+ },
+ {
+  "id": "trim.clear",
+  "params": "{}",
+  "label": "Clear Edit Point Selection"
+ },
+ {
+  "id": "trim.toggleType",
+  "params": "{}",
+  "label": "Toggle Trim Type"
+ },
+ {
+  "id": "trim.backward",
+  "params": "{}",
+  "label": "Trim Backward"
+ },
+ {
+  "id": "trim.forward",
+  "params": "{}",
+  "label": "Trim Forward"
+ },
+ {
+  "id": "trim.backwardMany",
+  "params": "{}",
+  "label": "Trim Backward Many"
+ },
+ {
+  "id": "trim.forwardMany",
+  "params": "{}",
+  "label": "Trim Forward Many"
+ },
+ {
+  "id": "trim.shuttle",
+  "params": "{\"direction\":\"forward|reverse\",\"slow\":bool?,\"clock\":seconds}",
+  "label": "Dynamic Trim (Shuttle)"
+ },
+ {
+  "id": "trim.shuttleStop",
+  "params": "{\"clock\":seconds?}",
+  "label": "Dynamic Trim Stop"
+ },
+ {
+  "id": "trim.cancelDynamic",
+  "params": "{}",
+  "label": "Cancel Dynamic Trim"
+ },
+ {
+  "id": "trim.playAround",
+  "params": "{\"clock\":seconds,\"loop\":bool=true,\"toggle\":bool?}",
+  "label": "Play Around Edit"
+ },
+ {
+  "id": "trim.tick",
+  "params": "{\"clock\":seconds}",
+  "label": "Advance Trim Playback"
+ },
+ {
+  "id": "trim.monitor",
+  "params": "{}",
+  "label": "Trim Monitor State"
+ },
+ {
+  "id": "trim.nudge",
+  "params": "{\"frames\":i64}",
+  "label": "Trim by Frames"
+ },
+ {
+  "id": "trim.extendToPlayhead",
+  "params": "{}",
+  "label": "Extend Selected Edit to Playhead"
+ },
+ {
+  "id": "trim.ripplePrevious",
+  "params": "{}",
+  "label": "Ripple Trim Previous Edit to Playhead"
+ },
+ {
+  "id": "trim.rippleNext",
+  "params": "{}",
+  "label": "Ripple Trim Next Edit to Playhead"
+ },
+ {
+  "id": "trim.previous",
+  "params": "{}",
+  "label": "Trim Previous Edit to Playhead"
+ },
+ {
+  "id": "trim.next",
+  "params": "{}",
+  "label": "Trim Next Edit to Playhead"
+ },
+ {
+  "id": "timeline.roll",
+  "params": "{\"left\":id,\"right\":id,\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Rolling Edit"
+ },
+ {
+  "id": "timeline.slip",
+  "params": "{\"clip\":id,\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Slip"
+ },
+ {
+  "id": "timeline.slide",
+  "params": "{\"clip\":id,\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Slide"
+ },
+ {
+  "id": "timeline.rateStretch",
+  "params": "{\"clip\":id,\"edge\":\"in|out\",\"delta\":ticks}",
+  "label": "Rate Stretch"
+ },
+ {
+  "id": "timeline.razor",
+  "params": "{\"time\":ticks,\"track\":\"V1\"|id?,\"clip\":id?}",
+  "label": "Razor"
+ },
+ {
+  "id": "timeline.setTrack",
+  "params": "{\"track\":\"V1\"|id,\"locked\":bool?,\"syncLock\":bool?,\"enabled\":bool?,\"muted\":bool?,\"solo\":bool?,\"name\":str?,\"volumeDb\":f64?,\"pan\":f64?}",
+  "label": "Track Settings"
+ },
+ {
+  "id": "timeline.setTargeting",
+  "params": "{\"track\":\"V1\"|id,\"targeted\":bool?,\"sourcePatch\":bool?}",
+  "label": "Track Targeting"
+ },
+ {
+  "id": "effects.apply",
+  "params": "{\"clips\":[id]?,\"effect\":\"gaussian_blur|Gaussian Blur|…\"}",
+  "label": "Apply Effect"
+ },
+ {
+  "id": "effects.remove",
+  "params": "{\"clip\":id,\"index\":n}",
+  "label": "Remove Effect"
+ },
+ {
+  "id": "effects.setParam",
+  "params": "{\"clip\":id,\"effect\":\"motion\"|index,\"param\":str,\"mask\":n?,\"value\":num|[x,y]|\"#rrggbb\"|bool|path,\"time\":ticks?,\"merge\":bool?,\"begin\":bool?}",
+  "label": "Set Effect Parameter"
+ },
+ {
+  "id": "effects.toggleAnimation",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mask\":n?}",
+  "label": "Toggle Animation"
+ },
+ {
+  "id": "effects.toggleEnabled",
+  "params": "{\"clip\":id,\"index\":n}",
+  "label": "Toggle Effect"
+ },
+ {
+  "id": "effects.reset",
+  "params": "{\"clip\":id,\"index\":n}",
+  "label": "Reset Effect"
+ },
+ {
+  "id": "effects.addKeyframe",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mask\":n?,\"time\":ticks?}",
+  "label": "Add/Remove Keyframe"
+ },
+ {
+  "id": "effects.deleteKeyframe",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mediaTime\":ticks}",
+  "label": "Delete Keyframe"
+ },
+ {
+  "id": "effects.moveKeyframe",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mediaTime\":ticks,\"to\":ticks}",
+  "label": "Move Keyframe"
+ },
+ {
+  "id": "effects.setInterpolation",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mediaTime\":ticks,\"interpolation\":\"linear|bezier|autoBezier|continuousBezier|hold|easeIn|easeOut\"}",
+  "label": "Keyframe Interpolation"
+ },
+ {
+  "id": "effects.setKeyframe",
+  "params": "{\"clip\":id,\"effect\":str|index,\"param\":str,\"mediaTime\":ticks,\"value\":any?,\"inInfluence\":0..1?,\"outInfluence\":0..1?}",
+  "label": "Edit Keyframe"
+ },
+ {
+  "id": "project.select",
+  "params": "{\"items\":[id]}",
+  "label": "Select Project Items"
+ },
+ {
+  "id": "project.delete",
+  "params": "{\"items\":[id]?}",
+  "label": "Clear"
+ },
+ {
+  "id": "project.moveToBin",
+  "params": "{\"items\":[id]?,\"bin\":binId|null}",
+  "label": "Move to Bin"
+ },
+ {
+  "id": "project.setMarks",
+  "params": "{\"item\":id,\"in\":ticks?|null,\"out\":ticks?|null}",
+  "label": "Set Source In/Out"
+ },
+ {
+  "id": "command.list",
+  "params": "{}",
+  "label": "List Commands"
+ },
+ {
+  "id": "project.inspect",
+  "params": "{}",
+  "label": "Inspect Project"
+ },
+ {
+  "id": "sequence.inspect",
+  "params": "{\"item\":id?}",
+  "label": "Inspect Sequence"
+ },
+ {
+  "id": "state.inspect",
+  "params": "{}",
+  "label": "Inspect Editor State"
+ },
+ {
+  "id": "effects.list",
+  "params": "{\"kind\":\"Video\"|\"Audio\"|\"VideoTransition\"|\"AudioTransition\"?,\"folder\":\"Video Transitions/Wipe\"?,\"detail\":bool?}",
+  "label": "List Effects"
+ },
+ {
+  "id": "history.list",
+  "params": "{}",
+  "label": "List History"
+ },
+ {
+  "id": "captions.newTrack",
+  "params": "{\"format\":\"Subtitle|CEA-608|CEA-708|Teletext\",\"name\":str?,\"language\":str?}",
+  "label": "Add New Caption Track…"
+ },
+ {
+  "id": "captions.deleteTrack",
+  "params": "{\"track\":id|\"C1\"}",
+  "label": "Delete Caption Track"
+ },
+ {
+  "id": "captions.setTrack",
+  "params": "{\"track\":id|\"C1\",\"name\":str?,\"format\":str?,\"language\":str?,\"enabled\":bool?,\"locked\":bool?,\"syncLock\":bool?}",
+  "label": "Caption Track Settings"
+ },
+ {
+  "id": "captions.setStyle",
+  "params": "{\"track\":id|\"C1\",\"font\":str?,\"size\":f32?,\"color\":\"#rrggbb[aa]\"?,\"background\":bool?,\"backgroundColor\":\"#rrggbbaa\"?,\"align\":\"left|center|right\"?,\"anchor\":\"top|middle|bottom\"?,\"margin\":0..0.45 (fraction of frame height)?,\"lineSpacing\":f32?,\"outline\":f32?,\"outlineColor\":str?,\"reset\":bool?}",
+  "label": "Caption Track Style"
+ },
+ {
+  "id": "captions.add",
+  "params": "{\"track\":id|\"C1\"?,\"text\":str?,\"time\":ticks?,\"seconds\":f64?,\"durationSeconds\":f64=3}",
+  "label": "Add Caption at Playhead"
+ },
+ {
+  "id": "captions.split",
+  "params": "{\"caption\":id?,\"time\":ticks?}",
+  "label": "Split Caption"
+ },
+ {
+  "id": "captions.merge",
+  "params": "{\"captions\":[id]?}",
+  "label": "Merge Captions"
+ },
+ {
+  "id": "captions.setText",
+  "params": "{\"caption\":id?,\"text\":str?,\"speaker\":str|null?}",
+  "label": "Edit Caption Text"
+ },
+ {
+  "id": "captions.setTimes",
+  "params": "{\"caption\":id?,\"startTime|startFrame|startSeconds|startTimecode\":…,\"endTime|endFrame|endSeconds|endTimecode\":…}",
+  "label": "Set Caption In/Out"
+ },
+ {
+  "id": "captions.trim",
+  "params": "{\"caption\":id,\"edge\":\"in|out\",\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Trim Caption"
+ },
+ {
+  "id": "captions.move",
+  "params": "{\"captions\":[id]?,\"delta\":ticks|\"deltaFrames\":i64}",
+  "label": "Move Captions"
+ },
+ {
+  "id": "captions.delete",
+  "params": "{\"captions\":[id]?,\"ripple\":bool=false}",
+  "label": "Delete Captions"
+ },
+ {
+  "id": "captions.select",
+  "params": "{\"captions\":[id],\"add\":bool?}",
+  "label": "Select Captions"
+ },
+ {
+  "id": "captions.goTo",
+  "params": "{\"caption\":id}",
+  "label": "Go to Caption"
+ },
+ {
+  "id": "captions.next",
+  "params": "{}",
+  "label": "Go to Next Caption Segment"
+ },
+ {
+  "id": "captions.previous",
+  "params": "{}",
+  "label": "Go to Previous Caption Segment"
+ },
+ {
+  "id": "captions.showAll",
+  "params": "{}",
+  "label": "Show All Caption Tracks"
+ },
+ {
+  "id": "captions.showActiveOnly",
+  "params": "{\"track\":id|\"C1\"?}",
+  "label": "Show Active Caption Tracks Only"
+ },
+ {
+  "id": "captions.hideAll",
+  "params": "{}",
+  "label": "Hide All Caption Tracks"
+ },
+ {
+  "id": "captions.import",
+  "params": "{\"path\":str,\"name\":str?}",
+  "label": "Import Captions…"
+ },
+ {
+  "id": "captions.export",
+  "params": "{\"path\":str,\"format\":\"srt|vtt|scc|mcc|stl|ttml|dfxp\"? (default: from the extension),\"track\":id|\"C1\"?,\"dropFrame\":bool=true}",
+  "label": "Captions…"
+ },
+ {
+  "id": "captions.list",
+  "params": "{\"track\":id|\"C1\"?}",
+  "label": "List Captions"
+ },
+ {
+  "id": "prefs.schema",
+  "params": "{\"category\":str?}",
+  "label": "Settings Schema"
+ },
+ {
+  "id": "mediaCache.info",
+  "params": "{}",
+  "label": "Media Cache Info"
+ },
+ {
+  "id": "mediaCache.clean",
+  "params": "{\"all\":bool?}",
+  "label": "Delete Media Cache Files"
+ },
+ {
+  "id": "mixer.inspect",
+  "params": "{\"time\":ticks?}",
+  "label": "Inspect Audio Track Mixer"
+ },
+ {
+  "id": "mixer.setStrip",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"name\":str?,\"volumeDb\":f64?,\"pan\":f64?,\"muted\":bool?,\"solo\":bool?,\"recordArm\":bool?,\"soloSafe\":bool?,\"mode\":\"Off|Read|Latch|Touch|Write\"?,\"output\":\"Mix\"|\"S1\"?,\"inputMap\":\"Stereo|Left|Right|Swap|Mono\"?,\"channels\":\"Mono|Stereo|5.1\"?}",
+  "label": "Track Mixer Settings"
+ },
+ {
+  "id": "mixer.setValue",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":\"volume|pan|mute|send.<i>.level|fx.<slot>.<param>\",\"value\":f64,\"time\":ticks?}",
+  "label": "Set Mixer Control"
+ },
+ {
+  "id": "mixer.touch",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":\"volume|pan|mute|send.<i>.level|fx.<slot>.<param>\",\"value\":f64,\"time\":ticks?}",
+  "label": "Touch Mixer Control"
+ },
+ {
+  "id": "mixer.release",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?,\"time\":ticks?}",
+  "label": "Release Mixer Control"
+ },
+ {
+  "id": "mixer.recordStart",
+  "params": "{\"time\":ticks?}",
+  "label": "Start Automation Pass"
+ },
+ {
+  "id": "mixer.recordStop",
+  "params": "{\"time\":ticks?}",
+  "label": "Write Automation"
+ },
+ {
+  "id": "clipMixer.set",
+  "params": "{\"clip\":id,\"effect\":\"volume\"|\"panner\",\"param\":\"level\"|\"balance\",\"value\":f64,\"keyframe\":bool?,\"time\":ticks?,\"begin\":bool?}",
+  "label": "Audio Clip Mixer Adjust"
+ },
+ {
+  "id": "clipMixer.setMode",
+  "params": "{\"track\":\"A1\"|id,\"mode\":\"Off|Read|Latch|Touch|Write\"}",
+  "label": "Audio Clip Mixer Automation Mode"
+ },
+ {
+  "id": "clipMixer.touch",
+  "params": "{\"track\":\"A1\"|id,\"lane\":\"volume|pan\",\"value\":f64,\"time\":ticks?}",
+  "label": "Touch Clip Mixer Control"
+ },
+ {
+  "id": "clipMixer.release",
+  "params": "{\"track\":\"A1\"|id,\"lane\":\"volume|pan\",\"time\":ticks?}",
+  "label": "Release Clip Mixer Control"
+ },
+ {
+  "id": "effects.setDefaultTransition",
+  "params": "{\"effect\":\"constant_power|constant_gain|exponential_fade|<video transition>\"}",
+  "label": "Set Selected as Default Transition"
+ },
+ {
+  "id": "mixer.deleteSubmix",
+  "params": "{\"strip\":\"S1\"|id}",
+  "label": "Delete Submix Track"
+ },
+ {
+  "id": "mixer.addInsert",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"effect\":str,\"slot\":n?,\"postFader\":bool?}",
+  "label": "Add Track Effect"
+ },
+ {
+  "id": "mixer.removeInsert",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"slot\":n}",
+  "label": "Remove Track Effect"
+ },
+ {
+  "id": "mixer.setInsert",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"slot\":n,\"enabled\":bool?,\"postFader\":bool?,\"params\":{id:value}?}",
+  "label": "Track Effect Settings"
+ },
+ {
+  "id": "mixer.addSend",
+  "params": "{\"strip\":\"A1\"|\"S1\"|id,\"target\":\"S1\"|id,\"levelDb\":f64?,\"preFader\":bool?,\"pan\":f64?}",
+  "label": "Add Send"
+ },
+ {
+  "id": "mixer.setSend",
+  "params": "{\"strip\":\"A1\"|\"S1\"|id,\"send\":n,\"levelDb\":f64?,\"pan\":f64?,\"preFader\":bool?,\"muted\":bool?,\"target\":\"S1\"?}",
+  "label": "Send Settings"
+ },
+ {
+  "id": "mixer.removeSend",
+  "params": "{\"strip\":\"A1\"|\"S1\"|id,\"send\":n}",
+  "label": "Remove Send"
+ },
+ {
+  "id": "mixer.setKeyframe",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?,\"time\":ticks?,\"value\":f64}",
+  "label": "Add Track Keyframe"
+ },
+ {
+  "id": "mixer.deleteKeyframe",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?,\"time\":ticks}",
+  "label": "Delete Track Keyframe"
+ },
+ {
+  "id": "mixer.moveKeyframe",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?,\"time\":ticks,\"newTime\":ticks?,\"value\":f64?}",
+  "label": "Move Track Keyframe"
+ },
+ {
+  "id": "mixer.clearLane",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?}",
+  "label": "Clear Track Keyframes"
+ },
+ {
+  "id": "mixer.writeAutomation",
+  "params": "{\"strip\":\"A1\"|\"S1\"|\"Mix\"|id,\"lane\":str?,\"points\":[[ticks,value]],\"tolerance\":f64?}",
+  "label": "Write Automation Points"
+ },
+ {
+  "id": "clip.synchronize",
+  "params": "{\"method\":\"in|out|timecode|marker|audio\",\"clips\":[id]?,\"reference\":clip?,\"track\":\"V1\"|\"A1\"?,\"ignoreHours\":bool?,\"marker\":str?,\"offset\":frames?}",
+  "label": "Synchronize…"
+ },
+ {
+  "id": "clip.mergeClips",
+  "params": "{\"items\":[id]?,\"method\":\"in|out|timecode|marker|audio\",\"name\":str?,\"removeVideoAudio\":bool?,\"ignoreHours\":bool?,\"marker\":str?,\"offset\":frames?}",
+  "label": "Merge Clips…"
+ },
+ {
+  "id": "clip.createMulticam",
+  "params": "{\"items\":[id]?,\"name\":str?,\"method\":\"in|out|timecode|marker|audio\",\"ignoreHours\":bool?,\"marker\":str?,\"offset\":frames?,\"audio\":\"camera1|all|switch\",\"cameraNames\":\"clip|track|metadata\",\"processedBin\":bool?,\"reference\":item?}",
+  "label": "Create Multi-Camera Source Sequence…"
+ },
+ {
+  "id": "clip.multicamEnable",
+  "params": "{\"clips\":[id]?,\"enabled\":bool?}",
+  "label": "Enable"
+ },
+ {
+  "id": "clip.multicamFlatten",
+  "params": "{\"clips\":[id]?}",
+  "label": "Flatten"
+ },
+ {
+  "id": "multicam.switchAngle",
+  "params": "{\"camera\":1..16 (shown order)|\"angle\":0-based,\"clips\":[id]?,\"time\":ticks?,\"videoOnly\":bool?,\"audioOnly\":bool?}",
+  "label": "Switch Multi-Camera Angle"
+ },
+ {
+  "id": "multicam.recordStart",
+  "params": "{\"time\":ticks?}",
+  "label": "Start Multi-Camera Recording"
+ },
+ {
+  "id": "multicam.cut",
+  "params": "{\"camera\":1..16|\"angle\":0-based,\"time\":ticks?,\"videoOnly\":bool?}",
+  "label": "Cut to Camera"
+ },
+ {
+  "id": "multicam.recordStop",
+  "params": "{\"time\":ticks?}",
+  "label": "Stop Multi-Camera Recording"
+ },
+ {
+  "id": "multicam.audioFollowsVideo",
+  "params": "{\"enabled\":bool?}",
+  "label": "Multi-Camera Audio Follows Video"
+ },
+ {
+  "id": "multicam.editCameras",
+  "params": "{\"sequence\":id?,\"cameras\":[{\"angle\":0-based,\"name\":str?,\"enabled\":bool?}]?,\"audio\":\"camera1|all|switch\"?}",
+  "label": "Edit Cameras…"
+ },
+ {
+  "id": "multicam.cutToCamera",
+  "params": "{\"camera\":1..16|\"angle\":0-based,\"time\":ticks?,\"videoOnly\":bool?}",
+  "label": "Cut to Camera"
+ },
+ {
+  "id": "multicam.gridLayout",
+  "params": "{\"layout\":\"auto|2x2|3x3|4x4\"}",
+  "label": "Multi-Camera Layout"
+ },
+ {
+  "id": "multicam.page",
+  "params": "{\"page\":0-based|\"next\"|\"prev\"}",
+  "label": "Multi-Camera Page"
+ },
+ {
+  "id": "multicam.nextPage",
+  "params": "{}",
+  "label": "Next Multi-Camera Page"
+ },
+ {
+  "id": "multicam.prevPage",
+  "params": "{}",
+  "label": "Previous Multi-Camera Page"
+ },
+ {
+  "id": "multicam.selectionTopDown",
+  "params": "{\"enabled\":bool?}",
+  "label": "Multi-Camera Selection Top Down"
+ },
+ {
+  "id": "multicam.showPreviewMonitor",
+  "params": "{\"enabled\":bool?}",
+  "label": "Show Multi-Camera Preview Monitor"
+ },
+ {
+  "id": "multicam.autoAdjustQuality",
+  "params": "{\"enabled\":bool?}",
+  "label": "Auto-Adjust Multi-Camera Playback Quality"
+ },
+ {
+  "id": "multicam.transmitView",
+  "params": "{\"enabled\":bool?}",
+  "label": "Transmit Multi-Camera View"
+ },
+ {
+  "id": "multicam.grid",
+  "params": "{\"time\":ticks?,\"playing\":bool?,\"cellPixels\":f32?,\"playbackScale\":f32?}",
+  "label": "Multi-Camera Grid"
+ },
+ {
+  "id": "multicam.inspect",
+  "params": "{\"time\":ticks?}",
+  "label": "Inspect Multi-Camera"
+ },
+ {
+  "id": "multicam.selectCamera1",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 1"
+ },
+ {
+  "id": "multicam.cutToCamera1",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 1"
+ },
+ {
+  "id": "multicam.selectCamera2",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 2"
+ },
+ {
+  "id": "multicam.cutToCamera2",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 2"
+ },
+ {
+  "id": "multicam.selectCamera3",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 3"
+ },
+ {
+  "id": "multicam.cutToCamera3",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 3"
+ },
+ {
+  "id": "multicam.selectCamera4",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 4"
+ },
+ {
+  "id": "multicam.cutToCamera4",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 4"
+ },
+ {
+  "id": "multicam.selectCamera5",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 5"
+ },
+ {
+  "id": "multicam.cutToCamera5",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 5"
+ },
+ {
+  "id": "multicam.selectCamera6",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 6"
+ },
+ {
+  "id": "multicam.cutToCamera6",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 6"
+ },
+ {
+  "id": "multicam.selectCamera7",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 7"
+ },
+ {
+  "id": "multicam.cutToCamera7",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 7"
+ },
+ {
+  "id": "multicam.selectCamera8",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 8"
+ },
+ {
+  "id": "multicam.cutToCamera8",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 8"
+ },
+ {
+  "id": "multicam.selectCamera9",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Select Camera 9"
+ },
+ {
+  "id": "multicam.cutToCamera9",
+  "params": "{\"videoOnly\":bool?}",
+  "label": "Cut to Camera 9"
+ },
+ {
+  "id": "essentialSound.inspect",
+  "params": "{\"clips\":[id]?}",
+  "label": "Inspect Essential Sound"
+ },
+ {
+  "id": "essentialSound.setType",
+  "params": "{\"clips\":[id]?,\"type\":\"dialogue|music|sfx|ambience\"}",
+  "label": "Set Audio Type"
+ },
+ {
+  "id": "essentialSound.clearType",
+  "params": "{\"clips\":[id]?}",
+  "label": "Clear Audio Type"
+ },
+ {
+  "id": "essentialSound.set",
+  "params": "{\"clips\":[id]?,\"key\":\"repair.noise.on|repair.noise.amount|repair.humHz|clarity.eqPreset|creative.reverbPreset|ducking.reduceDb|volume.levelDb|mute|…\",\"value\":any,\"values\":{key:value}?,\"begin\":bool?}",
+  "label": "Essential Sound Setting"
+ },
+ {
+  "id": "essentialSound.applyPreset",
+  "params": "{\"clips\":[id]?,\"preset\":str,\"type\":\"dialogue|music|sfx|ambience\"?}",
+  "label": "Apply Sound Preset"
+ },
+ {
+  "id": "essentialSound.savePreset",
+  "params": "{\"clips\":[id]?,\"name\":str}",
+  "label": "Save Sound Preset"
+ },
+ {
+  "id": "essentialSound.deletePreset",
+  "params": "{\"name\":str,\"type\":\"dialogue|music|sfx|ambience\"?}",
+  "label": "Delete Sound Preset"
+ },
+ {
+  "id": "essentialSound.autoMatch",
+  "params": "{\"clips\":[id]?,\"target\":lufs?}",
+  "label": "Auto-Match Loudness"
+ },
+ {
+  "id": "essentialSound.generateDucking",
+  "params": "{\"clips\":[id]?}",
+  "label": "Generate Ducking Keyframes"
+ },
+ {
+  "id": "color.spaces",
+  "params": "{}",
+  "label": "List Colour Spaces"
+ },
+ {
+  "id": "lumetri.presets",
+  "params": "{\"folder\":str?}",
+  "label": "List Lumetri Presets"
+ },
+ {
+  "id": "lumetri.applyPreset",
+  "params": "{\"name\":str,\"clips\":[id]?}",
+  "label": "Apply Lumetri Preset"
+ },
+ {
+  "id": "lumetri.presetThumbnails",
+  "params": "{\"folder\":str?,\"names\":[str]?,\"width\":n=160,\"columns\":n=4,\"path\":str?}",
+  "label": "Lumetri Preset Thumbnails"
+ },
+ {
+  "id": "media.colorInfo",
+  "params": "{\"item\":id}",
+  "label": "Media Colour Info"
+ },
+ {
+  "id": "lut.import",
+  "params": "{\"path\":str,\"name\":str?}",
+  "label": "Import LUT…"
+ },
+ {
+  "id": "lut.list",
+  "params": "{}",
+  "label": "List LUTs"
+ },
+ {
+  "id": "lut.remove",
+  "params": "{\"id\":str}",
+  "label": "Remove LUT"
+ },
+ {
+  "id": "lut.export",
+  "params": "{\"lut\":\"lib:<id>\"|\"builtin:<id>\",\"path\":str,\"format\":\"cube\"|\"3dl\"?}",
+  "label": "Export LUT"
+ },
+ {
+  "id": "lumetri.setInputLut",
+  "params": "{\"clip\":id?,\"lut\":\"lib:<id>\"|\"builtin:<id>\"|\"\"?,\"path\":str?}",
+  "label": "Set Input LUT"
+ },
+ {
+  "id": "lumetri.setLook",
+  "params": "{\"clip\":id?,\"lut\":\"lib:<id>\"|\"builtin:<id>\"|\"\"?,\"path\":str?}",
+  "label": "Set Creative Look"
+ },
+ {
+  "id": "lumetri.applyMatch",
+  "params": "{\"clip\":id?,\"referenceTime\":ticks?|\"referenceFrame\":n?|\"referenceTimecode\":str?,\"faceDetection\":bool=true}",
+  "label": "Apply Match"
+ },
+ {
+  "id": "lumetri.setSection",
+  "params": "{\"clip\":id?,\"section\":\"basic\"|\"creative\"|\"curves\"|\"wheels\"|\"hsl\"|\"vignette\",\"on\":bool?}",
+  "label": "Toggle Lumetri Section"
+ },
+ {
+  "id": "graphics.newText",
+  "params": "{\"text\":str=\"New Text\",\"position\":[x,y]? (point text: its alignment point on the first baseline; with `box`: the box's top-left corner),\"box\":[w,h]? (paragraph text wrapped in a box this size),\"clip\":id?,\"newClip\":bool?,\"vertical\":bool=false,\"size\":px=100,\"font\":str?,\"fontStyle\":str?,\"seconds\":f64=5,\"track\":index?,\"time\":ticks?}",
+  "label": "Text"
+ },
+ {
+  "id": "graphics.newShape",
+  "params": "{\"shape\":\"rectangle|ellipse|polygon|path\",\"position\":[x,y]?,\"size\":[w,h]=[400,200],\"points\":[[x,y],…]?,\"clip\":id?,\"seconds\":f64=5}",
+  "label": "Shape"
+ },
+ {
+  "id": "graphics.setText",
+  "params": "{\"clip\":id?,\"layer\":n|name?,\"text\":str,\"merge\":bool? (coalesce with the previous Edit Text undo step)}",
+  "label": "Edit Text"
+ },
+ {
+  "id": "graphics.set",
+  "params": "{\"clip\":id?,\"layer\":n|name?,\"props\":{\"font\":\"Inter\",\"font_style\":\"Bold\",\"size\":120,\"align\":\"center\",\"tracking\":50,\"leading\":0,\"fill_color\":\"#ffcc00\",\"stroke\":true,\"stroke_width\":6,\"background\":true,\"shadow\":true,\"position\":[x,y],\"scale\":100,\"rotation\":0,\"opacity\":100,…},\"time\":ticks?}",
+  "label": "Set Graphic Properties"
+ },
+ {
+  "id": "graphics.setTextType",
+  "params": "{\"clip\":id?,\"layer\":n|name?,\"type\":\"point|paragraph\" (point: no box, handles scale the text; paragraph: the text wraps in a box that handles resize)}",
+  "label": "Text Layer Type"
+ },
+ {
+  "id": "graphics.selectLayer",
+  "params": "{\"clip\":id?,\"layers\":[n]}",
+  "label": "Select Graphic Layer"
+ },
+ {
+  "id": "graphics.deleteLayer",
+  "params": "{\"clip\":id?,\"layer\":n?}",
+  "label": "Delete Graphic Layer"
+ },
+ {
+  "id": "graphics.arrangeLayer",
+  "params": "{\"clip\":id?,\"layer\":n?,\"to\":\"front|back|forward|backward\"|index}",
+  "label": "Arrange Graphic Layer"
+ },
+ {
+  "id": "graphics.align",
+  "params": "{\"clip\":id?,\"layers\":[n]?,\"align\":\"left|hcenter|right|top|vcenter|bottom\",\"to\":\"frame|group|selection\"=\"frame\" (frame: each layer; group: the layers' union; one layer always aligns to the frame)}",
+  "label": "Align Layers"
+ },
+ {
+  "id": "graphics.distribute",
+  "params": "{\"clip\":id?,\"layers\":[n] (3 or more)?,\"axis\":\"horizontal|vertical\",\"space\":bool=false (equal gaps instead of equal centre spacing)}",
+  "label": "Distribute Layers"
+ },
+ {
+  "id": "graphics.list",
+  "params": "{\"clip\":id?}",
+  "label": "List Graphic Layers"
+ },
+ {
+  "id": "fonts.list",
+  "params": "{\"system\":bool=true (scan the system font folders)}",
+  "label": "List Fonts"
+ },
+ {
+  "id": "graphics.newVerticalText",
+  "params": "{\"text\":str=\"New Text\",\"position\":[x,y]?,\"clip\":id?,\"size\":px=100,\"seconds\":f64=5,\"time\":ticks?}",
+  "label": "Vertical Text"
+ },
+ {
+  "id": "graphics.newRectangle",
+  "params": "{\"position\":[x,y]?,\"size\":[w,h]=[400,200],\"clip\":id?}",
+  "label": "Rectangle"
+ },
+ {
+  "id": "graphics.newEllipse",
+  "params": "{\"position\":[x,y]?,\"size\":[w,h]=[400,200],\"clip\":id?}",
+  "label": "Ellipse"
+ },
+ {
+  "id": "graphics.newPolygon",
+  "params": "{\"position\":[x,y]?,\"size\":[w,h]=[300,300],\"sides\":n=6,\"clip\":id?}",
+  "label": "Polygon"
+ },
+ {
+  "id": "graphics.newFromFile",
+  "params": "{\"path\":str,\"time\":ticks?,\"track\":index?} (imports the image or video and places it above the clips at the playhead)",
+  "label": "From file…"
+ },
+ {
+  "id": "graphics.alignFrame.left",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Left"
+ },
+ {
+  "id": "graphics.alignFrame.hcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Horizontally"
+ },
+ {
+  "id": "graphics.alignFrame.right",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Right"
+ },
+ {
+  "id": "graphics.alignFrame.top",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Top"
+ },
+ {
+  "id": "graphics.alignFrame.vcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Vertically"
+ },
+ {
+  "id": "graphics.alignFrame.bottom",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Bottom"
+ },
+ {
+  "id": "graphics.alignGroup.left",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Left"
+ },
+ {
+  "id": "graphics.alignGroup.hcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Horizontally"
+ },
+ {
+  "id": "graphics.alignGroup.right",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Right"
+ },
+ {
+  "id": "graphics.alignGroup.top",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Top"
+ },
+ {
+  "id": "graphics.alignGroup.vcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Vertically"
+ },
+ {
+  "id": "graphics.alignGroup.bottom",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Bottom"
+ },
+ {
+  "id": "graphics.alignSelection.left",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Left"
+ },
+ {
+  "id": "graphics.alignSelection.hcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Horizontally"
+ },
+ {
+  "id": "graphics.alignSelection.right",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Right"
+ },
+ {
+  "id": "graphics.alignSelection.top",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Top"
+ },
+ {
+  "id": "graphics.alignSelection.vcenter",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Center Vertically"
+ },
+ {
+  "id": "graphics.alignSelection.bottom",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Bottom"
+ },
+ {
+  "id": "graphics.distributeVertically",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Distribute Vertically"
+ },
+ {
+  "id": "graphics.distributeSpaceVertically",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Distribute Space Vertically"
+ },
+ {
+  "id": "graphics.distributeHorizontally",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Distribute Horizontally"
+ },
+ {
+  "id": "graphics.distributeSpaceHorizontally",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers)}",
+  "label": "Distribute Space Horizontally"
+ },
+ {
+  "id": "graphics.bringToFront",
+  "params": "{\"clip\":id?,\"layer\":n?}",
+  "label": "Bring to Front"
+ },
+ {
+  "id": "graphics.bringForward",
+  "params": "{\"clip\":id?,\"layer\":n?}",
+  "label": "Bring Forward"
+ },
+ {
+  "id": "graphics.sendBackward",
+  "params": "{\"clip\":id?,\"layer\":n?}",
+  "label": "Send Backward"
+ },
+ {
+  "id": "graphics.sendToBack",
+  "params": "{\"clip\":id?,\"layer\":n?}",
+  "label": "Send to Back"
+ },
+ {
+  "id": "graphics.selectNextGraphic",
+  "params": "{}",
+  "label": "Select Next Graphic"
+ },
+ {
+  "id": "graphics.selectPreviousGraphic",
+  "params": "{}",
+  "label": "Select Previous Graphic"
+ },
+ {
+  "id": "graphics.selectNextLayer",
+  "params": "{}",
+  "label": "Select Next Layer"
+ },
+ {
+  "id": "graphics.selectPreviousLayer",
+  "params": "{}",
+  "label": "Select Previous Layer"
+ },
+ {
+  "id": "graphics.resetAllParameters",
+  "params": "{\"clip\":id?,\"layers\":[n]? (default: the selected layers, else all)}",
+  "label": "Reset All Parameters"
+ },
+ {
+  "id": "graphics.resetDuration",
+  "params": "{\"clip\":id?,\"seconds\":f64=5 (the default graphic duration; limited by the next clip on the track)}",
+  "label": "Reset Duration"
+ },
+ {
+  "id": "graphics.template.list",
+  "params": "{\"query\":str? (search names, categories, descriptions, tags),\"category\":str?,\"source\":\"builtin|user\"?}",
+  "label": "List Graphics Templates"
+ },
+ {
+  "id": "graphics.template.apply",
+  "params": "{\"template\":id|name|path,\"values\":{control id or name: value}?,\"time\":ticks?,\"track\":index?}",
+  "label": "Apply Graphics Template"
+ },
+ {
+  "id": "graphics.template.export",
+  "params": "{\"clip\":id?,\"name\":str,\"category\":str=\"My Templates\",\"description\":str?,\"controls\":[{\"layer\":n|name,\"param\":\"text|fill_color|size|font|position|enabled|…\",\"name\":str?,\"kind\":\"text|color|slider|checkbox|font|position\"?,\"min\":f64?,\"max\":f64?,\"id\":str?}]? (default: each text layer's text),\"path\":str? (default: the user templates folder),\"embedFonts\":bool=false,\"fontLicense\":str?}",
+  "label": "Export As Motion Graphics Template…"
+ },
+ {
+  "id": "file.exportGraphicsTemplate",
+  "params": "as graphics.template.export",
+  "label": "Motion Graphics Template…"
+ },
+ {
+  "id": "graphics.template.install",
+  "params": "{\"path\":str (a .fcgt file; Adobe .mogrt files are refused)}",
+  "label": "Install Motion Graphics Template…"
+ },
+ {
+  "id": "graphics.template.remove",
+  "params": "{\"template\":id|name (a user template)}",
+  "label": "Remove Graphics Template"
+ },
+ {
+  "id": "graphics.template.set",
+  "params": "{\"clip\":id?,\"control\":id|name,\"value\":any} or {\"clip\":id?,\"values\":{control: value}}",
+  "label": "Set Template Property"
+ },
+ {
+  "id": "graphics.template.controls",
+  "params": "{\"clip\":id?}",
+  "label": "List Template Properties"
+ },
+ {
+  "id": "graphics.template.thumbnail",
+  "params": "{\"template\":id|name|path,\"width\":px=320,\"path\":str? (write a PNG there; else returned as pngBase64)}",
+  "label": "Graphics Template Thumbnail"
+ },
+ {
+  "id": "graphics.setRoll",
+  "params": "{\"clip\":id?,\"mode\":\"off|roll|crawlLeft|crawlRight\"?,\"startOffScreen\":bool?,\"endOffScreen\":bool?,\"prerollFrames\":n?,\"easeInFrames\":n?,\"easeOutFrames\":n?,\"postrollFrames\":n? (or …Seconds, or ticks as preroll/easeIn/easeOut/postroll)}",
+  "label": "Roll/Crawl Options"
+ },
+ {
+  "id": "graphics.setResponsiveTime",
+  "params": "{\"clip\":id?,\"introFrames\":n?,\"outroFrames\":n? (or introSeconds / outroSeconds, or ticks as intro / outro)}",
+  "label": "Responsive Design - Time"
+ },
+ {
+  "id": "graphics.pin",
+  "params": "{\"clip\":id?,\"layer\":n|name?,\"to\":\"frame\"|\"none\"|layer index|layer name,\"edges\":[\"left\",\"top\",\"right\",\"bottom\"]|\"all\"=\"all\"}",
+  "label": "Responsive Design - Position"
+ },
+ {
+  "id": "graphics.setCharStyle",
+  "params": "{\"clip\":id?,\"layer\":n|name?,\"start\":char=0,\"end\":char=len,\"style\":{\"font\":str,\"fontStyle\":str,\"size\":px,\"color\":\"#rrggbb\",\"bold\":bool,\"italic\":bool,\"underline\":bool,\"tracking\":n,\"baselineShift\":px,\"caps\":\"normal|all caps|small caps\"},\"clear\":bool? (remove styles from the range)}",
+  "label": "Character Style"
+ },
+ {
+  "id": "graphics.upgradeCaption",
+  "params": "{\"captions\":[id]? (default: the selected captions, else the one under the playhead)}",
+  "label": "Upgrade Caption to Graphic"
+ },
+ {
+  "id": "graphics.upgradeToSourceGraphic",
+  "params": "{\"clip\":id?}",
+  "label": "Upgrade to Source Graphic"
+ },
+ {
+  "id": "file.replaceFonts",
+  "params": "{\"from\":family|{\"family\",\"style\"?},\"to\":family|{\"family\",\"style\"?},\"toStyle\":str?}",
+  "label": "Replace Fonts in Projects…"
+ },
+ {
+  "id": "graphics.fonts.used",
+  "params": "{}",
+  "label": "List Fonts Used"
+ },
+ {
+  "id": "shortcuts.list",
+  "params": "{\"query\":str?,\"panel\":str?,\"assigned\":bool?,\"platform\":\"mac|windows|linux\"?}",
+  "label": "List Keyboard Shortcuts"
+ },
+ {
+  "id": "shortcuts.get",
+  "params": "{\"command\":id,\"platform\":str?}",
+  "label": "Get Shortcuts of a Command"
+ },
+ {
+  "id": "shortcuts.set",
+  "params": "{\"command\":id,\"keys\":\"Cmd+Shift+K\",\"panel\":str?,\"add\":bool?,\"keepConflicts\":bool?}",
+  "label": "Assign Shortcut"
+ },
+ {
+  "id": "shortcuts.clear",
+  "params": "{\"command\":id,\"keys\":str?,\"panel\":str?}",
+  "label": "Clear Shortcut"
+ },
+ {
+  "id": "shortcuts.undo",
+  "params": "{}",
+  "label": "Undo Shortcut Change"
+ },
+ {
+  "id": "shortcuts.redo",
+  "params": "{}",
+  "label": "Redo Shortcut Change"
+ },
+ {
+  "id": "shortcuts.conflicts",
+  "params": "{\"platform\":\"mac|windows|linux\"?}",
+  "label": "Shortcut Conflicts"
+ },
+ {
+  "id": "shortcuts.forKey",
+  "params": "{\"key\":\"K\",\"platform\":str?}",
+  "label": "Shortcuts on a Key"
+ },
+ {
+  "id": "shortcuts.resolve",
+  "params": "{\"keys\":str,\"panel\":str?,\"platform\":str?}",
+  "label": "Resolve Shortcut"
+ },
+ {
+  "id": "shortcuts.presets",
+  "params": "{}",
+  "label": "Keyboard Shortcut Presets"
+ },
+ {
+  "id": "shortcuts.loadPreset",
+  "params": "{\"name\":str}",
+  "label": "Load Shortcut Preset"
+ },
+ {
+  "id": "shortcuts.savePreset",
+  "params": "{\"name\":str}",
+  "label": "Save Shortcut Preset As"
+ },
+ {
+  "id": "shortcuts.deletePreset",
+  "params": "{\"name\":str}",
+  "label": "Delete Shortcut Preset"
+ },
+ {
+  "id": "shortcuts.export",
+  "params": "{\"path\":str}",
+  "label": "Export Keyboard Shortcuts"
+ },
+ {
+  "id": "shortcuts.import",
+  "params": "{\"path\":str,\"activate\":bool=true}",
+  "label": "Import Keyboard Shortcuts"
+ },
+ {
+  "id": "shortcuts.audit",
+  "params": "{}",
+  "label": "Shortcut Audit"
+ },
+ {
+  "id": "media.findMissing",
+  "params": "{}",
+  "label": "Find Missing Media"
+ },
+ {
+  "id": "media.status",
+  "params": "{\"item\":id?}",
+  "label": "Media Status"
+ },
+ {
+  "id": "media.linkMedia",
+  "params": "{}  (opens the Link Media dialog; agents use media.relink / media.autoRelink)",
+  "label": "Link Media…"
+ },
+ {
+  "id": "media.relink",
+  "params": "{\"item\":id,\"path\":str,\"force\":bool=false,\"relinkOthers\":bool=true,\"alignTimecode\":bool=false,\"match\":{\"fileName\":bool,\"extension\":bool,\"clipId\":bool,\"duration\":bool,\"mediaStart\":bool,\"metadata\":bool}?}",
+  "label": "Relink Media"
+ },
+ {
+  "id": "media.replaceFootage",
+  "params": "{\"item\":id,\"path\":str}",
+  "label": "Replace Footage…"
+ },
+ {
+  "id": "media.autoRelink",
+  "params": "{\"from\":str,\"to\":str}|{\"folder\":str} + match options",
+  "label": "Relink Moved Media"
+ },
+ {
+  "id": "media.search",
+  "params": "{\"folder\":str,\"item\":id?,\"exactName\":bool=true}",
+  "label": "Search for Media"
+ },
+ {
+  "id": "media.makeOffline",
+  "params": "{\"items\":[id]?,\"deleteFiles\":bool=false}",
+  "label": "Make Offline…"
+ },
+ {
+  "id": "file.importFromMediaBrowser",
+  "params": "{\"paths\":[str]?,\"imageSequence\":bool?}",
+  "label": "Import from Media Browser"
+ },
+ {
+  "id": "file.import",
+  "params": "{\"paths\":[str],\"bin\":binId?,\"imageSequence\":bool?}",
+  "label": "Import…"
+ },
+ {
+  "id": "file.importImageSequence",
+  "params": "{\"path\":str,\"bin\":binId?}",
+  "label": "Import Image Sequence…"
+ },
+ {
+  "id": "media.offlineAll",
+  "params": "{}  (leave every missing file offline and close the Link Media dialog)",
+  "label": "Offline All"
+ },
+ {
+  "id": "media.createProxies",
+  "params": "{\"items\":[id]?,\"preset\":\"prores_proxy_quarter|prores_proxy_half|prores_lt_half|h264_quarter|h264_half\",\"destination\":str?,\"attach\":bool=true,\"wait\":bool=false}",
+  "label": "Create Proxies…"
+ },
+ {
+  "id": "media.attachProxies",
+  "params": "{\"item\":id,\"path\":str}|{\"items\":[id],\"paths\":[str]},\"force\":bool=false",
+  "label": "Attach Proxies…"
+ },
+ {
+  "id": "media.detachProxies",
+  "params": "{\"items\":[id]?}",
+  "label": "Detach Proxies"
+ },
+ {
+  "id": "media.reconnectFullRes",
+  "params": "{\"item\":id,\"path\":str}",
+  "label": "Reconnect Full Resolution Media…"
+ },
+ {
+  "id": "media.toggleProxies",
+  "params": "{\"enabled\":bool?}",
+  "label": "Toggle Proxies"
+ },
+ {
+  "id": "media.proxyPresets",
+  "params": "{}",
+  "label": "Proxy Presets"
+ },
+ {
+  "id": "file.mediaPropertiesFile",
+  "params": "{\"path\":str}",
+  "label": "File…"
+ },
+ {
+  "id": "file.mediaProperties",
+  "params": "{\"items\":[id]?}",
+  "label": "Selection…"
+ },
+ {
+  "id": "file.projectSettings.general",
+  "params": "{\"renderer\":\"gpu|software\"?,\"videoDisplay\":\"timecode|feet35|feet16|frames\"?,\"audioDisplay\":\"samples|milliseconds\"?,\"captureFormat\":\"DV|HDV\"?,\"titleSafe\":[h,v]?,\"actionSafe\":[h,v]?}",
+  "label": "General…"
+ },
+ {
+  "id": "file.projectSettings.scratchDisks",
+  "params": "{\"captured\":path|null?,\"videoPreviews\":path|null?,\"audioPreviews\":path|null?,\"autoSave\":path|null?}",
+  "label": "Scratch Disks…"
+ },
+ {
+  "id": "project.ingestSettings",
+  "params": "{\"enabled\":bool?,\"action\":\"copy|transcode|createProxies|copyAndCreateProxies\"?,\"destination\":str?,\"preset\":str?}",
+  "label": "Ingest Settings…"
+ },
+ {
+  "id": "file.projectManager",
+  "params": "{\"destination\":str,\"mode\":\"collect|consolidate\",\"sequences\":[id]?,\"excludeUnused\":bool=true,\"handles\":frames=30,\"preset\":\"prores_lt|prores_hq|h264|…\",\"includeProxies\":bool,\"includePreviews\":bool=false,\"projectName\":str?,\"dryRun\":bool=false,\"overwrite\":bool=false,\"wait\":bool=false}",
+  "label": "Project Manager…"
+ },
+ {
+  "id": "masks.add",
+  "params": "{\"clip\":id?,\"effect\":index|id?=\"opacity\",\"shape\":\"ellipse\"|\"polygon\"|\"bezier\",\"path\":[[x,y]…]|{vertices}?,\"center\":[x,y]?,\"size\":[w,h]?}",
+  "label": "Create Mask"
+ },
+ {
+  "id": "masks.remove",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?}",
+  "label": "Delete Mask"
+ },
+ {
+  "id": "masks.set",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"name\":str?,\"inverted\":bool?,\"mode\":\"none|add|subtract|intersect|lighten|darken|difference\"?,\"trackMethod\":\"position|positionRotation|positionScaleRotation\"?,\"feather\":px?,\"opacity\":pct?,\"expansion\":px?,\"path\":path?,\"time\":ticks?,\"merge\":key?}",
+  "label": "Change Mask"
+ },
+ {
+  "id": "masks.moveVertex",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"vertex\":n,\"handle\":\"point\"|\"in\"|\"out\"?,\"to\":[x,y]?|\"delta\":[dx,dy]?,\"breakHandles\":bool?,\"merge\":key?}",
+  "label": "Move Mask Vertex"
+ },
+ {
+  "id": "masks.translate",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"delta\":[dx,dy],\"merge\":key?}",
+  "label": "Move Mask"
+ },
+ {
+  "id": "masks.addVertex",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"after\":n,\"at\":[x,y]}",
+  "label": "Add Mask Vertex"
+ },
+ {
+  "id": "masks.removeVertex",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"vertex\":n}",
+  "label": "Delete Mask Vertex"
+ },
+ {
+  "id": "masks.track",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"direction\":\"forward\"|\"backward\"?,\"frames\":n?,\"method\":\"position|positionRotation|positionScaleRotation\"?,\"wait\":bool?}",
+  "label": "Track Selected Mask"
+ },
+ {
+  "id": "masks.toggleVertexSmooth",
+  "params": "{\"clip\":id?,\"effect\":index|id?,\"mask\":n?,\"vertex\":n}",
+  "label": "Convert Mask Vertex"
+ },
+ {
+  "id": "masks.select",
+  "params": "{\"clip\":id,\"effect\":index|id,\"mask\":n}|{\"none\":true}",
+  "label": "Select Mask"
+ },
+ {
+  "id": "masks.list",
+  "params": "{\"clip\":id?,\"time\":ticks?}",
+  "label": "List Masks"
+ },
+ {
+  "id": "presets.list",
+  "params": "{}",
+  "label": "List Effect Presets"
+ },
+ {
+  "id": "presets.save",
+  "params": "{\"clip\":id?,\"effects\":[index]?,\"name\":str,\"description\":str?,\"keyframes\":\"scale\"|\"anchorIn\"|\"anchorOut\"|\"none\"?}",
+  "label": "Save Preset"
+ },
+ {
+  "id": "presets.apply",
+  "params": "{\"preset\":str,\"clips\":[id]?}",
+  "label": "Apply Preset"
+ },
+ {
+  "id": "presets.delete",
+  "params": "{\"name\":str}",
+  "label": "Delete Preset"
+ },
+ {
+  "id": "presets.rename",
+  "params": "{\"name\":str,\"to\":str}",
+  "label": "Rename Preset"
+ },
+ {
+  "id": "presets.export",
+  "params": "{\"path\":str,\"names\":[str]?}",
+  "label": "Export Presets"
+ },
+ {
+  "id": "presets.import",
+  "params": "{\"path\":str}",
+  "label": "Import Presets"
+ },
+ {
+  "id": "export.presets.list",
+  "params": "{\"query\":str?,\"category\":str?,\"format\":str?,\"favorites\":bool?}",
+  "label": "List Export Presets"
+ },
+ {
+  "id": "export.presets.get",
+  "params": "{\"name\":str}",
+  "label": "Get Export Preset"
+ },
+ {
+  "id": "export.presets.save",
+  "params": "{\"name\":str,\"from\":str?,\"settings\":ExportSettings?,\"category\":str?,\"description\":str?,\"overwrite\":bool=true, …flat overrides}",
+  "label": "Save Export Preset"
+ },
+ {
+  "id": "export.presets.delete",
+  "params": "{\"name\":str}",
+  "label": "Delete Export Preset"
+ },
+ {
+  "id": "export.presets.favorite",
+  "params": "{\"name\":str,\"favorite\":bool?}",
+  "label": "Favorite Export Preset"
+ },
+ {
+  "id": "export.presets.import",
+  "params": "{\"path\":str}",
+  "label": "Import Export Presets"
+ },
+ {
+  "id": "export.presets.export",
+  "params": "{\"path\":str,\"names\":[str]?}",
+  "label": "Export Export Presets"
+ },
+ {
+  "id": "export.formats",
+  "params": "{}",
+  "label": "List Export Formats"
+ },
+ {
+  "id": "export.resolve",
+  "params": "{…settings params, \"path\":str?}",
+  "label": "Resolve Export Settings"
+ },
+ {
+  "id": "export.queue.add",
+  "params": "{…settings params,\"path\":str|dir?,\"sequences\":[id]?,\"ranges\":[range]?,\"start\":bool?,\"wait\":bool?}",
+  "label": "Send to Export Queue"
+ },
+ {
+  "id": "export.queue.list",
+  "params": "{}",
+  "label": "List Export Queue"
+ },
+ {
+  "id": "export.queue.start",
+  "params": "{\"wait\":bool=false}",
+  "label": "Start Export Queue"
+ },
+ {
+  "id": "export.queue.stop",
+  "params": "{}",
+  "label": "Stop Export Queue"
+ },
+ {
+  "id": "export.queue.cancel",
+  "params": "{\"id\":id?,\"wait\":bool?}",
+  "label": "Cancel Queued Export"
+ },
+ {
+  "id": "export.queue.retry",
+  "params": "{\"id\":id,\"start\":bool?,\"wait\":bool?}",
+  "label": "Retry Queued Export"
+ },
+ {
+  "id": "export.queue.remove",
+  "params": "{\"id\":id}",
+  "label": "Remove Queued Export"
+ },
+ {
+  "id": "export.queue.move",
+  "params": "{\"id\":id,\"to\":index?,\"by\":int?}",
+  "label": "Reorder Queued Export"
+ },
+ {
+  "id": "export.queue.clear",
+  "params": "{\"all\":bool=false}",
+  "label": "Clear Finished Exports"
+ },
+ {
+  "id": "export.quick",
+  "params": "{\"preset\":str?,\"path\":str?,\"wait\":bool?, …settings params}",
+  "label": "Quick Export"
+ },
+ {
+  "id": "transcript.generate",
+  "params": "{\"items\":[id]?,\"model\":\"whisper-base\"?,\"language\":\"en|auto\"?,\"diarize\":bool?,\"maxSpeakers\":n?}",
+  "label": "Transcribe…"
+ },
+ {
+  "id": "transcript.set",
+  "params": "{\"item\":id,\"transcript\":{\"language\":str,\"speakers\":[{\"name\":str}],\"words\":[{\"text\":str,\"start\":tick,\"end\":tick,\"speaker\":n?}]}}",
+  "label": "Import Transcript"
+ },
+ {
+  "id": "transcript.delete",
+  "params": "{\"items\":[id]?}",
+  "label": "Delete Transcript"
+ },
+ {
+  "id": "transcript.inspect",
+  "params": "{\"paragraphGapSeconds\":f?}",
+  "label": "Inspect Transcript"
+ },
+ {
+  "id": "transcript.search",
+  "params": "{\"query\":str}",
+  "label": "Search Transcript"
+ },
+ {
+  "id": "transcript.models",
+  "params": "{}",
+  "label": "List Speech Models"
+ },
+ {
+  "id": "transcript.downloadModel",
+  "params": "{\"model\":\"whisper-base\"?}",
+  "label": "Download Speech Model"
+ },
+ {
+  "id": "transcript.select",
+  "params": "{\"from\":word,\"to\":word?}",
+  "label": "Mark Selected Text"
+ },
+ {
+  "id": "transcript.extract",
+  "params": "{\"from\":word,\"to\":word?}",
+  "label": "Extract Selected Text"
+ },
+ {
+  "id": "transcript.lift",
+  "params": "{\"from\":word,\"to\":word?}",
+  "label": "Lift Selected Text"
+ },
+ {
+  "id": "transcript.renameSpeaker",
+  "params": "{\"speaker\":\"Speaker 1\"|index,\"name\":str,\"item\":id?}",
+  "label": "Rename Speaker…"
+ },
+ {
+  "id": "transcript.removePauses",
+  "params": "{\"minSeconds\":f?,\"keepSeconds\":f?}",
+  "label": "Remove Pauses"
+ },
+ {
+  "id": "transcript.removeFillers",
+  "params": "{\"fillers\":[str]?}",
+  "label": "Remove Filler Words"
+ },
+ {
+  "id": "transcript.createCaptions",
+  "params": "{\"maxChars\":n?,\"lines\":1|2?,\"minSeconds\":f?,\"maxSeconds\":f?,\"gapFrames\":n?,\"format\":str?,\"name\":str?}",
+  "label": "Create Captions from Transcript…"
+ },
+ {
+  "id": "events.list",
+  "params": "{\"level\":\"info|warning|error\"?,\"since\":id?}",
+  "label": "List Events"
+ },
+ {
+  "id": "events.clear",
+  "params": "{}",
+  "label": "Clear All Events"
+ },
+ {
+  "id": "metadata.get",
+  "params": "{\"item\":id?,\"clip\":id?}",
+  "label": "Get Metadata"
+ },
+ {
+  "id": "metadata.set",
+  "params": "{\"item\":id?,\"clip\":id?,\"field\":\"Name|Label|Description|Scene|Shot|Log Note|Comment|Tape Name|Client|Camera Angle|…\",\"value\":str} | {\"item\":id?,\"fields\":{name:str}}",
+  "label": "Edit Metadata"
+ },
+ {
+  "id": "scopes.read",
+  "params": "{\"scopes\":[\"waveform\",\"parade\",\"histogram\",\"vectorscopeYuv\",\"vectorscopeHls\"]?,\"waveformType\":\"rgb|luma|yc|ycNoChroma\"?,\"paradeType\":\"rgb|yuv|rgbWhite\"?,\"colorSpace\":\"auto|601|709|2100\"?,\"clamp\":bool=true,\"columns\":n=8,\"peaks\":n=8,\"bins\":bool=true,\"scale\":0.5,\"time\":ticks?|\"frame\"|\"seconds\"|\"timecode\"}",
+  "label": "Read Lumetri Scopes"
+ },
+ {
+  "id": "clip.remix.enable",
+  "params": "{\"clip\":id?}",
+  "label": "Enable Remix"
+ },
+ {
+  "id": "clip.remix.properties",
+  "params": "{\"clip\":id?,\"duration\":ticks?,\"seconds\":f64?,\"frame\":n?,\"timecode\":str?,\"segments\":0..100?,\"variations\":0..100?}",
+  "label": "Remix Properties…"
+ },
+ {
+  "id": "clip.remix.revert",
+  "params": "{\"clip\":id?}",
+  "label": "Revert Remix"
+ },
+ {
+  "id": "clip.remix",
+  "params": "{\"clip\":id?,\"duration\":ticks?,\"seconds\":f64?,\"frame\":n?,\"timecode\":str?,\"segments\":0..100?,\"variations\":0..100?}",
+  "label": "Remix"
+ },
+ {
+  "id": "audio.voiceover.settings",
+  "params": "{\"source\":str?,\"inputChannel\":n?,\"name\":str?,\"countdownSoundCues\":bool?,\"prerollSeconds\":f64?,\"postrollSeconds\":f64?}",
+  "label": "Voice-Over Record Settings"
+ },
+ {
+  "id": "audio.voiceover.start",
+  "params": "{\"track\":\"A1\"|id?,\"time\":ticks?,\"preroll\":seconds?}",
+  "label": "Start Voice-over Recording"
+ },
+ {
+  "id": "audio.voiceover.sync",
+  "params": "{\"time\":ticks?}",
+  "label": "Sync Voice-over Capture"
+ },
+ {
+  "id": "audio.voiceover.stop",
+  "params": "{\"time\":ticks?,\"dir\":str?,\"discard\":bool?}",
+  "label": "Stop Voice-over Recording"
+ },
+ {
+  "id": "playhead.nextEditAnyTrack",
+  "params": "{}",
+  "label": "Go to Next Edit Point on Any Track"
+ },
+ {
+  "id": "playhead.prevEditAnyTrack",
+  "params": "{}",
+  "label": "Go to Previous Edit Point on Any Track"
+ },
+ {
+  "id": "playhead.selectedClipStart",
+  "params": "{}",
+  "label": "Go to Selected Clip Start"
+ },
+ {
+  "id": "playhead.selectedClipEnd",
+  "params": "{}",
+  "label": "Go to Selected Clip End"
+ },
+ {
+  "id": "sequence.revealNested",
+  "params": "{}",
+  "label": "Reveal Nested Sequence"
+ },
+ {
+  "id": "timeline.selectClipAtPlayhead",
+  "params": "{}",
+  "label": "Select Clip at Playhead"
+ },
+ {
+  "id": "timeline.selectNextClip",
+  "params": "{}",
+  "label": "Select Next Clip"
+ },
+ {
+  "id": "timeline.selectPrevClip",
+  "params": "{}",
+  "label": "Select Previous Clip"
+ },
+ {
+  "id": "trim.extendPreviousEdit",
+  "params": "{}",
+  "label": "Extend Previous Edit To Playhead"
+ },
+ {
+  "id": "trim.extendNextEdit",
+  "params": "{}",
+  "label": "Extend Next Edit To Playhead"
+ },
+ {
+  "id": "timeline.nudgeLeft",
+  "params": "{}",
+  "label": "Nudge Clip Selection Left One Frame"
+ },
+ {
+  "id": "timeline.nudgeRight",
+  "params": "{}",
+  "label": "Nudge Clip Selection Right One Frame"
+ },
+ {
+  "id": "timeline.nudgeLeft5",
+  "params": "{}",
+  "label": "Nudge Clip Selection Left Five Frames"
+ },
+ {
+  "id": "timeline.nudgeRight5",
+  "params": "{}",
+  "label": "Nudge Clip Selection Right Five Frames"
+ },
+ {
+  "id": "timeline.nudgeUp",
+  "params": "{}",
+  "label": "Nudge Clip Selection Up"
+ },
+ {
+  "id": "timeline.nudgeDown",
+  "params": "{}",
+  "label": "Nudge Clip Selection Down"
+ },
+ {
+  "id": "timeline.slipLeft",
+  "params": "{}",
+  "label": "Slip Clip Selection Left One Frame"
+ },
+ {
+  "id": "timeline.slipRight",
+  "params": "{}",
+  "label": "Slip Clip Selection Right One Frame"
+ },
+ {
+  "id": "timeline.slipLeft5",
+  "params": "{}",
+  "label": "Slip Clip Selection Left Five Frames"
+ },
+ {
+  "id": "timeline.slipRight5",
+  "params": "{}",
+  "label": "Slip Clip Selection Right Five Frames"
+ },
+ {
+  "id": "timeline.slideLeft",
+  "params": "{}",
+  "label": "Slide Clip Selection Left One Frame"
+ },
+ {
+  "id": "timeline.slideRight",
+  "params": "{}",
+  "label": "Slide Clip Selection Right One Frame"
+ },
+ {
+  "id": "timeline.slideLeft5",
+  "params": "{}",
+  "label": "Slide Clip Selection Left Five Frames"
+ },
+ {
+  "id": "timeline.slideRight5",
+  "params": "{}",
+  "label": "Slide Clip Selection Right Five Frames"
+ },
+ {
+  "id": "timeline.toggleAllVideoTargets",
+  "params": "{}",
+  "label": "Toggle All Video Targets"
+ },
+ {
+  "id": "timeline.toggleAllAudioTargets",
+  "params": "{}",
+  "label": "Toggle All Audio Targets"
+ },
+ {
+  "id": "timeline.toggleAllSourceVideo",
+  "params": "{}",
+  "label": "Toggle All Source Video"
+ },
+ {
+  "id": "timeline.toggleAllSourceAudio",
+  "params": "{}",
+  "label": "Toggle All Source Audio"
+ },
+ {
+  "id": "timeline.moveVideoTargetsUp",
+  "params": "{}",
+  "label": "Move All Video Targets Up"
+ },
+ {
+  "id": "timeline.moveVideoTargetsDown",
+  "params": "{}",
+  "label": "Move All Video Targets Down"
+ },
+ {
+  "id": "timeline.moveAudioTargetsUp",
+  "params": "{}",
+  "label": "Move All Audio Targets Up"
+ },
+ {
+  "id": "timeline.moveAudioTargetsDown",
+  "params": "{}",
+  "label": "Move All Audio Targets Down"
+ },
+ {
+  "id": "timeline.toggleMuteTargetedAudio",
+  "params": "{}",
+  "label": "Toggle Mute for All Targeted Audio Tracks"
+ },
+ {
+  "id": "timeline.toggleSoloTargetedAudio",
+  "params": "{}",
+  "label": "Toggle Solo for All Targeted Audio Tracks"
+ },
+ {
+  "id": "timeline.toggleOutputTargetedVideo",
+  "params": "{}",
+  "label": "Toggle Track Output for All Targeted Video Tracks"
+ },
+ {
+  "id": "clip.volumeUp",
+  "params": "{}",
+  "label": "Increase Clip Volume"
+ },
+ {
+  "id": "clip.volumeDown",
+  "params": "{}",
+  "label": "Decrease Clip Volume"
+ },
+ {
+  "id": "clip.volumeUpMany",
+  "params": "{}",
+  "label": "Increase Clip Volume Many"
+ },
+ {
+  "id": "clip.volumeDownMany",
+  "params": "{}",
+  "label": "Decrease Clip Volume Many"
+ },
+ {
+  "id": "clip.nudgeVolumeUp1",
+  "params": "{}",
+  "label": "Nudge Volume +1dB"
+ },
+ {
+  "id": "clip.nudgeVolumeUp3",
+  "params": "{}",
+  "label": "Nudge Volume +3dB"
+ },
+ {
+  "id": "clip.nudgeVolumeDown1",
+  "params": "{}",
+  "label": "Nudge Volume -1dB"
+ },
+ {
+  "id": "clip.nudgeVolumeDown3",
+  "params": "{}",
+  "label": "Nudge Volume -3dB"
+ },
+ {
+  "id": "audio.toggleScrubbing",
+  "params": "{}",
+  "label": "Toggle Audio During Scrubbing"
+ },
+ {
+  "id": "graphics.fontSizeUp",
+  "params": "{}",
+  "label": "Increase Font Size by One Unit"
+ },
+ {
+  "id": "graphics.fontSizeDown",
+  "params": "{}",
+  "label": "Decrease Font Size by One Unit"
+ },
+ {
+  "id": "graphics.fontSizeUp5",
+  "params": "{}",
+  "label": "Increase Font Size by Five Units"
+ },
+ {
+  "id": "graphics.fontSizeDown5",
+  "params": "{}",
+  "label": "Decrease Font Size by Five Units"
+ },
+ {
+  "id": "graphics.leadingUp",
+  "params": "{}",
+  "label": "Increase Leading by One Unit"
+ },
+ {
+  "id": "graphics.leadingDown",
+  "params": "{}",
+  "label": "Decrease Leading by One Unit"
+ },
+ {
+  "id": "graphics.leadingUp5",
+  "params": "{}",
+  "label": "Increase Leading by Five Units"
+ },
+ {
+  "id": "graphics.leadingDown5",
+  "params": "{}",
+  "label": "Decrease Leading by Five Units"
+ },
+ {
+  "id": "graphics.alignTextLeft",
+  "params": "{}",
+  "label": "Left align text"
+ },
+ {
+  "id": "graphics.alignTextCenter",
+  "params": "{}",
+  "label": "Center align text"
+ },
+ {
+  "id": "graphics.alignTextRight",
+  "params": "{}",
+  "label": "Right align text"
+ },
+ {
+  "id": "graphics.nudgeLeft",
+  "params": "{}",
+  "label": "Nudge Selected Object to left by one"
+ },
+ {
+  "id": "graphics.nudgeRight",
+  "params": "{}",
+  "label": "Nudge Selected Object to right by one"
+ },
+ {
+  "id": "graphics.nudgeUp",
+  "params": "{}",
+  "label": "Nudge Selected Object up by one"
+ },
+ {
+  "id": "graphics.nudgeDown",
+  "params": "{}",
+  "label": "Nudge Selected Object down by one"
+ },
+ {
+  "id": "graphics.nudgeLeft5",
+  "params": "{}",
+  "label": "Nudge Selected Object to left by five"
+ },
+ {
+  "id": "graphics.nudgeRight5",
+  "params": "{}",
+  "label": "Nudge Selected Object to right by five"
+ },
+ {
+  "id": "graphics.nudgeUp5",
+  "params": "{}",
+  "label": "Nudge Selected Object up by five"
+ },
+ {
+  "id": "graphics.nudgeDown5",
+  "params": "{}",
+  "label": "Nudge Selected Object down by five"
+ },
+ {
+  "id": "file.exportFrame",
+  "params": "{\"path\":str?,\"format\":\"png|tiff|bmp\"?,\"import\":bool?}",
+  "label": "Export Frame"
+ },
+ {
+  "id": "clip.setPosterFrame",
+  "params": "{\"item\":id?,\"time\":ticks?}",
+  "label": "Set Poster Frame"
+ },
+ {
+  "id": "clip.clearPosterFrame",
+  "params": "{\"item\":id?}",
+  "label": "Clear Poster Frame"
+ },
+ {
+  "id": "timeline.toggleTargetV1",
+  "params": "{}",
+  "label": "Toggle Target Video 1"
+ },
+ {
+  "id": "timeline.toggleTargetV2",
+  "params": "{}",
+  "label": "Toggle Target Video 2"
+ },
+ {
+  "id": "timeline.toggleTargetV3",
+  "params": "{}",
+  "label": "Toggle Target Video 3"
+ },
+ {
+  "id": "timeline.toggleTargetV4",
+  "params": "{}",
+  "label": "Toggle Target Video 4"
+ },
+ {
+  "id": "timeline.toggleTargetV5",
+  "params": "{}",
+  "label": "Toggle Target Video 5"
+ },
+ {
+  "id": "timeline.toggleTargetV6",
+  "params": "{}",
+  "label": "Toggle Target Video 6"
+ },
+ {
+  "id": "timeline.toggleTargetV7",
+  "params": "{}",
+  "label": "Toggle Target Video 7"
+ },
+ {
+  "id": "timeline.toggleTargetV8",
+  "params": "{}",
+  "label": "Toggle Target Video 8"
+ },
+ {
+  "id": "timeline.toggleTargetA1",
+  "params": "{}",
+  "label": "Toggle Target Audio 1"
+ },
+ {
+  "id": "timeline.toggleTargetA2",
+  "params": "{}",
+  "label": "Toggle Target Audio 2"
+ },
+ {
+  "id": "timeline.toggleTargetA3",
+  "params": "{}",
+  "label": "Toggle Target Audio 3"
+ },
+ {
+  "id": "timeline.toggleTargetA4",
+  "params": "{}",
+  "label": "Toggle Target Audio 4"
+ },
+ {
+  "id": "timeline.toggleTargetA5",
+  "params": "{}",
+  "label": "Toggle Target Audio 5"
+ },
+ {
+  "id": "timeline.toggleTargetA6",
+  "params": "{}",
+  "label": "Toggle Target Audio 6"
+ },
+ {
+  "id": "timeline.toggleTargetA7",
+  "params": "{}",
+  "label": "Toggle Target Audio 7"
+ },
+ {
+  "id": "timeline.toggleTargetA8",
+  "params": "{}",
+  "label": "Toggle Target Audio 8"
+ },
+ {
+  "id": "project.view.get",
+  "params": "{}",
+  "label": "Project Panel View"
+ },
+ {
+  "id": "project.view.set",
+  "params": "{\"view\":\"list|icon|freeform\"?,\"iconSize\":f32?,\"fontSize\":\"small|medium|large|extraLarge\"?,\"previewArea\":bool?,\"thumbnails\":bool?,\"thumbnailsShowEffects\":bool?,\"hoverScrub\":bool?,\"thumbnailControlsAllDevices\":bool?,\"iconSort\":column|{\"column\":str,\"descending\":bool}?}",
+  "label": "Set Project Panel View"
+ },
+ {
+  "id": "project.columns.list",
+  "params": "{}",
+  "label": "List Project Columns"
+ },
+ {
+  "id": "project.columns.set",
+  "params": "{\"columns\":[name|{\"name\":str,\"width\":f32}]}",
+  "label": "Metadata Display"
+ },
+ {
+  "id": "project.columns.resize",
+  "params": "{\"column\":str,\"width\":f32}",
+  "label": "Resize Column"
+ },
+ {
+  "id": "project.sort",
+  "params": "{\"column\":str,\"descending\":bool?}",
+  "label": "Sort Project Items"
+ },
+ {
+  "id": "project.items",
+  "params": "{\"bin\":binId?,\"recursive\":bool?}",
+  "label": "List Project Panel Rows"
+ },
+ {
+  "id": "project.viewPreset.list",
+  "params": "{}",
+  "label": "List View Presets"
+ },
+ {
+  "id": "project.viewPreset.save",
+  "params": "{\"slot\":1..10?,\"name\":str?}",
+  "label": "Save Current View Preset"
+ },
+ {
+  "id": "project.viewPreset.saveAs",
+  "params": "{\"name\":str?,\"slot\":1..10?}",
+  "label": "Save As New View Preset"
+ },
+ {
+  "id": "project.viewPreset.restore",
+  "params": "{\"slot\":1..10}",
+  "label": "Restore View Preset"
+ },
+ {
+  "id": "project.viewPreset.rename",
+  "params": "{\"slot\":1..10,\"name\":str}",
+  "label": "Rename View Preset"
+ },
+ {
+  "id": "project.viewPreset.delete",
+  "params": "{\"slot\":1..10}",
+  "label": "Delete View Preset"
+ },
+ {
+  "id": "project.freeform.layout",
+  "params": "{\"bin\":binId?,\"width\":f32?}",
+  "label": "Freeform Layout"
+ },
+ {
+  "id": "project.freeform.move",
+  "params": "{\"items\":[id]?,\"x\":f32,\"y\":f32,\"snap\":bool?} | {\"positions\":{\"<id>\":[x,y]}}",
+  "label": "Move Clip Cards"
+ },
+ {
+  "id": "project.freeform.resize",
+  "params": "{\"items\":[id]?,\"size\":f32?,\"step\":1|-1?}",
+  "label": "Clip Size"
+ },
+ {
+  "id": "project.freeform.alignToGrid",
+  "params": "{\"bin\":binId?,\"grid\":f32?}",
+  "label": "Align to Grid"
+ },
+ {
+  "id": "project.freeform.reset",
+  "params": "{\"bin\":binId?}",
+  "label": "Reset to Grid"
+ },
+ {
+  "id": "project.freeform.stack",
+  "params": "{\"items\":[id]?}",
+  "label": "Stack Clips"
+ },
+ {
+  "id": "project.freeform.unstack",
+  "params": "{\"items\":[id]?}",
+  "label": "Unstack Clips"
+ },
+ {
+  "id": "project.freeform.saveArrangement",
+  "params": "{\"name\":str,\"bin\":binId?}",
+  "label": "Save Arrangement"
+ },
+ {
+  "id": "project.freeform.restoreArrangement",
+  "params": "{\"name\":str,\"bin\":binId?}",
+  "label": "Restore Arrangement"
+ },
+ {
+  "id": "project.freeform.deleteArrangement",
+  "params": "{\"name\":str,\"bin\":binId?}",
+  "label": "Delete Arrangement"
+ },
+ {
+  "id": "project.freeform.arrangements",
+  "params": "{\"bin\":binId?}",
+  "label": "List Arrangements"
+ },
+ {
+  "id": "project.freeform.options",
+  "params": "{\"grid\":f32?,\"snap\":bool?,\"showNames\":bool?,\"showDurations\":bool?,\"cardSize\":f32?}",
+  "label": "Freeform View Options…"
+ },
+ {
+  "id": "project.renameBin",
+  "params": "{\"bin\":binId,\"name\":str}",
+  "label": "Rename Bin"
+ },
+ {
+  "id": "project.selectAll",
+  "params": "{}",
+  "label": "Select All Project Items"
+ },
+ {
+  "id": "project.deselectAll",
+  "params": "{}",
+  "label": "Deselect All Project Items"
+ },
+ {
+  "id": "mediaBrowser.roots",
+  "params": "{}",
+  "label": "Media Browser Locations"
+ },
+ {
+  "id": "mediaBrowser.list",
+  "params": "{\"path\":str?,\"fileTypes\":str?}",
+  "label": "List Directory"
+ },
+ {
+  "id": "mediaBrowser.navigate",
+  "params": "{\"path\":str} | {\"back\":true} | {\"forward\":true} | {\"up\":true}",
+  "label": "Go to Directory"
+ },
+ {
+  "id": "mediaBrowser.select",
+  "params": "{\"paths\":[str]}",
+  "label": "Select Files"
+ },
+ {
+  "id": "mediaBrowser.favorite",
+  "params": "{\"path\":str?,\"remove\":bool?}",
+  "label": "Add to Favorites"
+ },
+ {
+  "id": "mediaBrowser.clearRecent",
+  "params": "{}",
+  "label": "Clear Recent Directories"
+ },
+ {
+  "id": "mediaBrowser.settings",
+  "params": "{\"fileTypes\":\"all|video|audio|image|project|caption|<ext>\"?,\"view\":\"list|thumbnails\"?,\"columns\":[str]?,\"importAsImageSequence\":bool?,\"hoverScrub\":bool?,\"thumbnailSize\":f32?}",
+  "label": "Media Browser Settings"
+ },
+ {
+  "id": "mediaBrowser.import",
+  "params": "{\"paths\":[str]?,\"bin\":binId?,\"imageSequence\":bool?}",
+  "label": "Import"
+ },
+ {
+  "id": "mediaBrowser.openInSource",
+  "params": "{\"path\":str?}",
+  "label": "Open In Source Monitor"
+ },
+ {
+  "id": "mediaBrowser.probe",
+  "params": "{\"path\":str}",
+  "label": "Media File Properties"
+ },
+ {
+  "id": "clip.setTimeInterpolation",
+  "params": "{\"clips\":[id]?,\"mode\":\"frameSampling|frameBlending|opticalFlow\"}",
+  "label": "Set Time Interpolation"
+ },
+ {
+  "id": "project.searchBinItems",
+  "params": "{\"bin\":id}",
+  "label": "Search Bin Contents"
+ },
+ {
+  "id": "project.editSearchBin",
+  "params": "{\"bin\":id,\"name\":str?,\"column\":str?,\"operator\":str?,\"text\":str?,\"rows\":[..]?,\"matchAll\":bool?,\"caseSensitive\":bool?}",
+  "label": "Edit Search Bin"
+ },
+ {
+  "id": "project.deleteSearchBin",
+  "params": "{\"bin\":id}",
+  "label": "Delete Search Bin"
+ },
+ {
+  "id": "file.templates",
+  "params": "{}",
+  "label": "List Project Templates"
+ },
+ {
+  "id": "file.newProjectFromTemplate",
+  "params": "{\"template\":name|path,\"name\":str?}",
+  "label": "New Project from Template"
+ },
+ {
+  "id": "help.systemReport",
+  "params": "{}",
+  "label": "System Compatibility Report"
+ }
+]

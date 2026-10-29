@@ -1,0 +1,419 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "Captions": {
+      "additionalProperties": false,
+      "properties": {
+        "emphasis": {
+          "description": "Colour for character, place and prop names in captions; defaults to the `accent` brand colour when there is one.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fill": {
+          "type": "string"
+        },
+        "highlight": {
+          "type": "string"
+        },
+        "max_chars": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "max_words": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "side_margin": {
+          "description": "Space kept clear at each side, as a fraction of frame width.",
+          "format": "double",
+          "type": "number"
+        },
+        "size": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "stroke": {
+          "$ref": "#/definitions/Stroke"
+        },
+        "uppercase": {
+          "description": "Only applied to scripts that have case.",
+          "type": "boolean"
+        },
+        "y": {
+          "description": "Vertical position, as a fraction of frame height.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "fill",
+        "highlight",
+        "max_chars",
+        "max_words",
+        "side_margin",
+        "size",
+        "stroke",
+        "uppercase",
+        "y"
+      ],
+      "type": "object"
+    },
+    "FontSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "family",
+        "style"
+      ],
+      "type": "object"
+    },
+    "Grade": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast": {
+          "format": "double",
+          "type": "number"
+        },
+        "highlights": {
+          "format": "double",
+          "type": "number"
+        },
+        "saturation": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "contrast",
+        "highlights",
+        "saturation"
+      ],
+      "type": "object"
+    },
+    "Grain": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "size": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "amount",
+        "size"
+      ],
+      "type": "object"
+    },
+    "HexColor": {
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "type": "string"
+    },
+    "LanguageTag": {
+      "description": "BCP-47 language tag: `en`, `hi`, `ur`, `ur-Latn` (Roman Urdu)…",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z]{4})?(-([A-Z]{2}|[0-9]{3}))?$",
+      "type": "string"
+    },
+    "Library": {
+      "additionalProperties": false,
+      "description": "Paths relative to the channel folder.",
+      "properties": {
+        "music": {
+          "type": "string"
+        },
+        "sfx": {
+          "type": "string"
+        },
+        "style_reference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "music",
+        "sfx",
+        "style_reference"
+      ],
+      "type": "object"
+    },
+    "Look": {
+      "additionalProperties": false,
+      "properties": {
+        "grade": {
+          "$ref": "#/definitions/Grade"
+        },
+        "grain": {
+          "$ref": "#/definitions/Grain"
+        },
+        "vignette": {
+          "$ref": "#/definitions/Vignette"
+        }
+      },
+      "required": [
+        "grade",
+        "grain",
+        "vignette"
+      ],
+      "type": "object"
+    },
+    "Slug": {
+      "description": "Lowercase ASCII letters, digits and single dashes, e.g. `nosferatu-1922`.",
+      "type": "string"
+    },
+    "Stroke": {
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "width": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "color",
+        "width"
+      ],
+      "type": "object"
+    },
+    "TitleStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "side_margin": {
+          "format": "double",
+          "type": "number"
+        },
+        "size": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "vertical": {
+          "description": "Opt into traditional top-to-bottom CJK title composition.",
+          "type": "boolean"
+        },
+        "y": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "side_margin",
+        "size",
+        "y"
+      ],
+      "type": "object"
+    },
+    "Vignette": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "feather": {
+          "format": "double",
+          "type": "number"
+        },
+        "midpoint": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "amount",
+        "feather",
+        "midpoint"
+      ],
+      "type": "object"
+    },
+    "VoiceFallback": {
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "voice": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "provider",
+        "voice"
+      ],
+      "type": "object"
+    },
+    "VoiceSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks": {
+          "items": {
+            "$ref": "#/definitions/VoiceFallback"
+          },
+          "type": "array"
+        },
+        "instructions": {
+          "default": null,
+          "description": "Delivery instructions, for models that accept them (`OpenAI` `gpt-4o-mini-tts`).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "provider": {
+          "description": "Provider id from `providers.toml` (`openrouter`).",
+          "type": "string"
+        },
+        "sample": {
+          "description": "10–30 second narrator/character clone sample, relative to this channel.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sample_language": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/LanguageTag"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Language actually spoken in the clone reference (defaults to the guide source)."
+        },
+        "voice": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "provider",
+        "voice"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "captions": {
+      "$ref": "#/definitions/Captions"
+    },
+    "character_voices": {
+      "additionalProperties": {
+        "$ref": "#/definitions/VoiceSpec"
+      },
+      "type": "object"
+    },
+    "colors": {
+      "additionalProperties": {
+        "$ref": "#/definitions/HexColor"
+      },
+      "description": "Named brand colours; other settings refer to them by name.",
+      "type": "object"
+    },
+    "fonts": {
+      "additionalProperties": {
+        "$ref": "#/definitions/FontSpec"
+      },
+      "description": "Font per writing system.",
+      "type": "object"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "id": {
+      "$ref": "#/definitions/Slug"
+    },
+    "library": {
+      "$ref": "#/definitions/Library"
+    },
+    "look": {
+      "$ref": "#/definitions/Look"
+    },
+    "name": {
+      "type": "string"
+    },
+    "name_spellings": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "description": "Preferred native spellings in transcreation and captions.",
+      "type": "object"
+    },
+    "pronunciations": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "default": {},
+      "description": "Spelling-to-speech fixes per language (`Daenerys = \"Dah-NAIR-iss\"`).",
+      "type": "object"
+    },
+    "room_tone": {
+      "description": "Optional channel-relative room-tone WAV for dialogue pauses.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema": {
+      "format": "uint32",
+      "minimum": 0.0,
+      "type": "integer"
+    },
+    "title": {
+      "$ref": "#/definitions/TitleStyle"
+    },
+    "voices": {
+      "additionalProperties": {
+        "$ref": "#/definitions/VoiceSpec"
+      },
+      "default": {},
+      "description": "Narration voice per language.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "captions",
+    "colors",
+    "fonts",
+    "handle",
+    "id",
+    "library",
+    "look",
+    "name",
+    "schema",
+    "title"
+  ],
+  "title": "ChannelFile",
+  "type": "object"
+}

@@ -1,0 +1,1484 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "CanonOrder": {
+      "oneOf": [
+        {
+          "description": "What a viewer had seen when the part came out.",
+          "enum": [
+            "release"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "The story's own chronology.",
+          "enum": [
+            "story"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "CanonRules": {
+      "additionalProperties": false,
+      "description": "How a guide names a work and its parts, and how part videos see the canon.",
+      "properties": {
+        "kind_input": {
+          "description": "Input holding the kind of work (`film`, `series`, `book`), if any.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "part_input": {
+          "description": "Input holding the part: `canon` builds the canon; anything else names a part (number, title, `Season 2`, or a canon id such as `P03`).",
+          "type": "string"
+        },
+        "spinoffs_input": {
+          "description": "Input that, when true, adds spin-offs and specials to the canon.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spoilers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanonOrder"
+            }
+          ],
+          "default": "release",
+          "description": "Which order decides what a part video may know."
+        },
+        "work_input": {
+          "description": "Input holding the franchise, series or book series name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "part_input",
+        "work_input"
+      ],
+      "type": "object"
+    },
+    "CharacterRules": {
+      "additionalProperties": false,
+      "properties": {
+        "originality": {
+          "$ref": "#/definitions/Originality"
+        },
+        "reference_sheet": {
+          "type": "boolean"
+        },
+        "review": {
+          "description": "Pause for approval after the sheets (skipped with `--yes`).",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "originality",
+        "reference_sheet",
+        "review"
+      ],
+      "type": "object"
+    },
+    "Delivery": {
+      "additionalProperties": false,
+      "description": "Additional local aspect packages. Empty keeps the guide's original single edition.",
+      "properties": {
+        "aspects": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "DossierRules": {
+      "additionalProperties": false,
+      "description": "Minimums the dossier must meet before writing starts.",
+      "properties": {
+        "min_beats": {
+          "description": "Chronological story beats.",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "min_iconic": {
+          "description": "Iconic elements and hidden details, each with a source.",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "min_sources": {
+          "description": "Distinct sources that must contribute facts (a user source file does not count).",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "min_beats",
+        "min_iconic",
+        "min_sources"
+      ],
+      "type": "object"
+    },
+    "Drafts": {
+      "additionalProperties": false,
+      "description": "Best-of-N full drafts, depending on whether text is free (subscription) or paid.",
+      "properties": {
+        "paid": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "subscription": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "paid",
+        "subscription"
+      ],
+      "type": "object"
+    },
+    "Edit": {
+      "additionalProperties": false,
+      "properties": {
+        "ending": {
+          "$ref": "#/definitions/Ending"
+        },
+        "motions": {
+          "description": "Camera motions to choose from.",
+          "items": {
+            "$ref": "#/definitions/Motion"
+          },
+          "type": "array"
+        },
+        "music": {
+          "$ref": "#/definitions/Music"
+        },
+        "opening": {
+          "$ref": "#/definitions/Opening"
+        },
+        "sfx_on_transitions": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ending",
+        "motions",
+        "music",
+        "opening",
+        "sfx_on_transitions"
+      ],
+      "type": "object"
+    },
+    "Effect": {
+      "enum": [
+        "camera_shake",
+        "light_leaks"
+      ],
+      "type": "string"
+    },
+    "Ending": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/definitions/EndingKind"
+        },
+        "seconds": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "seconds"
+      ],
+      "type": "object"
+    },
+    "EndingKind": {
+      "enum": [
+        "hold_fade"
+      ],
+      "type": "string"
+    },
+    "FactCheck": {
+      "enum": [
+        "off",
+        "fast",
+        "smart"
+      ],
+      "type": "string"
+    },
+    "Format": {
+      "additionalProperties": false,
+      "properties": {
+        "aspect": {
+          "description": "`\"9:16\"`, `\"16:9\"`, `\"1:1\"`…",
+          "type": "string"
+        },
+        "fps": {
+          "$ref": "#/definitions/Fps"
+        },
+        "resolution": {
+          "description": "Width and height in pixels.",
+          "items": {
+            "format": "uint32",
+            "minimum": 0.0,
+            "type": "integer"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "source_language": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageTag"
+            }
+          ],
+          "description": "The language the master script is written in."
+        },
+        "target_seconds": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        }
+      },
+      "required": [
+        "aspect",
+        "fps",
+        "resolution",
+        "source_language",
+        "target_seconds"
+      ],
+      "type": "object"
+    },
+    "Fps": {
+      "description": "Frames per second. Always at least 1.",
+      "format": "uint32",
+      "minimum": 0.0,
+      "type": "integer"
+    },
+    "Gate": {
+      "description": "A rule checked in code on every script; a failing gate gets targeted fix passes.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Slug"
+            },
+            "kind": {
+              "enum": [
+                "banned_phrases"
+              ],
+              "type": "string"
+            },
+            "list": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "list"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Slug"
+            },
+            "kind": {
+              "enum": [
+                "regex"
+              ],
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "section": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/Slug"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Only check this section."
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "message",
+            "pattern"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Slug"
+            },
+            "kind": {
+              "enum": [
+                "no_repeated_sentence_start"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Slug"
+            },
+            "kind": {
+              "enum": [
+                "sentence_length_variety"
+              ],
+              "type": "string"
+            },
+            "max_same_length_run": {
+              "format": "uint32",
+              "minimum": 0.0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "max_same_length_run"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "InputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "choices": {
+          "description": "Allowed values, for `type = \"choice\"`.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "default": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/InputValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "example": {
+          "default": null,
+          "description": "A realistic value, used in `--help` examples.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "help": {
+          "default": null,
+          "description": "Help text for the wizard and `--help`.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max": {
+          "default": null,
+          "format": "int64",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "min": {
+          "default": null,
+          "description": "Bounds, for `type = \"int\"`.",
+          "format": "int64",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "prompt": {
+          "description": "The wizard question.",
+          "type": "string"
+        },
+        "required": {
+          "default": false,
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/InputType"
+        }
+      },
+      "required": [
+        "prompt",
+        "type"
+      ],
+      "type": "object"
+    },
+    "InputType": {
+      "enum": [
+        "text",
+        "choice",
+        "int",
+        "bool"
+      ],
+      "type": "string"
+    },
+    "InputValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "format": "int64",
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "A value given for an input, or an input's default."
+    },
+    "LanguageTag": {
+      "description": "BCP-47 language tag: `en`, `hi`, `ur`, `ur-Latn` (Roman Urdu)…",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z]{4})?(-([A-Z]{2}|[0-9]{3}))?$",
+      "type": "string"
+    },
+    "LengthRule": {
+      "additionalProperties": false,
+      "properties": {
+        "seconds": {
+          "default": null,
+          "description": "Estimated speech time range, in seconds.",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "words": {
+          "default": null,
+          "description": "Word count range (good for scripts with spaces between words).",
+          "items": {
+            "format": "uint32",
+            "minimum": 0.0,
+            "type": "integer"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LipSync": {
+      "additionalProperties": false,
+      "description": "Mouth and blink animation for on-screen dialogue speakers; explicitly opt-in.",
+      "properties": {
+        "enabled": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Motion": {
+      "enum": [
+        "zoom_in",
+        "zoom_out",
+        "pan_left",
+        "pan_right",
+        "push_focus",
+        "punch"
+      ],
+      "type": "string"
+    },
+    "Music": {
+      "additionalProperties": false,
+      "properties": {
+        "bed_lufs": {
+          "description": "Music loudness under narration, LUFS.",
+          "format": "double",
+          "type": "number"
+        },
+        "duck_under_voice_db": {
+          "description": "Extra reduction while someone speaks, dB (negative).",
+          "format": "double",
+          "type": "number"
+        },
+        "mood_from": {
+          "description": "Where the mood comes from (`plan.tone`).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bed_lufs",
+        "duck_under_voice_db",
+        "mood_from"
+      ],
+      "type": "object"
+    },
+    "Narration": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "description": "Delivery direction per language.",
+          "type": "object"
+        },
+        "mode": {
+          "$ref": "#/definitions/NarrationMode"
+        },
+        "words_per_second": {
+          "additionalProperties": {
+            "format": "double",
+            "type": "number"
+          },
+          "description": "Measured speaking rates, saved with the guide so calibration cannot change old runs.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "type": "object"
+    },
+    "NarrationMode": {
+      "oneOf": [
+        {
+          "description": "One take for the whole script, then word timings.",
+          "enum": [
+            "continuous"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Validated speaker/emotion cues, synthesized and aligned one turn at a time.",
+          "enum": [
+            "dialogue"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "Opening": {
+      "additionalProperties": false,
+      "properties": {
+        "effect": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Effect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "kind": {
+          "$ref": "#/definitions/OpeningKind"
+        },
+        "seconds": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "seconds"
+      ],
+      "type": "object"
+    },
+    "OpeningKind": {
+      "enum": [
+        "cover_title"
+      ],
+      "type": "string"
+    },
+    "Originality": {
+      "oneOf": [
+        {
+          "enum": [
+            "loose"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Never imitate actors or iconic costumes.",
+          "enum": [
+            "strict"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "Packaging": {
+      "additionalProperties": false,
+      "properties": {
+        "hashtag_count": {
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "notices": {
+          "additionalProperties": {
+            "$ref": "#/definitions/PostNotices"
+          },
+          "description": "Optional per-language prefix/suffix templates; no content notices are forced by the engine.",
+          "type": "object"
+        },
+        "platforms": {
+          "items": {
+            "$ref": "#/definitions/Platform"
+          },
+          "type": "array"
+        },
+        "rules": {
+          "description": "Template for the packaging writer.",
+          "type": "string"
+        },
+        "title_max_chars": {
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "platforms",
+        "rules"
+      ],
+      "type": "object"
+    },
+    "Parallax": {
+      "additionalProperties": false,
+      "description": "Local parallax is explicitly opt-in; paid background plates have separate permission.",
+      "properties": {
+        "enabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "hero_fill": {
+          "default": false,
+          "type": "boolean"
+        },
+        "max_share": {
+          "default": 0.35,
+          "format": "double",
+          "type": "number"
+        },
+        "strength": {
+          "default": 0.35,
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Person": {
+      "enum": [
+        "first",
+        "second",
+        "third"
+      ],
+      "type": "string"
+    },
+    "Platform": {
+      "enum": [
+        "youtube",
+        "tiktok",
+        "instagram",
+        "facebook"
+      ],
+      "type": "string"
+    },
+    "PostNotices": {
+      "additionalProperties": false,
+      "properties": {
+        "prefix": {
+          "default": "",
+          "type": "string"
+        },
+        "suffix": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Quality": {
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "description": "Check that every planned beat and iconic element made it into the script, and that every named character is introduced. Needs `research.dossier`.",
+          "type": "boolean"
+        },
+        "fact_check": {
+          "$ref": "#/definitions/FactCheck"
+        },
+        "image_qa": {
+          "type": "boolean"
+        },
+        "max_fix_passes": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fact_check",
+        "image_qa",
+        "max_fix_passes"
+      ],
+      "type": "object"
+    },
+    "Research": {
+      "additionalProperties": false,
+      "properties": {
+        "canon": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CanonRules"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Research a whole franchise or series once (a canon) and slice it per part video. Needs `dossier`."
+        },
+        "dossier": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DossierRules"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Build a cited research dossier (beats, characters, iconic and hidden details) from every source before planning. Without it, the first source found is used as is."
+        },
+        "max_chars": {
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "policy": {
+          "$ref": "#/definitions/ResearchPolicy"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/definitions/SourceSpec"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "max_chars",
+        "policy",
+        "sources"
+      ],
+      "type": "object"
+    },
+    "ResearchPolicy": {
+      "oneOf": [
+        {
+          "description": "The script may use only facts from the sources.",
+          "enum": [
+            "source_only"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "Roles": {
+      "additionalProperties": false,
+      "description": "Which capability tier each stage uses.",
+      "properties": {
+        "check": {
+          "$ref": "#/definitions/Tier"
+        },
+        "design": {
+          "$ref": "#/definitions/Tier"
+        },
+        "direct": {
+          "$ref": "#/definitions/Tier"
+        },
+        "image": {
+          "$ref": "#/definitions/Tier"
+        },
+        "image_qa": {
+          "$ref": "#/definitions/Tier"
+        },
+        "judge": {
+          "$ref": "#/definitions/Tier"
+        },
+        "package": {
+          "$ref": "#/definitions/Tier"
+        },
+        "plan": {
+          "$ref": "#/definitions/Tier"
+        },
+        "transcreate": {
+          "$ref": "#/definitions/Tier"
+        },
+        "transcribe": {
+          "$ref": "#/definitions/Tier"
+        },
+        "voice": {
+          "$ref": "#/definitions/Tier"
+        },
+        "write": {
+          "$ref": "#/definitions/Tier"
+        }
+      },
+      "required": [
+        "check",
+        "design",
+        "direct",
+        "image",
+        "image_qa",
+        "judge",
+        "package",
+        "plan",
+        "transcreate",
+        "transcribe",
+        "voice",
+        "write"
+      ],
+      "type": "object"
+    },
+    "RunFolder": {
+      "additionalProperties": false,
+      "properties": {
+        "cast_depth": {
+          "description": "How many leading folder levels own the shared character sheets.",
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "folder": {
+          "description": "Folder path of a video under its channel, one template per level. Each rendered part is turned into a slug; empty parts are dropped.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "cast_depth",
+        "folder"
+      ],
+      "type": "object"
+    },
+    "SafeZones": {
+      "additionalProperties": false,
+      "description": "Fractions of frame height kept clear of faces (title on top, captions below).",
+      "properties": {
+        "bottom": {
+          "format": "double",
+          "type": "number"
+        },
+        "top": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "bottom",
+        "top"
+      ],
+      "type": "object"
+    },
+    "Section": {
+      "additionalProperties": false,
+      "properties": {
+        "edit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SectionEdit"
+            }
+          ],
+          "default": {
+            "motion": null,
+            "transition": null
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/Slug"
+        },
+        "purpose": {
+          "description": "What this section must do, given to the writer.",
+          "type": "string"
+        },
+        "share": {
+          "description": "Fraction of the script's length; all shares add up to 1.",
+          "format": "double",
+          "type": "number"
+        },
+        "voice": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/SectionVoice"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "purpose",
+        "share"
+      ],
+      "type": "object"
+    },
+    "SectionEdit": {
+      "additionalProperties": false,
+      "properties": {
+        "effects": {
+          "items": {
+            "$ref": "#/definitions/Effect"
+          },
+          "type": "array"
+        },
+        "motion": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Motion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Camera motion forced on this section's frames."
+        },
+        "transition": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Transition"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Transition into this section."
+        }
+      },
+      "type": "object"
+    },
+    "SectionVoice": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "description": "Delivery tag inserted before the section, e.g. `[pause]`.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag"
+      ],
+      "type": "object"
+    },
+    "Slug": {
+      "description": "Lowercase ASCII letters, digits and single dashes, e.g. `nosferatu-1922`.",
+      "type": "string"
+    },
+    "SourceKind": {
+      "oneOf": [
+        {
+          "enum": [
+            "wikipedia",
+            "file"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Famous lines, verbatim, from Wikiquote.",
+          "enum": [
+            "wikiquote"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "The full text of a public-domain book from Project Gutenberg.",
+          "enum": [
+            "gutenberg"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "A Fandom wiki's article about the work.",
+          "enum": [
+            "fandom"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Live web research by a subscription model with search tools; findings carry URLs.",
+          "enum": [
+            "web"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "SourceSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "brief": {
+          "description": "Web: what to look for, as a template.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "full": {
+          "description": "Wikipedia: keep every section, with `sections` first, instead of only `sections`.",
+          "type": "boolean"
+        },
+        "kind": {
+          "$ref": "#/definitions/SourceKind"
+        },
+        "language": {
+          "description": "Wikipedia language edition template (`en`, `ml`, `{{ inputs.language }}`).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_chars": {
+          "description": "Character budget for this source; defaults to `research.max_chars`.",
+          "format": "uint",
+          "minimum": 0.0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "optional": {
+          "default": false,
+          "description": "Skip silently when unavailable.",
+          "type": "boolean"
+        },
+        "query": {
+          "default": null,
+          "description": "Search query template.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "related": {
+          "description": "Wikipedia: also read up to this many related articles (adaptations, sequels).",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "season_from": {
+          "default": null,
+          "description": "Name of the input that selects a season (\"Season 2\").",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sections": {
+          "description": "Section names to keep, in priority order.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "Structure": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_peak": {
+          "default": false,
+          "type": "boolean"
+        },
+        "max_named_characters": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "open_loops": {
+          "default": 0,
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/Section"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "max_named_characters",
+        "sections"
+      ],
+      "type": "object"
+    },
+    "Tense": {
+      "enum": [
+        "present",
+        "past"
+      ],
+      "type": "string"
+    },
+    "Tier": {
+      "oneOf": [
+        {
+          "enum": [
+            "text.fast",
+            "text.smart",
+            "text.best",
+            "vision.fast",
+            "vision.smart",
+            "image",
+            "tts",
+            "transcribe"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Text inference on this machine; cloud fallbacks are forbidden.",
+          "enum": [
+            "text.local"
+          ],
+          "type": "string"
+        },
+        {
+          "description": "Images with no reference pictures (frames without characters).",
+          "enum": [
+            "image.no_refs"
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "Transition": {
+      "enum": [
+        "film_dissolve",
+        "whip",
+        "flash",
+        "cross_zoom"
+      ],
+      "type": "string"
+    },
+    "Visuals": {
+      "additionalProperties": false,
+      "properties": {
+        "characters": {
+          "$ref": "#/definitions/CharacterRules"
+        },
+        "frame_resolution": {
+          "description": "Resolution of scene frames (\"1K\" or \"2K\"). References (sheets, places, props, style) are always 2K because every frame copies them; frames may be cheaper at 1K.",
+          "type": "string"
+        },
+        "lean_seconds_per_unit": {
+          "description": "Speech time per image with `--lean`.",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "lipsync": {
+          "$ref": "#/definitions/LipSync"
+        },
+        "max_same_shot_run": {
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "panels": {
+          "description": "Supporting shots of one scene drawn per generated image (1, 2 or 4) and split along white gutters; hero shots are always drawn alone. 1 (the default) disables it.",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "parallax": {
+          "$ref": "#/definitions/Parallax"
+        },
+        "reuse_share": {
+          "description": "Most shots that may recut an earlier frame (same moment, tighter framing) instead of generating a new image. 0 disables reuse.",
+          "format": "double",
+          "type": "number"
+        },
+        "safe_zones": {
+          "$ref": "#/definitions/SafeZones"
+        },
+        "seconds_per_unit": {
+          "description": "Speech time per image.",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "shots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "style": {
+          "description": "Style block template added to every image prompt.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "characters",
+        "lean_seconds_per_unit",
+        "max_same_shot_run",
+        "safe_zones",
+        "seconds_per_unit",
+        "shots",
+        "style"
+      ],
+      "type": "object"
+    },
+    "Writing": {
+      "additionalProperties": false,
+      "properties": {
+        "drafts": {
+          "$ref": "#/definitions/Drafts"
+        },
+        "examples": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "gates": {
+          "default": [],
+          "items": {
+            "$ref": "#/definitions/Gate"
+          },
+          "type": "array"
+        },
+        "hook_candidates": {
+          "description": "Hooks generated for the tournament (1 disables it).",
+          "format": "uint32",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "judge_criteria": {
+          "description": "What the draft judge scores, one criterion per entry; empty uses the built-in rubric.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "language_gates": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/Gate"
+            },
+            "type": "array"
+          },
+          "description": "Additional checks for a narration language, including native phrase bans.",
+          "type": "object"
+        },
+        "per_section": {
+          "description": "Draft one section at a time, each seeing the sections before it, then stitch.",
+          "type": "boolean"
+        },
+        "person": {
+          "$ref": "#/definitions/Person"
+        },
+        "tense": {
+          "$ref": "#/definitions/Tense"
+        },
+        "voice": {
+          "description": "House voice file, relative to the guide folder. `voice.<lang>.md` files next to it add per-language notes.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "drafts",
+        "hook_candidates",
+        "person",
+        "tense",
+        "voice"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "delivery": {
+      "$ref": "#/definitions/Delivery"
+    },
+    "edit": {
+      "$ref": "#/definitions/Edit"
+    },
+    "format": {
+      "$ref": "#/definitions/Format"
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Slug"
+        }
+      ],
+      "description": "Folder-safe id, used on the command line (`retold make narrative-fixture`)."
+    },
+    "inputs": {
+      "additionalProperties": {
+        "$ref": "#/definitions/InputSpec"
+      },
+      "default": {},
+      "description": "Questions asked in the wizard; each also becomes a `--flag`. Order is kept.",
+      "type": "object"
+    },
+    "length": {
+      "additionalProperties": {
+        "$ref": "#/definitions/LengthRule"
+      },
+      "description": "Hard length gate per narration language.",
+      "type": "object"
+    },
+    "local_models": {
+      "description": "Local bundles required by this guide. Checked offline before production.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "narration": {
+      "$ref": "#/definitions/Narration"
+    },
+    "packaging": {
+      "$ref": "#/definitions/Packaging"
+    },
+    "quality": {
+      "$ref": "#/definitions/Quality"
+    },
+    "research": {
+      "$ref": "#/definitions/Research"
+    },
+    "roles": {
+      "$ref": "#/definitions/Roles"
+    },
+    "run": {
+      "$ref": "#/definitions/RunFolder"
+    },
+    "schema": {
+      "description": "Format version of this file.",
+      "format": "uint32",
+      "minimum": 0.0,
+      "type": "integer"
+    },
+    "structure": {
+      "$ref": "#/definitions/Structure"
+    },
+    "summary": {
+      "description": "One line shown in menus.",
+      "type": "string"
+    },
+    "version": {
+      "description": "The guide's own version, recorded in every run (`1.0.0`).",
+      "type": "string"
+    },
+    "visuals": {
+      "$ref": "#/definitions/Visuals"
+    },
+    "writing": {
+      "$ref": "#/definitions/Writing"
+    }
+  },
+  "required": [
+    "edit",
+    "format",
+    "id",
+    "length",
+    "name",
+    "narration",
+    "packaging",
+    "quality",
+    "research",
+    "roles",
+    "run",
+    "schema",
+    "structure",
+    "summary",
+    "version",
+    "visuals",
+    "writing"
+  ],
+  "title": "GuideManifest",
+  "type": "object"
+}

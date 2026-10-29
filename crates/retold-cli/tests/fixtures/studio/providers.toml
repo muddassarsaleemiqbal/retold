@@ -1,0 +1,12 @@
+schema_version = 1
+[providers.fixture]
+kind = "codex_cli"
+binary = __BINARY__
+max_parallel = 1
+timeout_secs = 30
+[providers.fixture.tiers]
+smart = "fixture"
+fast = "fixture"
+[routing]
+"text.smart" = ["fixture:smart"]
+"text.fast" = ["fixture:fast"]

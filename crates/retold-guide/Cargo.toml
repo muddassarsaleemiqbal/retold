@@ -1,0 +1,32 @@
+[package]
+name = "retold-guide"
+description = "Retold guides (video types) and channels: loading, validation, templates, schemas."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+test-fixtures = []
+
+[dependencies]
+retold-core.workspace = true
+blake3.workspace = true
+include_dir.workspace = true
+indexmap.workspace = true
+miette.workspace = true
+minijinja.workspace = true
+regex.workspace = true
+schemars.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+toml.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

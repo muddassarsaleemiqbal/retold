@@ -1,0 +1,119 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+license = "MIT"
+publish = false
+
+[workspace.dependencies]
+retold-app = { path = "crates/retold-app" }
+retold-infer = { path = "crates/retold-infer" }
+retold-render = { path = "crates/retold-render" }
+retold-core = { path = "crates/retold-core" }
+retold-guide = { path = "crates/retold-guide" }
+retold-providers = { path = "crates/retold-providers" }
+retold-engine = { path = "crates/retold-engine" }
+retold-lang = { path = "crates/retold-lang" }
+retold-filmcraft = { path = "crates/retold-filmcraft" }
+retold-algo = { path = "crates/retold-algo" }
+retold-dramaturgy = { path = "crates/retold-dramaturgy" }
+retold-parallax = { path = "crates/retold-parallax" }
+retold-voice = { path = "crates/retold-voice" }
+retold-deliver = { path = "crates/retold-deliver" }
+retold-lipsync = { path = "crates/retold-lipsync" }
+
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+symphonia = { version = "0.5", default-features = false, features = ["mp3", "wav", "pcm", "aac", "isomp4"] }
+async-trait = "0.1"
+blake3 = "1"
+clap = { version = "4", features = ["derive", "env", "string", "wrap_help"] }
+clap_complete = "4"
+clap_mangen = "0.2"
+deunicode = "1"
+directories = "6"
+dotenvy = "0.15"
+include_dir = "0.7"
+indexmap = { version = "2", features = ["serde"] }
+miette = "7"
+minijinja = "2"
+regex = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+schemars = { version = "0.8", features = ["indexmap2"] }
+secrecy = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip", "raw_value"] }
+tempfile = "3"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "process", "io-util", "time", "fs", "sync", "signal", "net"] }
+tokio-util = "0.7"
+toml = { version = "0.8", features = ["preserve_order"] }
+which = "7"
+
+# dev
+assert_cmd = "2"
+clean-code-lints = "0.2"
+proptest = "1"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "deny"
+
+[workspace.lints.clippy]
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+
+# Zero-Slop Rules
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+dbg_macro = "deny"
+clone_on_ref_ptr = "deny"
+inefficient_to_string = "deny"
+semicolon_if_nothing_returned = "deny"
+wildcard_imports = "deny"
+redundant_closure_for_method_calls = "deny"
+allow_attributes = "deny"
+allow_attributes_without_reason = "deny"
+
+# Documented ergonomic allowances
+module_name_repetitions = "allow"
+missing_errors_doc = "allow"
+option_if_let_else = "allow"
+suboptimal_flops = "allow"
+too_long_first_doc_paragraph = "allow"
+significant_drop_tightening = "allow"
+tuple_array_conversions = "allow"
+# Load errors carry the source text for pretty diagnostics; they are on cold paths.
+result_large_err = "allow"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+# Keep target/ small: debug info and incremental caches were most of a 40+ GB build
+# directory. Line tables keep file:line in backtraces; rebuilds are slower but smaller.
+[profile.dev]
+debug = "line-tables-only"
+incremental = false
+
+[profile.dev.package."*"]
+debug = false
+
+# Model integrity checks hash gigabytes even in local development.
+[profile.dev.package.sha2]
+opt-level = 3
+
+# Keep pixel loops practical in development without large incremental caches.
+[profile.dev.package.retold-parallax]
+opt-level = 2
+debug = "line-tables-only"
+
+[profile.dev.package.retold-render]
+opt-level = 2
+debug = "line-tables-only"

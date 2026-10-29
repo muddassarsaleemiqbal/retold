@@ -1,0 +1,57 @@
+[package]
+name = "retold-desktop"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+license = "MIT"
+publish = false
+description = "Retold Studio: a native desktop app that turns any story into a narrated recap video."
+
+[workspace]
+resolver = "3"
+
+[[bin]]
+name = "retold-studio"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+futures-channel = "0.3"
+gpui-kit = "=0.8.0"
+jiff = "0.2"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+retold-app = { path = "../../crates/retold-app" }
+retold-cli = { path = "../../crates/retold-cli" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+signal-hook = "=0.3.18"
+
+[dev-dependencies]
+gpui-kit = { version = "=0.8.0", features = ["test-support"] }
+tempfile = "3"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "deny"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+dbg_macro = "deny"
+
+[profile.dev]
+debug = "line-tables-only"
+incremental = false
+
+[profile.dev.package."*"]
+debug = false
+
+[[test]]
+name = "native"
+harness = false
+
+[[test]]
+name = "shell_native"
+harness = false

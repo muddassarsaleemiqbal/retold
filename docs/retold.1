@@ -1,0 +1,133 @@
+.ie \n(.g .ds Aq \(aq
+.el .ds Aq '
+.TH retold 1  "retold 0.1.0"
+.SH NAME
+retold \- Retold: saved videos and shared account administration
+.SH SYNOPSIS
+\fBretold\fR [\fB\-\-json\fR] [\fB\-\-plain\fR] [\fB\-\-quiet\fR] [\fB\-\-no\-color\fR] [\fB\-\-library\fR] [\fB\-\-workspace\fR] [\fB\-h\fR|\fB\-\-help\fR] [\fB\-V\fR|\fB\-\-version\fR] [\fIsubcommands\fR]
+.SH DESCRIPTION
+Retold: saved videos and shared account administration
+.SH OPTIONS
+.TP
+\fB\-\-json\fR
+
+.TP
+\fB\-\-plain\fR
+
+.TP
+\fB\-\-quiet\fR
+
+.TP
+\fB\-\-no\-color\fR
+
+.TP
+\fB\-\-library\fR
+
+.RS
+May also be specified with the \fBRETOLD_LIBRARY\fR environment variable.
+.RE
+.TP
+\fB\-\-workspace\fR
+
+.RS
+May also be specified with the \fBRETOLD_WORKSPACE\fR environment variable.
+.RE
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Print help
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Print version
+.SH SUBCOMMANDS
+.TP
+retold\-schema(1)
+Print the versioned machine\-output schema
+.TP
+retold\-usage(1)
+Print CLI usage and available commands
+.TP
+retold\-home(1)
+Print the Home screen\*(Aqs providers, spend, recent videos and actions; read only
+.TP
+retold\-explain(1)
+Explain a diagnostic code
+.TP
+retold\-completions(1)
+Generate shell completion scripts to stdout
+.TP
+retold\-man(1)
+Generate roff man page to stdout
+.TP
+retold\-workspace(1)
+Workspace root registry, inspection, initialization, and switching
+.TP
+retold\-creative(1)
+Creative quality auditing, prompt cinematography expansion, and cost optimization
+.TP
+retold\-video(1)
+Inspect, plan and continue saved videos
+.TP
+retold\-assets(1)
+Browse assets, verify cryptographic integrity, and inspect usages
+.TP
+retold\-library(1)
+Inspect and manage user audio assets (music and sound effects)
+.TP
+retold\-series(1)
+Inspect and manage multi\-part video series
+.TP
+retold\-new(1)
+Create a video draft from your guide; sends no provider requests
+.TP
+retold\-doctor(1)
+Inspect workspace health, detect issues, and optionally repair
+.TP
+retold\-setup(1)
+Initialize workspace directories and verify host providers
+.TP
+retold\-guides(1)
+Inspect installed creative production guides
+.TP
+retold\-export\-presets(1)
+Manage export presets for video deliverables
+.TP
+retold\-views(1)
+Manage saved search, tag, and sort views for library browsing
+.TP
+retold\-channels(1)
+Inspect installed channel brand profiles
+.TP
+retold\-account(1)
+Manage shared installation accounting
+.TP
+retold\-providers(1)
+Discover, configure and explicitly test providers
+.TP
+retold\-spend(1)
+Report recorded spend and holds without changing the account
+.TP
+retold\-storage(1)
+.TP
+retold\-studio(1)
+Manage background studio worker daemon
+.TP
+retold\-queue(1)
+Inspect and control queued video generation jobs
+.TP
+retold\-config(1)
+Inspect and migrate configuration without contacting providers
+.TP
+retold\-dev(1)
+Developer and schema tooling
+.TP
+retold\-publish(1)
+Unavailable until its implementation phase
+.TP
+retold\-help(1)
+Print this message or the help of the given subcommand(s)
+.SH EXTRA
+Examples:
+  retold \-\-json schema
+  retold explain RG\-NOT\-AVAILABLE
+.SH VERSION
+v0.1.0

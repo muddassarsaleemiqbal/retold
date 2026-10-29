@@ -1,0 +1,42 @@
+schema = 1
+id = "my-channel"
+name = "My channel"
+handle = "@my-channel"
+
+[colors]
+accent = "#3B82F6"
+ink = "#111827"
+paper = "#FFFFFF"
+
+# Select a provider ID declared in providers.toml, a model, and a voice.
+[voices]
+en = { provider = "CONFIGURE", model = "CONFIGURE", voice = "CONFIGURE" }
+
+[fonts]
+Latn = { family = "CONFIGURE", style = "CONFIGURE" }
+
+[captions]
+size = 72
+fill = "paper"
+stroke = { color = "ink", width = 8 }
+highlight = "accent"
+max_words = 3
+max_chars = 18
+y = 0.74
+side_margin = 0.083
+uppercase = false
+
+[title]
+size = 110
+y = 0.22
+side_margin = 0.074
+
+[look]
+vignette = { amount = 0, midpoint = 50, feather = 70 }
+grain = { amount = 0, size = 1 }
+grade = { contrast = 0, saturation = 100, highlights = 0 }
+
+[library]
+style_reference = "style-reference.png"
+music = "music"
+sfx = "sfx"

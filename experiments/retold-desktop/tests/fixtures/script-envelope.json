@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "step": "script",
+  "record": {
+    "key": "74b31ea3202a727979234b37d3185730f0a1df90f2bfa4f2d1a7a1bef089936f",
+    "output_hash": "74b31ea3202a727979234b37d3185730f0a1df90f2bfa4f2d1a7a1bef089936f",
+    "receipt": null
+  },
+  "value": {
+    "sections": [
+      {
+        "section": "hook",
+        "text": "A vampire drinks from the woman who willingly invites him inside. She is waiting for dawn. But can she live long enough to see it?"
+      },
+      {
+        "section": "setup",
+        "text": "Thomas Hutter travels from Wisborg to Transylvania to arrange Count Orlok's purchase of a house. The property stands across from his own home."
+      },
+      {
+        "section": "inciting",
+        "text": "At supper, Hutter cuts his thumb, and Orlok tries to suck the blood. Morning brings punctures on Hutter's neck. The count signs the papers, but a portrait of Ellen, Hutter's wife, catches his eye."
+      },
+      {
+        "section": "escalation",
+        "text": "A vampire book points Hutter toward the truth, which a coffin confirms: Orlok rests inside. Soon, the count departs with coffins. Hutter escapes and injures himself, but after recovering, he rushes home. The coffins travel by ship. Rats fill the cargo, every crewman dies, and Orlok takes control. His arrival brings deaths to Wisborg, while the purchased house puts him opposite Ellen."
+      },
+      {
+        "section": "twist",
+        "text": "Ellen reads the book: a pure-hearted woman can destroy a vampire by freely offering blood and distracting him until dawn. She chooses to sacrifice herself."
+      },
+      {
+        "section": "climax",
+        "text": "Her window opens. To get Hutter out of the house, Ellen pretends to fall ill and sends him for a physician. Orlok enters and drinks her blood, until sunrise catches him there. He vanishes in smoke."
+      },
+      {
+        "section": "ending",
+        "text": "Hutter returns and embraces Ellen, who lives just long enough to be held before she dies. The final image shows Orlok's ruined castle. His destruction costs her life. Which image carries more weight: their last embrace or the ruined castle?"
+      }
+    ]
+  }
+}

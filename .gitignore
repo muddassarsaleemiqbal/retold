@@ -1,0 +1,8 @@
+/target
+.env
+*.mp4
+
+.DS_Store
+.env.*
+!.env.example
+/dist/

@@ -1,0 +1,26 @@
+[package]
+name = "retold-voice"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+retold-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true }
+retold-infer.workspace = true
+retold-providers.workspace = true
+retold-lang.workspace = true
+tokio-util.workspace = true
+tempfile.workspace = true
+
+[dev-dependencies]
+tempfile = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,53 @@
+schema = 1
+id = "test-studio"
+name = "Test Studio"
+handle = "@teststudio"
+
+[colors]
+accent = "#FF5A1F"
+ink = "#1C1B1A"
+cream = "#FFF4E0"
+
+# Narration voice per language. hi and ur are provisional (ElevenLabs v4 is multilingual)
+# until the Spike C listening test picks a voice for each.
+[voices]
+en = { provider = "openrouter", model = "elevenlabs/eleven-v4", voice = "george" }
+hi = { provider = "openrouter", model = "elevenlabs/eleven-v4", voice = "george" }
+ur = { provider = "openrouter", model = "elevenlabs/eleven-v4", voice = "george" }
+
+[pronunciations.en]
+Daenerys = "Dah-NAIR-iss"
+
+# Caption and title font per writing system. Use weights that are installed: `retold doctor`
+# checks them (Helvetica Neue and Kohinoor Devanagari ship with macOS).
+[fonts]
+Latn = { family = "Helvetica Neue", style = "Bold" }
+Deva = { family = "Kohinoor Devanagari", style = "Bold" }
+Arab = { family = "Noto Nastaliq Urdu", style = "Bold" }
+
+[captions]
+size = 72
+fill = "cream"                       # a colour name from [colors], or "#RRGGBB"
+stroke = { color = "ink", width = 8 }
+highlight = "accent"
+max_words = 3
+max_chars = 18
+y = 0.74                             # fraction of frame height
+side_margin = 0.083                  # fraction of frame width
+uppercase = true                     # only applied to scripts that have case
+
+[title]
+size = 150
+y = 0.22
+side_margin = 0.074
+
+[look]
+vignette = { amount = -28, midpoint = 55, feather = 70 }
+grain = { amount = 5, size = 1.4 }
+grade = { contrast = 10, saturation = 106, highlights = -8 }
+
+# Paths are relative to this channel's folder.
+[library]
+style_reference = "style-ref.png"
+music = "music"                      # with music.toml: per-track mood tags
+sfx = "sfx"

@@ -1,0 +1,40 @@
+# Desktop-only exceptions approved 2026-10-25. Root policy stays unchanged.
+# audit-policy.py verifies exact versions and parity with the root policy.
+[advisories]
+ignore = [
+    { id = "RUSTSEC-2024-0384", reason = "User-approved desktop-only unmaintained exception for instant 0.1.13 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2024-0436", reason = "User-approved desktop-only unmaintained exception for paste 1.0.15 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2025-0134", reason = "User-approved desktop-only unmaintained exception for rustls-pemfile 2.2.0 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2026-0206", reason = "User-approved desktop-only unmaintained exception for rustybuzz 0.20.1 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2026-0192", reason = "User-approved desktop-only unmaintained exception for ttf-parser 0.25.1 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2026-0371", reason = "User-approved desktop-only unmaintained exception for zbus_names 4.3.5 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2026-0370", reason = "User-approved desktop-only unmaintained exception for zvariant 5.15.1 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+    { id = "RUSTSEC-2026-0372", reason = "User-approved desktop-only unmaintained exception for zvariant_derive 5.15.1 in GPUI Kit 0.8.0. See docs/desktop/dependency-exceptions.md." },
+]
+unmaintained = "all"
+
+[licenses]
+confidence-threshold = 0.95
+allow = ["MIT", "Apache-2.0", "Apache-2.0 WITH LLVM-exception", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "MPL-2.0", "Unlicense", "CC0-1.0", "OpenSSL", "CDLA-Permissive-2.0"]
+unused-allowed-license = "allow"
+private = { ignore = true }
+
+[[licenses.exceptions]]
+name = "enum-iterator"
+version = "=2.3.0"
+allow = ["0BSD"]
+
+[[licenses.exceptions]]
+name = "enum-iterator-derive"
+version = "=1.5.0"
+allow = ["0BSD"]
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

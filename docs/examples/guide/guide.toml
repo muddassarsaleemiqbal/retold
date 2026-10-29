@@ -1,0 +1,104 @@
+schema = 1
+id = "my-guide"
+version = "1.0.0"
+name = "My guide"
+summary = "CONFIGURE: describe the videos this guide produces"
+
+[inputs.title]
+type = "text"
+required = true
+prompt = "Video title"
+example = "How rain forms"
+
+[run]
+folder = ["{{ inputs.title }}"]
+cast_depth = 1
+
+[format]
+aspect = "9:16"
+resolution = [1080, 1920]
+fps = 30
+target_seconds = [55, 65]
+source_language = "en"
+
+[length.en]
+seconds = [55, 65]
+
+[research]
+policy = "source_only"
+max_chars = 14000
+[[research.sources]]
+kind = "file"
+optional = false
+
+[structure]
+open_loops = 0
+emotional_peak = false
+max_named_characters = 0
+[[structure.sections]]
+id = "opening"
+share = 0.15
+purpose = "Introduce the subject and the viewer's question."
+[[structure.sections]]
+id = "explanation"
+share = 0.70
+purpose = "Explain the source facts in a clear order."
+[[structure.sections]]
+id = "closing"
+share = 0.15
+purpose = "State the practical takeaway."
+
+[writing]
+voice = "voice.md"
+examples = []
+tense = "present"
+person = "third"
+hook_candidates = 2
+drafts = { subscription = 1, paid = 1 }
+gates = []
+
+[quality]
+max_fix_passes = 2
+fact_check = "fast"
+image_qa = true
+
+[visuals]
+seconds_per_unit = [3, 4]
+lean_seconds_per_unit = [6, 8]
+style = "CONFIGURE: define your illustration style, composition and subject treatment"
+safe_zones = { top = 0.12, bottom = 0.25 }
+shots = ["wide", "medium", "close-up"]
+max_same_shot_run = 2
+[visuals.characters]
+reference_sheet = true
+originality = "strict"
+review = true
+
+[narration]
+mode = "continuous"
+direction = { en = "CONFIGURE: define narration delivery" }
+
+[edit]
+motions = ["zoom_in", "pan_right", "zoom_out", "pan_left"]
+opening = { kind = "cover_title", seconds = 1.6, effect = "light_leaks" }
+ending = { kind = "hold_fade", seconds = 1.2 }
+music = { mood_from = "plan.tone", bed_lufs = -30, duck_under_voice_db = -8 }
+sfx_on_transitions = false
+
+[packaging]
+platforms = ["youtube"]
+rules = "CONFIGURE: define title, description, disclosure and hashtag requirements"
+
+[roles]
+plan = "text.smart"
+write = "text.smart"
+transcreate = "text.smart"
+judge = "text.smart"
+check = "text.fast"
+direct = "text.fast"
+design = "text.smart"
+package = "text.fast"
+image_qa = "vision.fast"
+image = "image"
+voice = "tts"
+transcribe = "transcribe"

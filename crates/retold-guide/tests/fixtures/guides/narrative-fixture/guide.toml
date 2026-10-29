@@ -1,0 +1,212 @@
+schema = 1
+id = "narrative-fixture"
+version = "1.1.1"
+name = "Narrative fixture"
+summary = "A film or TV season retold as a ~100 s animated storyboard."
+
+# ---- Inputs: drive both the interactive questions and the CLI flags ----
+[inputs.title]
+type = "text"
+required = true
+prompt = "Title"
+help = "Film or series name"
+example = "Nosferatu"
+
+[inputs.kind]
+type = "choice"
+choices = ["film", "series"]
+default = "series"
+prompt = "Film or series"
+help = "Decides the folder (films/ or series/) and the Wikipedia search"
+example = "film"
+
+[inputs.year]
+type = "int"
+min = 1880
+max = 2100
+prompt = "Year (optional)"
+help = "Picks one version of a remade title"
+example = "1922"
+
+[inputs.scope]
+type = "text"
+default = "Full story"
+prompt = "Part to cover"
+help = "e.g. Season 1"
+
+# ---- Where each video lives under the channel folder (each part is turned into a slug;
+# empty parts are dropped). The first `cast_depth` parts own the character sheets, so every
+# season of a series shares one cast.
+[run]
+folder = [
+  "{{ 'films' if inputs.kind == 'film' else 'series' }}",
+  "{{ inputs.title }}{% if inputs.kind == 'film' and inputs.year %} {{ inputs.year }}{% endif %}",
+  "{% if inputs.kind == 'series' %}{{ inputs.scope }}{% endif %}",
+]
+cast_depth = 2
+
+[format]
+aspect = "9:16"
+resolution = [1080, 1920]
+fps = 30
+target_seconds = [95, 115]
+source_language = "en"             # language the master script is written in
+
+[length]                            # hard gates, per language
+en = { words = [230, 260] }
+hi = { seconds = [95, 115] }        # non-Latin scripts gate on estimated speech time
+ur = { seconds = [95, 115] }
+
+# ---- Research: the script may use only these facts ----
+[research]
+policy = "source_only"
+max_chars = 14000
+
+[[research.sources]]
+kind = "file"
+optional = true                     # --source-file plot.txt wins over everything
+
+[[research.sources]]
+kind = "wikipedia"
+query = "{{ inputs.title }}{% if inputs.year %} {{ inputs.year }}{% endif %} {{ 'film' if inputs.kind == 'film' else 'TV series' }}"
+sections = ["plot", "synopsis", "premise", "summary", "story", "episodes"]
+season_from = "scope"
+
+# ---- Structure: named sections with budgets and edit treatment ----
+[structure]
+open_loops = 1
+emotional_peak = true
+max_named_characters = 3
+
+[[structure.sections]]
+id = "hook"
+share = 0.09
+purpose = "The most gripping moment or contradiction. No names. Ends on a cliff."
+
+[[structure.sections]]
+id = "setup"
+share = 0.12
+purpose = "Name the hero in sentence one; say what they want."
+edit = { transition = "film_dissolve" }
+
+[[structure.sections]]
+id = "inciting"
+share = 0.12
+purpose = "The event that forces the story to start."
+
+[[structure.sections]]
+id = "escalation"
+share = 0.20
+purpose = "Stakes climb every sentence."
+edit = { transition = "whip" }
+
+[[structure.sections]]
+id = "twist"
+share = 0.12
+purpose = "A pause, then a short sentence on its own."
+edit = { transition = "flash", motion = "punch" }
+voice = { tag = "[pause]" }
+
+[[structure.sections]]
+id = "climax"
+share = 0.18
+purpose = "Slow down on one human detail."
+edit = { transition = "cross_zoom", motion = "punch", effects = ["camera_shake"] }
+voice = { tag = "[normal voice, grave]" }
+
+[[structure.sections]]
+id = "ending"
+share = 0.17
+purpose = "How it ends, one line of meaning, one specific question for the comments."
+edit = { transition = "film_dissolve" }
+
+[writing]
+voice = "voice.md"
+examples = ["examples/lighthouse.md"]
+tense = "present"
+person = "third"
+hook_candidates = 5                 # tournament: generate 5, a judge picks by rubric
+drafts = { subscription = 2, paid = 1 }   # best-of-N full drafts, judged blind
+
+[[writing.gates]]
+id = "banned"
+kind = "banned_phrases"
+list = ["little did he know", "everything changes", "in a world", "journey", "shocking",
+        "you won't believe", "embark", "unravel", "tapestry", "fate had other plans", "and then"]
+
+[[writing.gates]]
+id = "ending-question"
+kind = "regex"
+section = "ending"
+pattern = '\?\s*$'
+message = "The ending must close on one specific question."
+
+[[writing.gates]]
+id = "same-start"
+kind = "no_repeated_sentence_start"
+
+[[writing.gates]]
+id = "rhythm"
+kind = "sentence_length_variety"
+max_same_length_run = 2
+
+[quality]
+max_fix_passes = 2                  # per failing gate; then stop with a report
+fact_check = "fast"                 # off | fast | smart
+image_qa = true                     # vision check + one automatic regeneration
+
+# ---- Visuals ----
+[visuals]
+seconds_per_unit = [3, 4]           # code packs sentences into units of this speech length
+lean_seconds_per_unit = [6, 8]      # --lean: one image used as wide shot, then close-up
+style = """
+Bold 2D storyboard illustration. Thick uneven charcoal brush outlines, flat cel colours from a
+muted palette (charcoal, slate blue, olive, brick red, warm cream) with {{ channel.colors.accent }}
+used only for one key accent. Warm cream paper grain texture over everything. Oval heads, dot
+eyes with a small white glint, thick expressive eyebrows, simple noses. One strong light source,
+hard graphic shadows. Cinematic composition. No text, no letters, no watermark, no
+photorealism, no 3D. The attached style reference shows rendering only: copy its line work,
+palette and paper grain, never its people, clothes, props or setting; each character's look
+comes only from their own reference sheet.
+"""
+safe_zones = { top = 0.12, bottom = 0.25 }
+shots = ["wide", "medium", "close-up", "extreme close-up", "over-the-shoulder", "low angle", "high angle"]
+max_same_shot_run = 2
+
+[visuals.characters]
+reference_sheet = true
+originality = "strict"              # never imitate actors or iconic costumes
+review = true                       # pause for approval (skipped with --yes)
+
+[narration]
+mode = "continuous"
+words_per_second = { hi = 2.75 }
+direction = { en = "[slow, low, intimate storyteller]", hi = "[slow, warm, storyteller]", ur = "[slow, warm, storyteller]" }
+
+[edit]
+motions = ["zoom_in", "pan_right", "zoom_out", "pan_left", "push_focus"]
+opening = { kind = "cover_title", seconds = 1.6, effect = "light_leaks" }
+ending = { kind = "hold_fade", seconds = 1.2 }
+music = { mood_from = "plan.tone", bed_lufs = -30, duck_under_voice_db = -8 }
+sfx_on_transitions = true
+
+[packaging]
+platforms = ["youtube", "tiktok", "instagram", "facebook"]
+rules = """
+First line of every description: "Spoilers for {{ inputs.title }}." (in the video's language).
+Say it is an animated recap with AI-generated art. 5 hashtags. Titles under 70 characters.
+"""
+
+[roles]                              # which capability tier each stage needs
+plan = "text.smart"
+write = "text.smart"
+transcreate = "text.smart"
+judge = "text.smart"
+check = "text.fast"
+direct = "text.fast"
+design = "text.smart"
+package = "text.fast"
+image_qa = "vision.fast"
+image = "image"
+voice = "tts"
+transcribe = "transcribe"
