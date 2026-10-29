@@ -391,8 +391,24 @@ fn providers(port: &str) -> String {
     )
 }
 
+/// Exports need the external FilmCraft renderer; hosts without it skip the export journeys.
+fn renderer_missing() -> bool {
+    let editor = std::path::Path::new(retold_engine::workflow::default_editor());
+    let found = editor.is_absolute() && editor.exists()
+        || std::env::var_os("PATH").is_some_and(|paths| {
+            std::env::split_paths(&paths).any(|dir| dir.join(editor).exists())
+        });
+    if !found {
+        eprintln!("skipped: FilmCraft renderer is not installed");
+    }
+    !found
+}
+
 #[test]
 fn draft_reaches_ready_after_character_approval_and_exports_project_and_video() {
+    if renderer_missing() {
+        return;
+    }
     let journey = Journey::start();
     journey.draft();
     let ready = journey.continue_to_ready();
@@ -514,6 +530,9 @@ impl Journey {
 
 #[test]
 fn the_tui_runs_a_series_part_through_review_to_ready_and_a_rendered_video() {
+    if renderer_missing() {
+        return;
+    }
     let journey = Journey::series_fixture();
     let screen = final_screen(&journey.tui(TUI_SERIES_RUN));
     let job = journey.settled_job(1);
