@@ -15,6 +15,7 @@ jobs:
         with:
           components: clippy, rustfmt
       - uses: Swatinem/rust-cache@v2
+      - run: brew install ffmpeg
       - run: cargo fmt --check
       - run: cargo clippy --workspace --all-targets -- -D warnings
       # CI=true makes insta fail on unreviewed snapshot changes instead of writing them.
@@ -47,6 +48,7 @@ jobs:
         with:
           components: llvm-tools-preview
       - uses: Swatinem/rust-cache@v2
+      - run: brew install ffmpeg
       - run: cargo install cargo-llvm-cov --locked
       # Report only for now; a threshold gate follows once a baseline is recorded.
       - run: cargo llvm-cov --workspace --summary-only
