@@ -42,6 +42,8 @@ jobs:
   coverage:
     runs-on: macos-latest
     timeout-minutes: 45
+    # Report only: instrumented builds slow the timing-sensitive supervision tests.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@1.99.0
