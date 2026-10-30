@@ -55,7 +55,9 @@ CONTROL
     ;;
   MINGW*|MSYS*|CYGWIN*)
     cp "$binary.exe" "$dist/retold-studio.exe"
-    iscc //DVersion="$version" //DSource="$dist\\retold-studio.exe" //O"$dist" "$root/packaging/windows/retold-studio.iss"
+    # Inno Setup is a native Windows tool; hand it Windows paths, not MSYS ones.
+    win_dist=$(cygpath -w "$dist")
+    iscc //DVersion="$version" //DSource="$win_dist\\retold-studio.exe" //O"$win_dist" "$(cygpath -w "$root/packaging/windows/retold-studio.iss")"
     ;;
   *) echo "Unsupported platform: $(uname -s)" >&2; exit 1 ;;
 esac
