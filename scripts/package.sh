@@ -25,7 +25,9 @@ case "$(uname -s)" in
     mkdir -p "$dist/dmg"
     cp -R "$app" "$dist/dmg/"
     ln -s /Applications "$dist/dmg/Applications"
-    hdiutil create -volname "Retold Studio" -srcfolder "$dist/dmg" -ov -format UDZO \
+    # hdiutil's own size estimate runs short on CI runners; leave explicit headroom.
+    size_mb=$(( $(du -sm "$dist/dmg" | cut -f1) + 64 ))
+    hdiutil create -volname "Retold Studio" -srcfolder "$dist/dmg" -size "${size_mb}m" -ov -format UDZO \
       "$dist/Retold-Studio-$version-macos-$arch.dmg"
     rm -rf "$dist/dmg"
     ;;
